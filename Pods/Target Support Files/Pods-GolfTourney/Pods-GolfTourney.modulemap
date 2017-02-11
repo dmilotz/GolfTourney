@@ -1,0 +1,6 @@
+framework module Pods_GolfTourney {
+  umbrella header "Pods-GolfTourney-umbrella.h"
+
+  export *
+  module * { export * }
+}
