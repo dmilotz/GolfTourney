@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112C146F1E568252001E6E18 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C146D1E568252001E6E18 /* Course.swift */; };
+		112C14701E568252001E6E18 /* default2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 112C146E1E568252001E6E18 /* default2.realm */; };
+		112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14711E57D14F001E6E18 /* ScoreCardController.swift */; };
+		112C14741E57D3F2001E6E18 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14731E57D3F2001E6E18 /* GridView.swift */; };
+		112C14761E5A433A001E6E18 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14751E5A433A001E6E18 /* UserProfileController.swift */; };
+		112C14781E5BA8E0001E6E18 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14771E5BA8E0001E6E18 /* EditProfileController.swift */; };
+		112C147A1E5BBCCE001E6E18 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14791E5BBCCE001E6E18 /* UIViewExtension.swift */; };
 		1157CA3F1E49458900BAEE7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA3E1E49458900BAEE7F /* AppDelegate.swift */; };
 		1157CA441E49458900BAEE7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1157CA421E49458900BAEE7F /* Main.storyboard */; };
 		1157CA471E49458900BAEE7F /* GolfTourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA451E49458900BAEE7F /* GolfTourney.xcdatamodeld */; };
@@ -18,15 +25,20 @@
 		1157CA751E4A996800BAEE7F /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA741E4A996800BAEE7F /* NetworkClient.swift */; };
 		1157CA771E4A999F00BAEE7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA761E4A999F00BAEE7F /* User.swift */; };
 		1157CA7A1E4ABDF700BAEE7F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA791E4ABDF700BAEE7F /* LoginViewController.swift */; };
-		1157CA7C1E4C112E00BAEE7F /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7B1E4C112E00BAEE7F /* WelcomePageController.swift */; };
+		1157CA7C1E4C112E00BAEE7F /* FindCoursesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7B1E4C112E00BAEE7F /* FindCoursesController.swift */; };
 		1157CA7E1E4C127A00BAEE7F /* CourseViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7D1E4C127A00BAEE7F /* CourseViewTableCell.swift */; };
 		1157CA801E4C147B00BAEE7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7F1E4C147B00BAEE7F /* Constants.swift */; };
 		1157CA841E4CECDC00BAEE7F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1157CA831E4CECDC00BAEE7F /* Realm.framework */; };
 		1157CA851E4CECDC00BAEE7F /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1157CA831E4CECDC00BAEE7F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1157CA881E4CECE400BAEE7F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1157CA871E4CECE400BAEE7F /* RealmSwift.framework */; };
 		1157CA891E4CECE400BAEE7F /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1157CA871E4CECE400BAEE7F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1197053B1E52593400687827 /* FindTourneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053A1E52593400687827 /* FindTourneyController.swift */; };
+		1197053D1E52675E00687827 /* PlayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053C1E52675E00687827 /* PlayerCollectionCell.swift */; };
+		1197053F1E526B5300687827 /* OpeningScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053E1E526B5300687827 /* OpeningScreenController.swift */; };
+		119705411E526C8C00687827 /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119705401E526C8C00687827 /* CreateGameController.swift */; };
+		1197060F1E5501B400687827 /* GameCreatedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197060E1E5501B400687827 /* GameCreatedController.swift */; };
+		119706111E5502CD00687827 /* GameJoinedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119706101E5502CD00687827 /* GameJoinedController.swift */; };
 		11DCFC611E4E3CB20054DB04 /* CourseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */; };
-		11DCFC631E4E3E780054DB04 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC621E4E3E780054DB04 /* Course.swift */; };
 		11DCFC671E4E515F0054DB04 /* coursesCompact.realm in Resources */ = {isa = PBXBuildFile; fileRef = 11DCFC661E4E515F0054DB04 /* coursesCompact.realm */; };
 		11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC681E4E54D70054DB04 /* GameModel.swift */; };
 		11DCFC6D1E4E5FDA0054DB04 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC6C1E4E5FDA0054DB04 /* GameViewController.swift */; };
@@ -72,6 +84,13 @@
 
 /* Begin PBXFileReference section */
 		0F25F3DF706874C8406AE141 /* Pods-GolfTourney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfTourney.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfTourney/Pods-GolfTourney.debug.xcconfig"; sourceTree = "<group>"; };
+		112C146D1E568252001E6E18 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		112C146E1E568252001E6E18 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default2.realm; sourceTree = "<group>"; };
+		112C14711E57D14F001E6E18 /* ScoreCardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardController.swift; sourceTree = "<group>"; };
+		112C14731E57D3F2001E6E18 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		112C14751E5A433A001E6E18 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		112C14771E5BA8E0001E6E18 /* EditProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
+		112C14791E5BBCCE001E6E18 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		1157CA3B1E49458900BAEE7F /* GolfTourney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfTourney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1157CA3E1E49458900BAEE7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1157CA431E49458900BAEE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,13 +109,19 @@
 		1157CA761E4A999F00BAEE7F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1157CA781E4AA5BF00BAEE7F /* Bridgin-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridgin-Header.h"; sourceTree = "<group>"; };
 		1157CA791E4ABDF700BAEE7F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		1157CA7B1E4C112E00BAEE7F /* WelcomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
+		1157CA7B1E4C112E00BAEE7F /* FindCoursesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindCoursesController.swift; sourceTree = "<group>"; };
 		1157CA7D1E4C127A00BAEE7F /* CourseViewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewTableCell.swift; sourceTree = "<group>"; };
 		1157CA7F1E4C147B00BAEE7F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1157CA831E4CECDC00BAEE7F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		1157CA871E4CECE400BAEE7F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		1197053A1E52593400687827 /* FindTourneyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindTourneyController.swift; sourceTree = "<group>"; };
+		1197053C1E52675E00687827 /* PlayerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCollectionCell.swift; sourceTree = "<group>"; };
+		1197053E1E526B5300687827 /* OpeningScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningScreenController.swift; sourceTree = "<group>"; };
+		119705401E526C8C00687827 /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
+		119705E81E52743900687827 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = "../../Developer/Xcode/DerivedData/GolfTourney-buksvpaxtgomelfmctcqqrpbdiya/Build/Products/Debug-iphonesimulator/JTAppleCalendar/JTAppleCalendar.framework"; sourceTree = "<group>"; };
+		1197060E1E5501B400687827 /* GameCreatedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCreatedController.swift; sourceTree = "<group>"; };
+		119706101E5502CD00687827 /* GameJoinedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameJoinedController.swift; sourceTree = "<group>"; };
 		11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseGameViewController.swift; sourceTree = "<group>"; };
-		11DCFC621E4E3E780054DB04 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Course.swift; path = ../../../../Desktop/RealmFolder/Course.swift; sourceTree = "<group>"; };
 		11DCFC661E4E515F0054DB04 /* coursesCompact.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = coursesCompact.realm; path = ../../../../Downloads/realm/coursesCompact.realm; sourceTree = "<group>"; };
 		11DCFC681E4E54D70054DB04 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		11DCFC6C1E4E5FDA0054DB04 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +203,7 @@
 				1157CA4D1E49458900BAEE7F /* Info.plist */,
 				1157CA451E49458900BAEE7F /* GolfTourney.xcdatamodeld */,
 				1157CA6F1E49486700BAEE7F /* GoogleService-Info.plist */,
+				112C146E1E568252001E6E18 /* default2.realm */,
 				11DCFC661E4E515F0054DB04 /* coursesCompact.realm */,
 			);
 			path = GolfTourney;
@@ -214,11 +240,21 @@
 		1157CA721E4A98FA00BAEE7F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				112C14731E57D3F2001E6E18 /* GridView.swift */,
 				11DCFC6E1E4E65E90054DB04 /* Cells */,
 				1157CA791E4ABDF700BAEE7F /* LoginViewController.swift */,
-				1157CA7B1E4C112E00BAEE7F /* WelcomePageController.swift */,
+				1157CA7B1E4C112E00BAEE7F /* FindCoursesController.swift */,
 				11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */,
 				11DCFC6C1E4E5FDA0054DB04 /* GameViewController.swift */,
+				1197053A1E52593400687827 /* FindTourneyController.swift */,
+				1197053E1E526B5300687827 /* OpeningScreenController.swift */,
+				119705401E526C8C00687827 /* CreateGameController.swift */,
+				1197060E1E5501B400687827 /* GameCreatedController.swift */,
+				119706101E5502CD00687827 /* GameJoinedController.swift */,
+				112C14711E57D14F001E6E18 /* ScoreCardController.swift */,
+				112C14751E5A433A001E6E18 /* UserProfileController.swift */,
+				112C14771E5BA8E0001E6E18 /* EditProfileController.swift */,
+				112C14791E5BBCCE001E6E18 /* UIViewExtension.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -235,7 +271,7 @@
 		11DCFC6A1E4E57D70054DB04 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				11DCFC621E4E3E780054DB04 /* Course.swift */,
+				112C146D1E568252001E6E18 /* Course.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -256,6 +292,7 @@
 				1157CA7D1E4C127A00BAEE7F /* CourseViewTableCell.swift */,
 				11DCFC6F1E4E66150054DB04 /* PlayerTableCell.swift */,
 				11DCFC731E4E70170054DB04 /* GameCell.swift */,
+				1197053C1E52675E00687827 /* PlayerCollectionCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -263,6 +300,7 @@
 		35F5052A817D4CA60580B8B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				119705E81E52743900687827 /* JTAppleCalendar.framework */,
 				1157CA871E4CECE400BAEE7F /* RealmSwift.framework */,
 				1157CA831E4CECDC00BAEE7F /* Realm.framework */,
 				6915826033E9DED2AB855FB6 /* Pods_GolfTourney.framework */,
@@ -358,6 +396,9 @@
 		1157CA331E49458900BAEE7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					10,
+				);
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Dirk Milotz";
@@ -411,6 +452,7 @@
 				1157CA701E49486700BAEE7F /* GoogleService-Info.plist in Resources */,
 				1157CA491E49458900BAEE7F /* Assets.xcassets in Resources */,
 				1157CA441E49458900BAEE7F /* Main.storyboard in Resources */,
+				112C14701E568252001E6E18 /* default2.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,21 +628,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1197060F1E5501B400687827 /* GameCreatedController.swift in Sources */,
+				119706111E5502CD00687827 /* GameJoinedController.swift in Sources */,
+				112C14761E5A433A001E6E18 /* UserProfileController.swift in Sources */,
 				11DCFC701E4E66150054DB04 /* PlayerTableCell.swift in Sources */,
-				11DCFC631E4E3E780054DB04 /* Course.swift in Sources */,
+				1197053B1E52593400687827 /* FindTourneyController.swift in Sources */,
+				112C14741E57D3F2001E6E18 /* GridView.swift in Sources */,
 				1157CA3F1E49458900BAEE7F /* AppDelegate.swift in Sources */,
 				1157CA471E49458900BAEE7F /* GolfTourney.xcdatamodeld in Sources */,
 				11DCFC611E4E3CB20054DB04 /* CourseGameViewController.swift in Sources */,
 				11DCFC741E4E70170054DB04 /* GameCell.swift in Sources */,
 				11DCFC6D1E4E5FDA0054DB04 /* GameViewController.swift in Sources */,
 				11DCFC721E4E66870054DB04 /* PlayerModel.swift in Sources */,
+				112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */,
 				11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */,
+				112C146F1E568252001E6E18 /* Course.swift in Sources */,
+				1197053F1E526B5300687827 /* OpeningScreenController.swift in Sources */,
+				112C14781E5BA8E0001E6E18 /* EditProfileController.swift in Sources */,
+				119705411E526C8C00687827 /* CreateGameController.swift in Sources */,
 				1157CA771E4A999F00BAEE7F /* User.swift in Sources */,
 				1157CA7E1E4C127A00BAEE7F /* CourseViewTableCell.swift in Sources */,
-				1157CA7C1E4C112E00BAEE7F /* WelcomePageController.swift in Sources */,
+				1157CA7C1E4C112E00BAEE7F /* FindCoursesController.swift in Sources */,
 				1157CA7A1E4ABDF700BAEE7F /* LoginViewController.swift in Sources */,
+				112C147A1E5BBCCE001E6E18 /* UIViewExtension.swift in Sources */,
 				1157CA751E4A996800BAEE7F /* NetworkClient.swift in Sources */,
 				1157CA801E4C147B00BAEE7F /* Constants.swift in Sources */,
+				1197053D1E52675E00687827 /* PlayerCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

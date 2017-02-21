@@ -10,9 +10,11 @@ import Foundation
 struct Player{
 
     let uid: String?
+    let name: String?
     let email: String?
     let handicap: Int?
     let gamesWon: Int?
-    let pic: Data?
+    let profileImage: Data?
+    let currentGames: [String?]
     
 }

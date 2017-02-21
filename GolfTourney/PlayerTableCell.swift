@@ -11,7 +11,7 @@ import UIKit
 
 class PlayerTableCell: UITableViewCell{
     
-    @IBOutlet var playerImage: UIImageView!
+    @IBOutlet var playerImage: UIImageView?
     
     @IBOutlet var playerName: UILabel!
     

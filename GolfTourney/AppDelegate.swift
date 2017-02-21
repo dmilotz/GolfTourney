@@ -14,7 +14,7 @@ import GoogleSignIn
 import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate{
     
     var window: UIWindow?
     
@@ -23,10 +23,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         // Override point for customization after application launch.
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
-        openRealm()
+        
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        let config = Realm.Configuration(
+            schemaVersion: 2,  // Must be greater than previous version
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                    // minimally this can be empty
+                }
+                if (oldSchemaVersion < 2) {
+                    // minimally this can be empty
+                }
+                print("Realm migration did run")  // Log to know migration was executed
+        })
+        
+        // Make sure to set the default configuration
+        Realm.Configuration.defaultConfiguration = config
+        openRealm()
+        
+        
+        
         return true
     }
     
@@ -50,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
     func openRealm() {
         
         let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL!
-        let bundleRealmPath = Bundle.main.url(forResource: "coursesCompact", withExtension: "realm")
+        let bundleRealmPath = Bundle.main.url(forResource: "default2", withExtension: "realm")
         //    let myFilePathString = "/Users/dirkmilotz/Downloads/realm/coursesCompact.realm"
         //    let url = NSURL(string: myFilePathString)
         //    _ = try! Realm().writeCopy(toFile: url as! URL)
@@ -62,6 +81,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             }
         }
     }
+    
+    func checkOrientation(viewController:UIViewController?)-> Int{
+        
+        if(viewController == nil){
+            
+            return Int(UIInterfaceOrientationMask.all.rawValue)//All means all orientation
+            
+        }else if (viewController is EditProfileController || viewController is LoginViewController || viewController is UserProfileController){
+            
+            return Int(UIInterfaceOrientationMask.portrait.rawValue)
+            
+        }else{
+            
+            return checkOrientation(viewController: viewController!.presentedViewController)
+        }
+    }
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -90,7 +126,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
 
 //Google delegate implementation
 
-extension AppDelegate{
+extension AppDelegate: GIDSignInDelegate{
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
         if let error = error {

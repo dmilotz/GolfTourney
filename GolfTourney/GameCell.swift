@@ -11,9 +11,14 @@ import UIKit
 
 class GameCell :UITableViewCell{
     
+    @IBOutlet var title: UILabel!
     @IBOutlet var date: UILabel!
     @IBOutlet var spotsLeft: UILabel!
     @IBOutlet var buyInAmount: UILabel!
     @IBOutlet var currentPot: UILabel!
+    @IBOutlet var playerCount: UILabel!
+    
+    @IBOutlet var courseName: UILabel!
+    @IBOutlet var courseAddress: UILabel!
     
 }

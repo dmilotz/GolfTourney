@@ -10,11 +10,43 @@ import Foundation
 
 struct Game{
     let gameId : String?
-    let course: String?
-    let date: Date?
+    let preferredHandicap: String?
+    let courseName: String?
+    let courseId: String?
+    let courseAddress: String?
+    let date: String?
     let players : [String]?
     let buyIn : Int?
     let description : String?
-    let maxPlayers: String?
+    let maxPlayers: Int?
+    let currentPlayerCount: Int?
+    let currentPot : Int?
+    let gameOwner : String?
     
+   // init(){}
+
+    
+    func getDict()->[String:Any]{
+        return ["courseName": courseName!, "courseAddress": courseAddress!, "courseId": courseId!, "preferredHandicap": preferredHandicap!, "date": date!, "players": players!,"buyIn":buyIn!,"description": description!, "maxPlayers":maxPlayers!, "currentPlayerCount":currentPlayerCount!, "currentPot":currentPot!, "gameOwner":gameOwner!]
+    }
+    
+}
+
+extension Game{
+    
+    init(dict: [String:Any]){
+        gameId = dict["gameId"] as! String?
+        preferredHandicap = dict["preferredHandicap"] as! String?
+        courseName = dict["courseName"] as! String?
+        courseId = dict["courseId"] as! String?
+        courseAddress = dict["courseAddress"] as! String?
+        date = dict["date"] as! String?
+        players = dict["players"] as! [String]?
+        buyIn = dict["buyIn"] as! Int?
+        description = dict["description"] as! String?
+        maxPlayers = dict["maxPlayers"] as! Int?
+        currentPlayerCount = dict["currentPlayerCount"] as! Int?
+        currentPot = dict["currentPot"] as! Int?
+        gameOwner = dict["gameOwner"] as! String?
+    }
 }
