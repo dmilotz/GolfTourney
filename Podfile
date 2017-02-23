@@ -8,7 +8,7 @@ target 'GolfTourney' do
   pod 'Firebase/Database'
   pod ‘Firebase/Auth’
   pod ‘Firebase/Storage’
-  pod ‘GoogleSignIn’
+  pod ‘GoogleSignIn’, ‘4.0.1’
   pod 'FacebookCore'
   pod 'THCalendarDatePicker', '~> 1.2.6'
   pod 'ALGridView'

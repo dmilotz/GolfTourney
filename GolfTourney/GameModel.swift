@@ -9,7 +9,7 @@
 import Foundation
 
 struct Game{
-    let gameId : String?
+    var gameId : String?
     let preferredHandicap: String?
     let courseName: String?
     let courseId: String?
@@ -35,7 +35,7 @@ struct Game{
 extension Game{
     
     init(dict: [String:Any]){
-        gameId = dict["gameId"] as! String?
+        //gameId = dict["gameId"] as! String?
         preferredHandicap = dict["preferredHandicap"] as! String?
         courseName = dict["courseName"] as! String?
         courseId = dict["courseId"] as! String?

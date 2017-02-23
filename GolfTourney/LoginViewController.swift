@@ -30,22 +30,15 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         facebookLogin.delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         ref = FIRDatabase.database().reference()
-        
-        //GIDSignIn.sharedInstance().signInSilently()
-        //                if FBSDKAccessToken.current().tokenString.isEmpty{
-        //
-        //
-        //                }
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
-//                let vals = ["name": user?.displayName!, "email": user?.email!, "photoUrl": user?.photoURL!] as [String : AnyObject]
-//                registerUserIntoDatabase(uid: (user?.uid)!, values: vals as [String : AnyObject])
-                self.ref.child("users").child((user?.uid)!).setValue(["userName":user?.displayName])
-                self.ref.child("users").child((user?.uid)!).setValue(["email":user?.email])
-                self.ref.child("users/\(user?.uid)").setValue(["photo": user?.photoURL])
-                self.performSegue(withIdentifier: "loginToOpeningScreen", sender: nil)
+                var vals = ["userName": user?.displayName, "email": user?.email] as [String : Any]
+                if let photoUrl = user?.photoURL{
+                    vals["profileImage"] = photoUrl.absoluteString
+                }
+                self.ref.child("users").child((user?.uid)!).updateChildValues(vals)
+                self.performSegue(withIdentifier: "loginToHomeScreen", sender: nil)
             }
-            
         }
     }
     
@@ -134,7 +127,6 @@ extension LoginViewController: FBSDKLoginButtonDelegate{
             print ("Error signing out: %@", signOutError)
         }
     }
-    
     
 }
 

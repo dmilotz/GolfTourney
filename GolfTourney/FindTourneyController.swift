@@ -22,7 +22,7 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     
     @IBOutlet var tableView: UITableView!
     
-    var game: Game?
+    var chosenGame: Game?
     var ref: FIRDatabaseReference!
     var courses = [Course]()
     var games = [Game]()
@@ -101,18 +101,20 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     func searchByUserLocation(predicate: NSPredicate){
         
         
-        //        let courses = try? Realm().objects(Course.self).filter(predicate)
-        //        self.courses = []
-        //        for course in courses!{
-        //            print(course.biz_name)
-        //            self.courses.append(course)
-        //        }
-        //tableView.reloadData()
+                let courses = try? Realm().objects(Course.self).filter(predicate)
+                self.courses = []
+                for course in courses!{
+                    print(course.biz_name)
+                    self.courses.append(course)
+                }
+        tableView.reloadData()
         
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searching...")
+        courses = []
+        tableView.reloadData()
         search(search: searchBar.text!)
         
     }
@@ -122,7 +124,7 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
         for course in courses{
 //            print(course.biz_name)
             //let courseName = course.biz_name.replacingOccurrences(of: ".", with: "")
-            try? ref.child("courses").child(String(course.id)).queryOrdered(byChild: "currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
+            ref.child("courses").child(String(course.id)).queryOrdered(byChild: "currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
                 let value = snapshot.value as? NSDictionary
                 if let vals = value?.allValues{
                     for val in vals{
@@ -148,12 +150,14 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     
     
     func getGameInfoFromCourse(){
-        for game in gamesIdArr{
+        for gameId in gamesIdArr{
             
-            ref.child("games").child(game).observeSingleEvent(of: .value, with: { (snapshot) in
+            ref.child("games").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
                 
                     if let gameInfo = snapshot.value as? [String:Any]{
-                        self.games.append(Game(dict: gameInfo))
+                        var game = Game(dict:gameInfo)
+                        game.gameId = gameId
+                        self.games.append(game)
                         print("GAME INFO\(self.games)")
                     }else{
                         print("NOPE\(snapshot.value)")
@@ -164,8 +168,6 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
         }
         
     }
-    
-
     
 }
 
@@ -197,7 +199,7 @@ extension FindTourneyController: CLLocationManagerDelegate{
 
 extension FindTourneyController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.game = games[(indexPath as NSIndexPath).row]
+        chosenGame = games[(indexPath as NSIndexPath).row]
         performSegue(withIdentifier: "gameChosen", sender: self)
     }
     
@@ -209,7 +211,7 @@ extension FindTourneyController: UITableViewDelegate{
         if segue.identifier! == "gameChosen" {
             
             if let gameVc = segue.destination as? GameViewController {
-                gameVc.game = self.game
+                gameVc.game = chosenGame
             }
         }
     }

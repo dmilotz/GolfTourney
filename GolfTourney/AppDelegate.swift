@@ -14,7 +14,7 @@ import GoogleSignIn
 import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
     
     var window: UIWindow?
     
@@ -82,21 +82,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         }
     }
     
-    func checkOrientation(viewController:UIViewController?)-> Int{
-        
-        if(viewController == nil){
-            
-            return Int(UIInterfaceOrientationMask.all.rawValue)//All means all orientation
-            
-        }else if (viewController is EditProfileController || viewController is LoginViewController || viewController is UserProfileController){
-            
-            return Int(UIInterfaceOrientationMask.portrait.rawValue)
-            
-        }else{
-            
-            return checkOrientation(viewController: viewController!.presentedViewController)
-        }
-    }
+//    func checkOrientation(viewController:UIViewController?)-> Int{
+//        
+//        if(viewController == nil){
+//            
+//            return Int(UIInterfaceOrientationMask.all.rawValue)//All means all orientation
+//            
+//        }else if (viewController is EditProfileController || viewController is LoginViewController || viewController is UserProfileController){
+//            
+//            return Int(UIInterfaceOrientationMask.portrait.rawValue)
+//            
+//        }else{
+//            
+//            return checkOrientation(viewController: viewController!.presentedViewController)
+//        }
+//    }
     
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -126,7 +126,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
 //Google delegate implementation
 
-extension AppDelegate: GIDSignInDelegate{
+extension AppDelegate{
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
         if let error = error {

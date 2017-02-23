@@ -629,9 +629,17 @@ Copyright 2017 Google
    limitations under the License.
 
 
+## GoogleAppUtilities
+
+Copyright 2016 Google
+
 ## GoogleSignIn
 
-Copyright 2017 Google
+Copyright 2016 Google
+
+## GoogleSymbolUtilities
+
+Copyright 2016 Google
 
 ## GoogleToolboxForMac
 

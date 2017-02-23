@@ -1,6 +1,3 @@
-# 2017-02-06 -- v4.0.2
-- No longer depends on GoogleAppUtilities.
-
 # 2016-10-24 -- v4.0.1
 - Switches to open source pod dependencies.
 - Appearance of sign-in button no longer depends on requested scopes.

@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 class CourseViewCell : UITableViewCell{
     
-    @IBOutlet var title: UILabel!
+
     
-    @IBOutlet var subtitle: UILabel!
+    @IBOutlet var courseName: UILabel!
     
+    @IBOutlet var courseAddress: UILabel!
     @IBOutlet var currentGamesCount: UILabel!
     
 }

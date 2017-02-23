@@ -53,11 +53,14 @@ PODS:
   - FirebaseStorage (1.0.6):
     - FirebaseAnalytics (~> 3.7)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleSignIn (4.0.2):
+  - GoogleAppUtilities (1.1.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSignIn (4.0.1):
+    - GoogleAppUtilities (~> 1.1)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
-    - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
     - GTMOAuth2 (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
@@ -88,7 +91,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - GoogleSignIn
+  - GoogleSignIn (= 4.0.1)
   - THCalendarDatePicker (~> 1.2.6)
 
 SPEC CHECKSUMS:
@@ -107,13 +110,15 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FirebaseStorage: 63628572a5fde258f8e933b5fb42697468da0158
-  GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
+  GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
+  GoogleSignIn: a8694c0a8e6d1b0ec77c58014de5bfd4ba2fa766
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   KNSemiModalViewController_hons82: 0ef0ef5ed7c3814ddd0fa9c884ab74d5495de16b
   THCalendarDatePicker: fd1a1103ae0d1d1f2d0f9a1463a3f628a23a25a5
 
-PODFILE CHECKSUM: 311a8bda9818b97303421b2dfec63ddf93dd738e
+PODFILE CHECKSUM: 6af30b0e80f6209f2327d628cbe717d41a26ffe0
 
 COCOAPODS: 1.2.0
