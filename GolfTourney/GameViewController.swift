@@ -33,37 +33,8 @@ class GameViewController: UIViewController{
     @IBOutlet var joinButton: UIButton!
     
     @IBAction func joinGame(_ sender: Any) {
-        
-        if (joinButton.titleLabel?.text == "Join"){
-            //        ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
-            ref.child("games").child((game?.gameId)!).child("players").child(uid!).setValue("")
-            ref.child("users").child(uid!).child("currentGames").child((game?.gameId)!).setValue(game?.courseName)
-            self.displayAlert("Game Joined!", title: "")
-            //performSegue(withIdentifier: "backHome", sender: self)
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-            self.present(controller!, animated: true, completion: nil)
-        }else if (joinButton.titleLabel?.text == "Leave Game")  {
-            //ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
-            //ref.child("users").child(uid!).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
-            NetworkClient.leaveGame(gameId: (game?.gameId)!, completion: { (message, error) in
-                print(message)
-                
-            })
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-            self.present(controller!, animated: true, completion: nil)
-        }else{
-            let deleteAlert = UIAlertController(title: "Cancel Game?", message: "Are you sure you want to cancel the game?", preferredStyle: UIAlertControllerStyle.alert)
-            
-            deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                NetworkClient.cancelGame(game:self.game!)
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-                self.present(controller!, animated: true, completion: nil)}))
-            
-            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-                return            }))
-            
-            self.present(deleteAlert, animated: true, completion: nil)
-        }
+     joinGame()
+    
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -136,7 +107,45 @@ class GameViewController: UIViewController{
     }
     
     
+    //MARK: Functionality for join button
+    func joinGame(){
+        if (joinButton.titleLabel?.text == "Join"){
+            //        ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
+            ref.child("games").child((game?.gameId)!).child("players").child(uid!).setValue("")
+            ref.child("users").child(uid!).child("currentGames").child((game?.gameId)!).setValue(game?.courseName)
+            self.displayAlert("Game Joined!", title: "")
+            //performSegue(withIdentifier: "backHome", sender: self)
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+            self.present(controller!, animated: true, completion: nil)
+        }else if (joinButton.titleLabel?.text == "Leave Game")  {
+            //ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
+            //ref.child("users").child(uid!).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
+            NetworkClient.leaveGame(gameId: (game?.gameId)!, completion: { (message, error) in
+                print(message)
+                
+            })
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+            self.present(controller!, animated: true, completion: nil)
+        }else{
+            let deleteAlert = UIAlertController(title: "Cancel Game?", message: "Are you sure you want to cancel the game?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                NetworkClient.cancelGame(game:self.game!)
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+                self.present(controller!, animated: true, completion: nil)}))
+            
+            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                return            }))
+            
+            self.present(deleteAlert, animated: true, completion: nil)
+        }
+    }
+    
 }
+
+//MARK: Collection Methods
+
+
 extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "PlayerProfileController") as! PlayerProfileController
