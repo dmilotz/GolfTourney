@@ -15,7 +15,7 @@ struct Game{
     let courseId: String?
     let courseAddress: String?
     let date: String?
-    let players : [String]?
+    let players : [String: String]?
     let buyIn : Int?
     let description : String?
     let maxPlayers: Int?
@@ -41,7 +41,7 @@ extension Game{
         courseId = dict["courseId"] as! String?
         courseAddress = dict["courseAddress"] as! String?
         date = dict["date"] as! String?
-        players = dict["players"] as! [String]?
+        players = dict["players"] as! [String: String]?
         buyIn = dict["buyIn"] as! Int?
         description = dict["description"] as! String?
         maxPlayers = dict["maxPlayers"] as! Int?

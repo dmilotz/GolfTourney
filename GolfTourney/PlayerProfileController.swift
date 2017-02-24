@@ -18,6 +18,14 @@ class PlayerProfileController: UIViewController{
     var player: Player?
     var games: [Game] = []
     var game: Game?
+    var gameIds: [String]{
+        if let keysAsGameIds = player?.currentGames?.keys{
+            return Array(keysAsGameIds)
+        }else{
+            return []
+        }
+    }
+    
     @IBOutlet var nameField: UILabel!
     
     @IBOutlet var handicapField: UILabel!
@@ -83,7 +91,7 @@ class PlayerProfileController: UIViewController{
     }
     
     func getGames(){
-        if let gameIds = player?.currentGames{
+    
         for gameId in gameIds{
             NetworkClient.getGameInfo(gameId: gameId, completion: { (dict, error) in
                 print (dict)
@@ -101,9 +109,6 @@ class PlayerProfileController: UIViewController{
                 }
             })
         }
-        }else{
-            print("No games found")
-        }
     }
     
 }
@@ -120,31 +125,20 @@ extension PlayerProfileController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return games.count
         
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = gamesTableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
-        let gameId = player?.currentGames?[(indexPath as NSIndexPath).row]
-        NetworkClient.getGameInfo(gameId: gameId!) { (dict, error) in
-            if error != nil{
-                DispatchQueue.main.async {
-                    self.displayAlert((error?.localizedDescription)!, title: "Error")
-                }
-            }else{
-                self.game = Game(dict: dict!)
-                DispatchQueue.main.async {
-                    cell.buyInAmount.text = String(describing: self.game!.buyIn!)
-                    cell.courseAddress.text = self.game!.courseAddress
-                    cell.courseName.text = self.game!.courseName
-                    cell.title.text = self.game!.description
-                    cell.date.text = self.game!.date
-                    cell.currentPot.text = String(describing: self.game!.currentPot!)
-                }
-                
-            }
-            
-        }
+        let chosenGame = games[(indexPath as NSIndexPath).row]
+        self.game = chosenGame
+  
+                    cell.buyInAmount.text = String(describing: chosenGame.buyIn!)
+                    cell.courseAddress.text = chosenGame.courseAddress
+                    cell.courseName.text = chosenGame.courseName
+                    cell.title.text = chosenGame.description
+                    cell.date.text = chosenGame.date
+                    cell.currentPot.text = String(describing: chosenGame.currentPot!)
+    
         
         return cell
         

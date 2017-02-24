@@ -21,7 +21,7 @@ import UIKit
 
 extension UIViewController{
     
-    func displayAlert(_ message: String, title: String) {
+    func displayAlert(_ message: String, title: String){
         OperationQueue.main.addOperation {
             let alertController = UIAlertController(title: title, message:
                 message, preferredStyle: UIAlertControllerStyle.alert)
@@ -33,7 +33,7 @@ extension UIViewController{
     
     
     func displayOverwriteAlert() {
-        let overwriteAlert = UIAlertController(title: "Overwrite?", message: "Current User Already Exists", preferredStyle: UIAlertControllerStyle.alert)
+        let overwriteAlert = UIAlertController(title: "Cancel Game?", message: "Are you sure you want to cancel game?", preferredStyle: UIAlertControllerStyle.alert)
         
         overwriteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             let controller = self.storyboard!.instantiateViewController(withIdentifier: "EnterStudentInfoViewController")

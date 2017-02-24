@@ -15,7 +15,7 @@ struct Player{
     let handicap: String?
     let gamesWon: String?
     let profileImageUrl: String?
-    let currentGames: [String]?
+    let currentGames: [String: String]?
     
 }
 extension Player{
@@ -27,6 +27,6 @@ extension Player{
         gamesWon = dict["gamesWon"] as! String?
         email = dict["email"] as! String?
         profileImageUrl = dict["profileImage"] as! String?
-        currentGames = dict["currentGames"] as! [String]?
+        currentGames = dict["currentGames"] as! [String: String]?
         }
 }

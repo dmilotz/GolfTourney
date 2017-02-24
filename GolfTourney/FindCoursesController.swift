@@ -158,7 +158,7 @@ extension FindCoursesController: UITableViewDataSource{
         cell.courseName.text = course.biz_name
         cell.courseAddress.text = "\(course.e_address), \(course.e_city), \(course.e_state)"
         
-        print(course.id)
+
         NetworkClient.getGamesPerCourse(courseId: String(course.id)) { (arr, error) in
             if error != nil{
                 print(error)

@@ -32,6 +32,7 @@ class CreateGameController: UIViewController{
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
         self.present(controller!, animated: true, completion: nil)
     }
+    
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -81,11 +82,8 @@ class CreateGameController: UIViewController{
     func setupGame(){
         let buyIn = Int((buyInAmountLabel.text?.replacingOccurrences(of: "$", with: ""))!)
         let curUser = FIRAuth.auth()?.currentUser?.uid
-        let game = Game(gameId: UUID().uuidString, preferredHandicap: chosenHandicap!, courseName: course.biz_name.replacingOccurrences(of: ".", with: ""), courseId: String(course.id), courseAddress: "\(course.e_address), \(course.e_city), \(course.e_state)", date:formatter.string(from: curFromDate!), players: [curUser!], buyIn: buyIn, description: tourneyTitle.text, maxPlayers: 20, currentPlayerCount: 1, currentPot: buyIn, gameOwner: curUser )
-        self.ref.child("games").child(game.gameId!).setValue(game.getDict())
-        self.ref.child("users").child(curUser!).child("currentGames").setValue([game.gameId!])
-        self.ref.child("courses").child(String(course.id)).child("currentGames").setValue([game.gameId!])
-        self.ref.child("courses").child(String(course.id)).child("courseName").setValue(game.courseName)
+        let game = Game(gameId: UUID().uuidString, preferredHandicap: chosenHandicap!, courseName: course.biz_name.replacingOccurrences(of: ".", with: ""), courseId: String(course.id), courseAddress: "\(course.e_address), \(course.e_city), \(course.e_state)", date:formatter.string(from: curFromDate!), players: [curUser!: ""], buyIn: buyIn, description: tourneyTitle.text, maxPlayers: 20, currentPlayerCount: 1, currentPot: buyIn, gameOwner: curUser )
+        NetworkClient.createGame(game)
     }
     
     

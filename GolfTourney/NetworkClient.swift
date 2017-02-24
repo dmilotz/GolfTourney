@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class NetworkClient{
     
@@ -43,6 +45,7 @@ class NetworkClient{
         let ref = FIRDatabase.database().reference()
         ref.child("users").child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dict = snapshot.value as? [String:Any]{
+                print (dict)
                 completion(dict, nil)
             }
         }) { (error) in
@@ -51,6 +54,14 @@ class NetworkClient{
         
     }
     
+    static func createGame(_ game: Game) {
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference()
+        ref.child("games").child(game.gameId!).setValue(game.getDict())
+        ref.child("users").child(uid!).child("currentGames").child(game.gameId!).setValue(game.courseName)
+        ref.child("courses").child(game.courseId!).child("currentGames").child(game.gameId!).setValue("")
+        ref.child("courses").child(game.courseId!).child("courseName").setValue(game.courseName)
+    }
     
     static func getGamesPerCourse(courseId: String, completion: @escaping (_ arr: [String]?, _ error: Error?) -> Void) {
         let ref = FIRDatabase.database().reference()
@@ -64,26 +75,26 @@ class NetworkClient{
         
     }
     
-    static func leaveGame(uid: String, gameId: String, completion: @escaping (_ string: String?, _ error: Error?) -> Void){
+    static func leaveGame(gameId: String, completion: @escaping (_ string: String?, _ error: Error?) -> Void){
+        let uid = FIRAuth.auth()?.currentUser?.uid
         let ref = FIRDatabase.database().reference()
-        ref.child(uid).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let arr = snapshot.value as? [String]{
-                for val in arr{
-                    if val == gameId{
-                    }
-                }
-            }
-            
-//                    if item.value as! String == gameId{
-//                        item.ref.child(item.key!).parent?.removeValue()
-//                    }
-                }
-            }
-            
-        })
+        ref.child("users").child(uid!).child("currentGames").child(gameId).removeValue()
+        ref.child("games").child(gameId).child("players").child(uid!).removeValue()
         
         
+    }
+    
+    
+    static func cancelGame(game: Game){
         
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference()
+        ref.child("users").child(uid!).child("currentGames").child(game.gameId!).removeValue()
+        ref.child("games").child(game.gameId!).removeValue()
+        ref.child("courses").child(game.courseId!).child("currentGames").child(game.gameId!).removeValue()
+        for playerId in (game.players?.keys)!{
+            ref.child("users").child(playerId).child("currentGames").child(game.gameId!).removeValue()
+        }
     }
     
     

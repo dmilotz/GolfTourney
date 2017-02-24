@@ -121,10 +121,9 @@ class UserProfileController: UIViewController{
     }
     
     func getGames(){
-        if let currentGameIds = player?.currentGames{
+        if let currentGameIds = player?.currentGames?.keys{
             for gameId in currentGameIds{
                 NetworkClient.getGameInfo(gameId: gameId, completion: { (dict, error) in
-                    print (dict)
                     if error != nil{
                         print(error)
                         return
@@ -132,7 +131,6 @@ class UserProfileController: UIViewController{
                         var game = Game(dict:dict!)
                         game.gameId = gameId
                         self.games.append(game)
-                        print("GAMES \(self.games)")
                         DispatchQueue.main.async {
                             self.gamesTableView.reloadData()
                         }

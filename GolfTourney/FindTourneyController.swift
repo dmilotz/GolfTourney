@@ -24,19 +24,15 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     
     var chosenGame: Game?
     var ref: FIRDatabaseReference!
-    var courses = [Course]()
-    var games = [Game]()
+    var courses :[Course] = []
+    var games : [Game] = []
     let locationManager = CLLocationManager()
     
     let searchDistance:Double =  20 //float value in KM
     
-    //let coursesWithGames = [Course]()
-    
-    
-    
     //Using two arrays instead of dictionary because of table indexing issues
     var gamesPerCourse : [Course: [String]] = [:]
-    var gamesIdArr = [String]()
+    var gamesIdArr : [String] = []
     var gamesArr: [Game] = []
     var coursesWithGamesArr: [Course] = []
     
@@ -47,16 +43,21 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
         ref = FIRDatabase.database().reference()
         
         
-        // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
         }
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        requestLocation()
+    }
+    
+    func requestLocation(){
+        locationManager.requestLocation()
     }
     
     
@@ -65,83 +66,50 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     }
     
     func search(search : String){
-        //     ref.child("courses").removeValue { (error, ref) in
-        //        if error != nil{
-        //            print(error?.localizedDescription)
-        //        }
-        //        }
-        
-        //        .queryOrdered(byChild: "e_city").queryEqual(toValue: search).observeSingleEvent(of: .value, with: { (snapshot) in
-        //            // Get user value
-        //            print(snapshot)
-        //            let value = snapshot.value as? NSDictionary
-        //            let biz_name = value?["biz_name"] as? String ?? ""
-        //            print(biz_name)
-        //
-        //            // ...
-        //        }) { (error) in
-        //            print(error.localizedDescription)
-        //        }
-        
+    
         
         let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
-        //let tables = try! Realm().objects(Course.self).first
-        //print (tables)
-        //print (courses.count)
         self.courses = []
         for course in courses{
-            // print(course.biz_name)
             self.courses.append(course)
         }
-        //tableView.reloadData()
+
         findCoursesWithGames()
     }
     
     
     func searchByUserLocation(predicate: NSPredicate){
         
-        
-                let courses = try? Realm().objects(Course.self).filter(predicate)
-                self.courses = []
-                for course in courses!{
-                    print(course.biz_name)
-                    self.courses.append(course)
-                }
-        tableView.reloadData()
-        
+        games = []
+        let courseResults = try? Realm().objects(Course.self).filter(predicate)
+        self.courses = []
+        for course in courseResults!{
+            self.courses.append(course)
+        }
+        findCoursesWithGames()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        games = []
         print("searching...")
         courses = []
-        tableView.reloadData()
         search(search: searchBar.text!)
         
     }
     
     
     func findCoursesWithGames(){
+        
         for course in courses{
-//            print(course.biz_name)
-            //let courseName = course.biz_name.replacingOccurrences(of: ".", with: "")
-            ref.child("courses").child(String(course.id)).queryOrdered(byChild: "currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as? NSDictionary
-                if let vals = value?.allValues{
-                    for val in vals{
-                        print (val)
-                        self.gamesPerCourse[course] = val as? [String]
-                        //self.coursesWithGamesArr.append(course)
-                        if let gameIds = val as? [String]{
-                            self.gamesIdArr.append(contentsOf: gameIds)
-                        }else{
-                            print("game id\(val) not added")
-                        }
-                        
-
+            ref.child("courses").child(String(course.id)).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
+                self.gamesIdArr = []
+                if let dict = snapshot.value as? [String:String]{
+                    for id in dict.keys{
+                        self.gamesIdArr.append(id)
                     }
+                    self.getGameInfoFromCourse()
                 }
-               self.getGameInfoFromCourse()
-            //self.tableView.reloadData()
+                
             }) { (error) in
                 print(error.localizedDescription)
             }
@@ -150,19 +118,22 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     
     
     func getGameInfoFromCourse(){
+        games = []
         for gameId in gamesIdArr{
             
             ref.child("games").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
                 
-                    if let gameInfo = snapshot.value as? [String:Any]{
-                        var game = Game(dict:gameInfo)
-                        game.gameId = gameId
-                        self.games.append(game)
-                        print("GAME INFO\(self.games)")
-                    }else{
-                        print("NOPE\(snapshot.value)")
-                    }
+                if let gameInfo = snapshot.value as? [String:Any]{
+                    var game = Game(dict:gameInfo)
+                    game.gameId = gameId
+                    self.games.append(game)
+                    //print("GAME INFO\(self.games)")
+                }else{
+                    //print("NOPE\(snapshot.value)")
+                }
+                DispatchQueue.main.async{
                 self.tableView.reloadData()
+                }
             })
             
         }
@@ -185,16 +156,26 @@ extension FindTourneyController: CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation = locations[0]
+        if let userLocation = locations.first{
         let minLat = userLocation.coordinate.latitude - (searchDistance / 69)
         let maxLat = userLocation.coordinate.latitude + (searchDistance / 69)
         
         let minLon = userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
         let maxLon = userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
+            
+            searchByUserLocation(predicate: NSPredicate(format: "lat < %f AND lat > %f AND long < %f AND long > %f",maxLat, minLat, maxLon, minLon))
+        }
         
-        searchByUserLocation(predicate: NSPredicate(format: "lat < %f AND lat > %f AND long < %f AND long > %f",maxLat, minLat, maxLon, minLon))
+        
         
     }
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
+    }
+    
 }
 
 extension FindTourneyController: UITableViewDelegate{
@@ -222,15 +203,15 @@ extension FindTourneyController: UITableViewDelegate{
 
 extension FindTourneyController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(games.count)
         return games.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
         let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as! GameCell
- 
-        let game = self.games[(indexPath as NSIndexPath).row]
         
+        let game = self.games[(indexPath as NSIndexPath).row]
         cell.buyInAmount.text = String(describing: game.buyIn)
         cell.title.text = game.description!
         cell.courseAddress.text = game.courseAddress!

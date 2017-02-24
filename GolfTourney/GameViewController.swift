@@ -34,24 +34,35 @@ class GameViewController: UIViewController{
     
     @IBAction func joinGame(_ sender: Any) {
         
-        if (joinButton.titleLabel.text == "Join"){
-        ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
-        if let currentGameCount = user?.currentGames!.count{
-            ref.child("users").child(uid!).child("currentGames").updateChildValues([String(describing: currentGameCount): uid!])
-        }else{
-            ref.child("users").child(uid!).child("currentGames").updateChildValues(["0": uid!])
-        }
-        self.displayAlert("Game Joined!", title: "")
-        //performSegue(withIdentifier: "backHome", sender: self)
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-        self.present(controller!, animated: true, completion: nil)
-        }else {
-            ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
-            ref.child("users").child(uid!).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
+        if (joinButton.titleLabel?.text == "Join"){
+            //        ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
+            ref.child("games").child((game?.gameId)!).child("players").child(uid!).setValue("")
+            ref.child("users").child(uid!).child("currentGames").child((game?.gameId)!).setValue(game?.courseName)
+            self.displayAlert("Game Joined!", title: "")
+            //performSegue(withIdentifier: "backHome", sender: self)
+            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+            self.present(controller!, animated: true, completion: nil)
+        }else if (joinButton.titleLabel?.text == "Leave Game")  {
+            //ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
+            //ref.child("users").child(uid!).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
+            NetworkClient.leaveGame(gameId: (game?.gameId)!, completion: { (message, error) in
+                print(message)
                 
             })
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
             self.present(controller!, animated: true, completion: nil)
+        }else{
+            let deleteAlert = UIAlertController(title: "Cancel Game?", message: "Are you sure you want to cancel the game?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                NetworkClient.cancelGame(game:self.game!)
+                let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+                self.present(controller!, animated: true, completion: nil)}))
+            
+            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                return            }))
+            
+            self.present(deleteAlert, animated: true, completion: nil)
         }
     }
     
@@ -71,11 +82,27 @@ class GameViewController: UIViewController{
         dateLabel.text = game?.date!
         courseLabel.text = game?.courseName
         gameTitleLabel.text = game?.description
-        playerIds = (game?.players)!
+        if let keys = game?.players?.keys{
+            playerIds = Array(keys)
+        }
+        
         getPlayers()
-        if didAlreadyJoin(){
+        
+        joinButton.setTitle("Join", for: .normal)
+        if isGameOwner(){
+            joinButton.setTitle("Cancel Game", for: .normal)
+            
+        }else if didAlreadyJoin(){
             joinButton.setTitle("Leave Game", for: .normal)
         }
+    }
+    
+    func didAlreadyJoin() -> Bool{
+        return playerIds.contains((uid)!)
+    }
+    
+    func isGameOwner() -> Bool{
+        return game!.gameOwner == uid
     }
     
     func getUserInfo(){
@@ -87,6 +114,8 @@ class GameViewController: UIViewController{
             self.user = Player(dict: dict!)
         }
     }
+    
+    
     
     func getPlayers(){
         for playerId in playerIds{
@@ -105,11 +134,6 @@ class GameViewController: UIViewController{
             }
         }
     }
-    
-    func didAlreadyJoin() -> Bool{
-        return playerIds.contains((uid)!)
-    }
-    
     
     
 }

@@ -1,0 +1,6 @@
+framework module ALGridView {
+  umbrella header "ALGridView-umbrella.h"
+
+  export *
+  module * { export * }
+}
