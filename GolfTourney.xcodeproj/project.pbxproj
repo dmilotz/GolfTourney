@@ -37,10 +37,7 @@
 		1157CA891E4CECE400BAEE7F /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1157CA871E4CECE400BAEE7F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1197053B1E52593400687827 /* FindTourneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053A1E52593400687827 /* FindTourneyController.swift */; };
 		1197053D1E52675E00687827 /* PlayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053C1E52675E00687827 /* PlayerCollectionCell.swift */; };
-		1197053F1E526B5300687827 /* OpeningScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053E1E526B5300687827 /* OpeningScreenController.swift */; };
 		119705411E526C8C00687827 /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119705401E526C8C00687827 /* CreateGameController.swift */; };
-		1197060F1E5501B400687827 /* GameCreatedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197060E1E5501B400687827 /* GameCreatedController.swift */; };
-		119706111E5502CD00687827 /* GameJoinedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119706101E5502CD00687827 /* GameJoinedController.swift */; };
 		11DCFC611E4E3CB20054DB04 /* CourseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */; };
 		11DCFC671E4E515F0054DB04 /* coursesCompact.realm in Resources */ = {isa = PBXBuildFile; fileRef = 11DCFC661E4E515F0054DB04 /* coursesCompact.realm */; };
 		11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC681E4E54D70054DB04 /* GameModel.swift */; };
@@ -122,11 +119,8 @@
 		1157CA871E4CECE400BAEE7F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		1197053A1E52593400687827 /* FindTourneyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindTourneyController.swift; sourceTree = "<group>"; };
 		1197053C1E52675E00687827 /* PlayerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCollectionCell.swift; sourceTree = "<group>"; };
-		1197053E1E526B5300687827 /* OpeningScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningScreenController.swift; sourceTree = "<group>"; };
 		119705401E526C8C00687827 /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
 		119705E81E52743900687827 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = "../../Developer/Xcode/DerivedData/GolfTourney-buksvpaxtgomelfmctcqqrpbdiya/Build/Products/Debug-iphonesimulator/JTAppleCalendar/JTAppleCalendar.framework"; sourceTree = "<group>"; };
-		1197060E1E5501B400687827 /* GameCreatedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCreatedController.swift; sourceTree = "<group>"; };
-		119706101E5502CD00687827 /* GameJoinedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameJoinedController.swift; sourceTree = "<group>"; };
 		11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseGameViewController.swift; sourceTree = "<group>"; };
 		11DCFC661E4E515F0054DB04 /* coursesCompact.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = coursesCompact.realm; path = ../../../Downloads/realm/coursesCompact.realm; sourceTree = "<group>"; };
 		11DCFC681E4E54D70054DB04 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
@@ -263,10 +257,7 @@
 				11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */,
 				11DCFC6C1E4E5FDA0054DB04 /* GameViewController.swift */,
 				1197053A1E52593400687827 /* FindTourneyController.swift */,
-				1197053E1E526B5300687827 /* OpeningScreenController.swift */,
 				119705401E526C8C00687827 /* CreateGameController.swift */,
-				1197060E1E5501B400687827 /* GameCreatedController.swift */,
-				119706101E5502CD00687827 /* GameJoinedController.swift */,
 				112C14711E57D14F001E6E18 /* ScoreCardController.swift */,
 				112C14751E5A433A001E6E18 /* UserProfileController.swift */,
 				112C14771E5BA8E0001E6E18 /* EditProfileController.swift */,
@@ -647,8 +638,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1197060F1E5501B400687827 /* GameCreatedController.swift in Sources */,
-				119706111E5502CD00687827 /* GameJoinedController.swift in Sources */,
 				112C14761E5A433A001E6E18 /* UserProfileController.swift in Sources */,
 				11DCFC701E4E66150054DB04 /* PlayerTableCell.swift in Sources */,
 				1197053B1E52593400687827 /* FindTourneyController.swift in Sources */,
@@ -663,7 +652,6 @@
 				112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */,
 				11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */,
 				112C146F1E568252001E6E18 /* Course.swift in Sources */,
-				1197053F1E526B5300687827 /* OpeningScreenController.swift in Sources */,
 				112C14781E5BA8E0001E6E18 /* EditProfileController.swift in Sources */,
 				119705411E526C8C00687827 /* CreateGameController.swift in Sources */,
 				1157CA771E4A999F00BAEE7F /* User.swift in Sources */,

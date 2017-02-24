@@ -79,24 +79,7 @@ class CourseGameViewController : UIViewController {
         
         
     }
-//
-//    func getGameInfoFromCourse(){
-//        for game in gamesIdArr{
-//            
-//            ref.child("games").child(game).observeSingleEvent(of: .value, with: { (snapshot) in
-//                
-//                if let gameInfo = snapshot.value as? [String:Any]{
-//                    self.games.append(Game(dict: gameInfo))
-//                    print("GAME INFO\(self.games)")
-//                }else{
-//                    print("NOPE\(snapshot.value)")
-//                }
-//                self.tableView.reloadData()
-//            })
-//            
-//        }
-//        
-//    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
