@@ -16,7 +16,7 @@ struct Player{
     let gamesWon: String?
     let profileImageUrl: String?
     let currentGames: [String: String]?
-    
+    let zipCode: String?
 }
 extension Player{
     
@@ -29,4 +29,11 @@ extension Player{
         profileImageUrl = dict["profileImage"] as! String?
         currentGames = dict["currentGames"] as! [String: String]?
         }
+    
+    init(firstTimeSetUpDict: [String:Any]){
+        handicap = firstTimeSetUpDict["handicap"] as! String?
+        name = firstTimeSetUpDict["userName"] as! String?
+        email = firstTimeSetUpDict["email"] as! String?
+        profileImageUrl = firstTimeSetUpDict["profileImage"] as! String?
+    }
 }

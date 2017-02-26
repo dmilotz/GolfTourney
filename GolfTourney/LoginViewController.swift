@@ -35,6 +35,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                 var vals = ["userName": user?.displayName, "email": user?.email] as [String : Any]
                 if let photoUrl = user?.photoURL{
                     vals["profileImage"] = photoUrl.absoluteString
+                }else{
+                    vals["profileImage"] = "default"
                 }
                 self.ref.child("users").child((user?.uid)!).updateChildValues(vals)
                 self.performSegue(withIdentifier: "loginToHomeScreen", sender: nil)

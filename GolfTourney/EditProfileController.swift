@@ -15,7 +15,8 @@ import UIKit
 class EditProfileController: UIViewController{
     
     var ref: FIRDatabaseReference!
-    
+    let uid = FIRAuth.auth()?.currentUser?.uid
+    var user: Player?
     
     @IBOutlet var profileImage: UIImageView!
     
@@ -48,7 +49,6 @@ class EditProfileController: UIViewController{
         emailField.delegate = self
         handicapField.delegate = self
         zipField.delegate = self
-        
         subscribeToKeyboardNotifications()
         
         
@@ -57,6 +57,23 @@ class EditProfileController: UIViewController{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+        
+    }
+    
+    func getUserInfo(){
+        NetworkClient.getUserInfo(userId: uid!) { (dict, error) in
+            if error != nil{
+                self.user = Player(dict: dict!)
+                
+            }
+            else{
+                self.displayAlert(error as! String, title: "Error")
+            }
+            
+        }
+    }
+    
+    func setProfileFields(){
         
     }
     
@@ -72,7 +89,7 @@ class EditProfileController: UIViewController{
                 
                 if let imageUrl = metadata?.downloadURL()?.absoluteString{
                     
-                    let userRef = self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!)
+                    let userRef = self.ref.child("users").child(uid!)
                     let values = ["profileImage": imageUrl, "userName": self.nameField.text!, "email": self.emailField.text!, "handicap": self.handicapField.text!, "zipCode": self.zipField.text!]
                     userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
                         if error != nil{
@@ -108,15 +125,8 @@ extension EditProfileController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {   let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
-//        if textField.tag == 30 {
-//                return allowedCharacters.isSuperset(of: characterSet)
-//        }else if textField.tag == 40{
-//                return (allowedCharacters.isSuperset(of: characterSet))
-//        }
-//        else{
-//            return true
-//        }
-//        
+        
+        //Define text limits for handicap and zip code fields
         
         if textField.tag == 30 && !string.isEmpty  {
             let maxLength = 2
@@ -142,28 +152,28 @@ extension EditProfileController: UITextFieldDelegate{
         
     }
     
-    
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
-                   replacementString string: String) -> Bool
-    {
-        if textField.tag == 30 {
-            let maxLength = 2
-            let currentString: NSString = textField.text! as NSString
-            let newString: NSString =
-                currentString.replacingCharacters(in: range, with: string) as NSString
-            return (newString.length <= maxLength) && (Int(newString as! String)! <= 36)
-        }else if textField.tag == 40{
-            let maxLength = 5
-            let currentString: NSString = textField.text! as NSString
-            let newString: NSString =
-                currentString.replacingCharacters(in: range, with: string) as NSString
-            return newString.length <= maxLength
-        }
-        else{
-            return true
-        }
-
-    }
+//    
+//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
+//                   replacementString string: String) -> Bool
+//    {
+//        if textField.tag == 30 {
+//            let maxLength = 2
+//            let currentString: NSString = textField.text! as NSString
+//            let newString: NSString =
+//                currentString.replacingCharacters(in: range, with: string) as NSString
+//            return (newString.length <= maxLength) && (Int(newString as! String)! <= 36)
+//        }else if textField.tag == 40{
+//            let maxLength = 5
+//            let currentString: NSString = textField.text! as NSString
+//            let newString: NSString =
+//                currentString.replacingCharacters(in: range, with: string) as NSString
+//            return newString.length <= maxLength
+//        }
+//        else{
+//            return true
+//        }
+//
+//    }
     
 }
 extension EditProfileController{
@@ -181,9 +191,9 @@ extension EditProfileController{
     
     func keyboardWillShow(notification: Notification) {
         if handicapField.isEditing{
-            view.frame.origin.y -= getKeyboardHeight(notification: notification)
+            view.frame.origin.y -= getKeyboardHeight(notification: notification) - 20
         }else if zipField.isEditing{
-            view.frame.origin.y -= getKeyboardHeight(notification: notification)
+            view.frame.origin.y -= getKeyboardHeight(notification: notification) - 20
         }
     }
     
