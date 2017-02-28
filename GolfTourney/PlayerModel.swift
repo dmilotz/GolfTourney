@@ -30,10 +30,10 @@ extension Player{
         currentGames = dict["currentGames"] as! [String: String]?
         }
     
-    init(firstTimeSetUpDict: [String:Any]){
-        handicap = firstTimeSetUpDict["handicap"] as! String?
-        name = firstTimeSetUpDict["userName"] as! String?
-        email = firstTimeSetUpDict["email"] as! String?
-        profileImageUrl = firstTimeSetUpDict["profileImage"] as! String?
-    }
+//    init(firstTimeSetUpDict: [String:Any]){
+//        handicap = firstTimeSetUpDict["handicap"] as! String?
+//        name = firstTimeSetUpDict["userName"] as! String?
+//        email = firstTimeSetUpDict["email"] as! String?
+//        profileImageUrl = firstTimeSetUpDict["profileImage"] as! String?
+//    }
 }
