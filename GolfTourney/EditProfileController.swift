@@ -50,8 +50,12 @@ class EditProfileController: UIViewController{
         handicapField.delegate = self
         zipField.delegate = self
         subscribeToKeyboardNotifications()
-        
-        
+       getUserInfo()
+    }
+    
+    override func viewWillAppear(_ animated : Bool){
+        super.viewWillAppear(false)
+    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,9 +66,9 @@ class EditProfileController: UIViewController{
     
     func getUserInfo(){
         NetworkClient.getUserInfo(userId: uid!) { (dict, error) in
-            if error != nil{
+            if error == nil{
                 self.user = Player(dict: dict!)
-                
+                self.setProfileFields()
             }
             else{
                 self.displayAlert(error as! String, title: "Error")
@@ -74,6 +78,25 @@ class EditProfileController: UIViewController{
     }
     
     func setProfileFields(){
+        emailField.text = user!.email
+        nameField.text = user!.name
+        handicapField.text = user!.handicap
+        if let url = user!.profileImageUrl{
+            NetworkClient.getDataFromUrl(url: NSURL(string: url) as! URL, completion: { (data, response, error) in
+                if error != nil{
+                    DispatchQueue.main.async{
+                        self.displayAlert("Error downloading profile image", title: "Error")
+                        return
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.profileImage.image = UIImage(data:data!)
+                }
+            })
+        }else{
+            self.profileImage.image = UIImage(named:"golfDefault.png")
+        }
+        
         
     }
     
@@ -89,7 +112,7 @@ class EditProfileController: UIViewController{
                 
                 if let imageUrl = metadata?.downloadURL()?.absoluteString{
                     
-                    let userRef = self.ref.child("users").child(uid!)
+                    let userRef = self.ref.child("users").child(self.uid!)
                     let values = ["profileImage": imageUrl, "userName": self.nameField.text!, "email": self.emailField.text!, "handicap": self.handicapField.text!, "zipCode": self.zipField.text!]
                     userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
                         if error != nil{
@@ -134,7 +157,7 @@ extension EditProfileController: UITextFieldDelegate{
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             if allowedCharacters.isSuperset(of: characterSet){
-            return (newString.length <= maxLength) && (Int(newString as String)! <= 36)
+                return (newString.length <= maxLength) && (Int(newString as String)! <= 36)
             }
             else{
                 return false
@@ -152,28 +175,28 @@ extension EditProfileController: UITextFieldDelegate{
         
     }
     
-//    
-//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
-//                   replacementString string: String) -> Bool
-//    {
-//        if textField.tag == 30 {
-//            let maxLength = 2
-//            let currentString: NSString = textField.text! as NSString
-//            let newString: NSString =
-//                currentString.replacingCharacters(in: range, with: string) as NSString
-//            return (newString.length <= maxLength) && (Int(newString as! String)! <= 36)
-//        }else if textField.tag == 40{
-//            let maxLength = 5
-//            let currentString: NSString = textField.text! as NSString
-//            let newString: NSString =
-//                currentString.replacingCharacters(in: range, with: string) as NSString
-//            return newString.length <= maxLength
-//        }
-//        else{
-//            return true
-//        }
-//
-//    }
+    //
+    //    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
+    //                   replacementString string: String) -> Bool
+    //    {
+    //        if textField.tag == 30 {
+    //            let maxLength = 2
+    //            let currentString: NSString = textField.text! as NSString
+    //            let newString: NSString =
+    //                currentString.replacingCharacters(in: range, with: string) as NSString
+    //            return (newString.length <= maxLength) && (Int(newString as! String)! <= 36)
+    //        }else if textField.tag == 40{
+    //            let maxLength = 5
+    //            let currentString: NSString = textField.text! as NSString
+    //            let newString: NSString =
+    //                currentString.replacingCharacters(in: range, with: string) as NSString
+    //            return newString.length <= maxLength
+    //        }
+    //        else{
+    //            return true
+    //        }
+    //
+    //    }
     
 }
 extension EditProfileController{
