@@ -48,8 +48,8 @@ class GameViewController: UIViewController{
         
         playerCollectionView.delegate = self
         playerCollectionView.dataSource = self
-        buyInLabel.text = String(describing: game?.buyIn!)
-        currentPotLabel.text = String(describing: game?.currentPot!)
+        buyInLabel.text = "Buy In: $\(String(describing: game!.buyIn!)) "
+        currentPotLabel.text = "Pot: $\(String(describing: game!.currentPot!))"
         dateLabel.text = game?.date!
         courseLabel.text = game?.courseName
         gameTitleLabel.text = game?.description
@@ -176,8 +176,8 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.playerImage.image = UIImage(named:"golfDefault.png")
         }
         
-        cell.handicapLabel.text = self.player?.handicap
-        cell.playerName.text = self.player?.name
+        cell.handicapLabel.text = "Handicap: \(player.handicap!)"
+        cell.playerName.text = player.name
         
         
         return cell

@@ -60,7 +60,7 @@ class PlayerProfileController: UIViewController{
         if let name = player?.name{
             nameField.text = name
         }else{
-            nameField.text = "Golfer McGavin"
+            nameField.text = "No name provided"
         }
         
         if let handicap = player?.handicap{
@@ -72,6 +72,7 @@ class PlayerProfileController: UIViewController{
     
     func getUserInfo(){
         if let profileImageUrl = self.player?.profileImageUrl{
+            print("ProfileUrl \(profileImageUrl)")
             NetworkClient.getDataFromUrl(url: NSURL(string: profileImageUrl) as! URL, completion: { (data, response, error) in
                 if error != nil{
                     DispatchQueue.main.async{
@@ -81,7 +82,6 @@ class PlayerProfileController: UIViewController{
                 }
                 DispatchQueue.main.async {
                     self.profileImage.image = UIImage(data:data!)
-                    self.gamesTableView.reloadData()
                 }
             })
             
@@ -91,10 +91,9 @@ class PlayerProfileController: UIViewController{
     }
     
     func getGames(){
-    
+        
         for gameId in gameIds{
             NetworkClient.getGameInfo(gameId: gameId, completion: { (dict, error) in
-                print (dict)
                 if error != nil{
                     print(error)
                     return
@@ -102,7 +101,7 @@ class PlayerProfileController: UIViewController{
                     var game = Game(dict:dict!)
                     game.gameId = gameId
                     self.games.append(game)
-                    print("GAMES \(self.games)")
+                    self.games.sort{$0.date! < $1.date!}
                     DispatchQueue.main.async {
                         self.gamesTableView.reloadData()
                     }
@@ -129,16 +128,20 @@ extension PlayerProfileController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = gamesTableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
-        let chosenGame = games[(indexPath as NSIndexPath).row]
-        self.game = chosenGame
-  
-                    cell.buyInAmount.text = String(describing: chosenGame.buyIn!)
-                    cell.courseAddress.text = chosenGame.courseAddress
-                    cell.courseName.text = chosenGame.courseName
-                    cell.title.text = chosenGame.description
-                    cell.date.text = chosenGame.date
-                    cell.currentPot.text = String(describing: chosenGame.currentPot!)
-    
+        let game = games[(indexPath as NSIndexPath).row]
+        self.game = game
+        
+        //                    cell.buyInAmount.text = String(describing: chosenGame.buyIn!)
+        //                    cell.courseAddress.text = chosenGame.courseAddress
+        //                    cell.courseName.text = chosenGame.courseName
+        //                    cell.date.text = chosenGame.date
+        //                    cell.currentPot.text = String(describing: chosenGame.currentPot!)
+        cell.buyInAmount.text = "Buy In: $\( String(describing: game.buyIn!))"
+        cell.courseAddress.text = game.courseAddress
+        cell.courseName.text = game.courseName
+        cell.date.text = game.date
+        cell.currentPot.text = "Pot: $\(String(describing: game.currentPot!))"
+        cell.playerCount.text = "Players: \(String(describing:game.players!.count))"
         
         return cell
         

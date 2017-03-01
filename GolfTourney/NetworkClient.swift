@@ -63,15 +63,14 @@ class NetworkClient{
         ref.child("courses").child(game.courseId!).child("courseName").setValue(game.courseName)
     }
     
-    static func getGamesPerCourse(courseId: String, completion: @escaping (_ arr: [String]?, _ error: Error?) -> Void) {
+    static func getGamesPerCourse(courseId: String, completion: @escaping (_ dict: [String:Any]?, _ error: String?) -> Void) {
         let ref = FIRDatabase.database().reference()
         ref.child("courses").child(courseId).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let arr = snapshot.value as? [String]{
-                completion(arr, nil)
+            if let dict = snapshot.value as? [String:Any]{
+                completion(dict, nil)
             }
-        }) { (error) in
-            completion(nil,error)
-        }
+        })
+        completion(nil, "No Current Games")
         
     }
     
@@ -80,7 +79,6 @@ class NetworkClient{
         let ref = FIRDatabase.database().reference()
         ref.child("users").child(uid!).child("currentGames").child(gameId).removeValue()
         ref.child("games").child(gameId).child("players").child(uid!).removeValue()
-        
         
     }
     

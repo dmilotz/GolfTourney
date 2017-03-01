@@ -51,21 +51,22 @@ class CourseGameViewController : UIViewController {
     
  
     func getGamesInCourse(){
-        NetworkClient.getGamesPerCourse(courseId: String(course!.id)) { (idArr, error) in
+        NetworkClient.getGamesPerCourse(courseId: String(course!.id)) { (dict, error) in
             if error != nil{
                 print("BLAHHHHH")
                 print(error)
                 return
             }else{
-                for id in idArr!{
-                    print("ID \(id)")
-                    NetworkClient.getGameInfo(gameId: id, completion: { (dict, error) in
+                for (key, _) in dict! {
+                    print("ID \(key)")
+                    NetworkClient.getGameInfo(gameId: key, completion: { (dict, error) in
                         print (dict)
                         if error != nil{
                             print(error)
                             return
                         }else{
                             self.games.append(Game(dict:dict!))
+                            self.games.sort{$0.date! < $1.date!}
                             print("GAMES \(self.games)")
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()

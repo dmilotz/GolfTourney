@@ -127,6 +127,7 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
                     var game = Game(dict:gameInfo)
                     game.gameId = gameId
                     self.games.append(game)
+                    self.games.sort{$0.date! < $1.date!}
                     //print("GAME INFO\(self.games)")
                 }else{
                     //print("NOPE\(snapshot.value)")

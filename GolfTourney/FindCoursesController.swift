@@ -25,9 +25,10 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
     var ref: FIRDatabaseReference!
     var courses = [Course]()
     var course = Course()
+    var courseGameArr: [(course: Course, value: Int)] = []
     let searchDistance:Double =  20
     let locationManager = CLLocationManager()
-
+    
     @IBAction func nearbyCourses(_ sender: Any) {
         requestLocation()
     }
@@ -59,19 +60,18 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
     func search(search : String){
         
         let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
-   
+        
         self.courses = []
         for course in courses{
-       
+            
             self.courses.append(course)
         }
-        tableView.reloadData()
-        
+        sortCoursesWithGames()
     }
+
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         courses = []
-        tableView.reloadData()
         search(search: searchBar.text!)
         
     }
@@ -83,9 +83,31 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
         self.courses = []
         for course in courseArr!{
             self.courses.append(course)
+            
         }
-        tableView.reloadData()
-        
+        sortCoursesWithGames()
+    }
+    
+    
+    func sortCoursesWithGames(){
+        courseGameArr = []
+        for course in courses{
+            NetworkClient.getGamesPerCourse(courseId: String(course.id)) { (arr, error) in
+                print("Array returned \(arr)")
+                print("Error \(error)")
+                if let games = arr{
+                    self.courseGameArr.append((course: course, value: games.count))
+                }else{
+                    self.courseGameArr.append((course: course, value: 0))
+                }
+                DispatchQueue.main.async {
+                    self.courseGameArr.sort{$0.value > $1.value}
+                    //print (self.courseGameArr)
+                    self.tableView.reloadData()
+                }
+                
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -135,7 +157,7 @@ extension FindCoursesController: CLLocationManagerDelegate{
 
 extension FindCoursesController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.course = self.courses[(indexPath as NSIndexPath).row]
+        self.course = self.courseGameArr[(indexPath as NSIndexPath).row].course
         
         performSegue(withIdentifier: "courseChosen", sender: self)
     }
@@ -147,28 +169,21 @@ extension FindCoursesController: UITableViewDelegate{
 
 extension FindCoursesController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
+        //return courses.count
+        return courseGameArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as! CourseViewCell
-        let course = self.courses[(indexPath as NSIndexPath).row]
-      
+        let course = courseGameArr[(indexPath as NSIndexPath).row].course
+        
+            //self.courses[(indexPath as NSIndexPath).row]
+        
         cell.courseName.text = course.biz_name
         cell.courseAddress.text = "\(course.e_address), \(course.e_city), \(course.e_state)"
-        
+        cell.currentGamesCount.text = "Current games: \(courseGameArr[(indexPath as NSIndexPath).row].value)"
 
-        NetworkClient.getGamesPerCourse(courseId: String(course.id)) { (arr, error) in
-            if error != nil{
-                print(error)
-                return
-            }
-                    cell.currentGamesCount.text = "Current games: \(arr!.count)"
-                    //tableView.reloadData()
-              
-            
-        }
         // Set the name and image
         // cell.textLabel?.text =
         return cell

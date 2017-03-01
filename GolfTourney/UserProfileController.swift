@@ -131,6 +131,7 @@ class UserProfileController: UIViewController{
                         var game = Game(dict:dict!)
                         game.gameId = gameId
                         self.games.append(game)
+                        self.games.sort{$0.date! < $1.date!}
                         DispatchQueue.main.async {
                             self.gamesTableView.reloadData()
                         }
@@ -160,12 +161,12 @@ extension UserProfileController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = gamesTableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
         let game = games[(indexPath as NSIndexPath).row]
-        cell.buyInAmount.text = "Buy In: \( String(describing: game.buyIn!))"
+        cell.buyInAmount.text = "Buy In: $\( String(describing: game.buyIn!))"
         cell.courseAddress.text = game.courseAddress
         cell.courseName.text = game.courseName
-        cell.title.text = game.description
+        //cell.title.text = game.description
         cell.date.text = game.date
-        cell.currentPot.text = "Pot: \(String(describing: game.currentPot!))"
+        cell.currentPot.text = "Pot: $\(String(describing: game.currentPot!))"
         cell.playerCount.text = "Players: \(String(describing:game.players!.count))"
         
         return cell
