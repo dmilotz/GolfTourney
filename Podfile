@@ -14,6 +14,8 @@ target 'GolfTourney' do
   pod 'ALGridView'
 pod 'FacebookLogin'
 pod 'FacebookShare'
+#pod 'KIF'
+#pod 'Nimble'
   # Pods for GolfTourney
 
   target 'GolfTourneyTests' do

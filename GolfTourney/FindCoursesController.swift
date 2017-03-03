@@ -102,7 +102,6 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
                 }
                 DispatchQueue.main.async {
                     self.courseGameArr.sort{$0.value > $1.value}
-                    //print (self.courseGameArr)
                     self.tableView.reloadData()
                 }
                 

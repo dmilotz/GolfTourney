@@ -32,12 +32,20 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         ref = FIRDatabase.database().reference()
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
-                var vals = ["userName": user?.displayName, "email": user?.email] as [String : Any]
-                if let photoUrl = user?.photoURL{
-                    vals["profileImage"] = photoUrl.absoluteString
-                }
-                self.ref.child("users").child((user?.uid)!).updateChildValues(vals)
+                NetworkClient.checkUserExists(uid: (user?.uid)!, completion: { (userExists, error) in
+                    if error == nil{
+                        if !userExists!{
+                            var vals = ["userName": user?.displayName, "email": user?.email] as [String : Any]
+                            if let photoUrl = user?.photoURL{
+                                vals["profileImage"] = photoUrl.absoluteString
+                            }
+                            self.ref.child("users").child((user?.uid)!).updateChildValues(vals)
+                        }
+                    }
+                    
+                })
                 self.performSegue(withIdentifier: "loginToHomeScreen", sender: nil)
+
             }
         }
     }
@@ -50,7 +58,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
     }
     
     @IBAction func signUpDidTouch(_ sender: AnyObject) {
-       
+        
         let alert = UIAlertController(title: "Register",
                                       message: "Register",
                                       preferredStyle: .alert)

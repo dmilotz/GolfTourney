@@ -29,6 +29,23 @@ class NetworkClient{
             }.resume()
     }
     
+    static func checkUserExists(uid: String, completion: @escaping (_ bool: Bool? , _ error: Error?) -> Void) {
+        let ref = FIRDatabase.database().reference()
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if snapshot.hasChild(uid){
+                completion(true, nil)
+            }else{
+                completion(false, nil)
+            }
+            
+        }){ (error) in
+            completion(nil,error)
+        }
+        
+    }
+    
+    
     static func getGameInfo(gameId: String, completion: @escaping (_ dict: [String:Any]?, _ error: Error?) -> Void) {
         let ref = FIRDatabase.database().reference()
         ref.child("games").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
