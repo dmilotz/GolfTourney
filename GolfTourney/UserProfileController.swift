@@ -13,6 +13,7 @@ import FirebaseStorage
 import FirebaseAuth
 import FacebookLogin
 
+
 class UserProfileController: UIViewController{
     
     var player: Player?
@@ -28,6 +29,7 @@ class UserProfileController: UIViewController{
     //var storageRef: FIRStorageReference!
     @IBOutlet var gamesTableView: UITableView!
     @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func logout(_ sender: Any) {
         let firebaseAuth = FIRAuth.auth()
@@ -52,6 +54,7 @@ class UserProfileController: UIViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        ModalTransitionMediator.instance.setListener(listener: self)
         ref = FIRDatabase.database().reference()
         //storageRef = FIRStorage.storage().reference()
         gamesTableView.delegate = self
@@ -79,11 +82,10 @@ class UserProfileController: UIViewController{
             handicapField.text = "No handicap provided"
         }
         email.text = player?.email
-        
-        
     }
     
     func getUserInfo(){
+        activityIndicator.startAnimating()
         let curUser = FIRAuth.auth()?.currentUser?.uid
         
         NetworkClient.getUserInfo(userId: curUser!) { (dict, error) in
@@ -106,6 +108,8 @@ class UserProfileController: UIViewController{
                         }
                         DispatchQueue.main.async {
                             self.profileImage.image = UIImage(data:data!)
+                    
+                            self.activityIndicator.stopAnimating()
                             self.gamesTableView.reloadData()
                         }
                     })
@@ -141,6 +145,15 @@ class UserProfileController: UIViewController{
         }
     }
     
+}
+
+extension UserProfileController: ModalTransitionListener{
+    //required delegate func
+    func popoverDismissed() {
+        //self.dismiss(animated: true, completion: nil)
+        print("getting user infooo")
+        getUserInfo()
+    }
 }
 
 extension UserProfileController: UITableViewDelegate, UITableViewDataSource{

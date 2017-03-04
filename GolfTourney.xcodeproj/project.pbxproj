@@ -17,6 +17,7 @@
 		112C147C1E5C44CF001E6E18 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C147B1E5C44CF001E6E18 /* TabController.swift */; };
 		112C147F1E5D0B5A001E6E18 /* golfDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 112C147E1E5D0B5A001E6E18 /* golfDefault.png */; };
 		112C14811E5D0D62001E6E18 /* PlayerProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14801E5D0D62001E6E18 /* PlayerProfileController.swift */; };
+		113221791E6A3FAE008E23B3 /* ModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113221781E6A3FAE008E23B3 /* ModalTransitionMediator.swift */; };
 		1157CA3F1E49458900BAEE7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA3E1E49458900BAEE7F /* AppDelegate.swift */; };
 		1157CA441E49458900BAEE7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1157CA421E49458900BAEE7F /* Main.storyboard */; };
 		1157CA471E49458900BAEE7F /* GolfTourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA451E49458900BAEE7F /* GolfTourney.xcdatamodeld */; };
@@ -94,6 +95,7 @@
 		112C147B1E5C44CF001E6E18 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		112C147E1E5D0B5A001E6E18 /* golfDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = golfDefault.png; sourceTree = "<group>"; };
 		112C14801E5D0D62001E6E18 /* PlayerProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerProfileController.swift; sourceTree = "<group>"; };
+		113221781E6A3FAE008E23B3 /* ModalTransitionMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionMediator.swift; sourceTree = "<group>"; };
 		1157CA3B1E49458900BAEE7F /* GolfTourney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfTourney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1157CA3E1E49458900BAEE7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1157CA431E49458900BAEE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				112C14791E5BBCCE001E6E18 /* UIViewExtension.swift */,
 				112C147B1E5C44CF001E6E18 /* TabController.swift */,
 				112C14801E5D0D62001E6E18 /* PlayerProfileController.swift */,
+				113221781E6A3FAE008E23B3 /* ModalTransitionMediator.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				11DCFC741E4E70170054DB04 /* GameCell.swift in Sources */,
 				11DCFC6D1E4E5FDA0054DB04 /* GameViewController.swift in Sources */,
 				11DCFC721E4E66870054DB04 /* PlayerModel.swift in Sources */,
+				113221791E6A3FAE008E23B3 /* ModalTransitionMediator.swift in Sources */,
 				112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */,
 				11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */,
 				112C146F1E568252001E6E18 /* Course.swift in Sources */,

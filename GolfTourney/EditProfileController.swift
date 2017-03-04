@@ -17,6 +17,9 @@ class EditProfileController: UIViewController{
     var ref: FIRDatabaseReference!
     let uid = FIRAuth.auth()?.currentUser?.uid
     var user: Player?
+    var valsToUpdate: [String:String] = [:]
+    var nameFieldButtonPressed: Bool = false
+    var emailFieldButtonPressed: Bool = false
     
     @IBOutlet var profileImage: UIImageView!
     
@@ -41,6 +44,14 @@ class EditProfileController: UIViewController{
     @IBAction func save(_ sender: UIButton) {
         updateUserInfoInDatabase()
     }
+    @IBAction func editName(_ sender: Any) {
+        nameFieldButtonPressed = true
+    }
+    
+    @IBAction func editEmail(_ sender: Any) {
+        emailFieldButtonPressed = true
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +72,7 @@ class EditProfileController: UIViewController{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+        ModalTransitionMediator.instance.sendPopoverDismissed(modelChanged: true)
         
     }
     
@@ -101,30 +113,20 @@ class EditProfileController: UIViewController{
     }
     
     func updateUserInfoInDatabase(){
-        let imageName = NSUUID().uuidString
-        let storageRef = FIRStorage.storage().reference().child("profileImage").child("\(imageName).png")
-        if let uploadData = UIImagePNGRepresentation(profileImage.image!){
-            storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
-                if error != nil{
-                    print(error)
-                    return
-                }
-                
-                if let imageUrl = metadata?.downloadURL()?.absoluteString{
-                    
-                    let userRef = self.ref.child("users").child(self.uid!)
-                    let values = ["profileImage": imageUrl, "userName": self.nameField.text!, "email": self.emailField.text!, "handicap": self.handicapField.text!, "zipCode": self.zipField.text!]
-                    userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                        if error != nil{
-                            print(error)
-                            return
-                        }
-                        self.dismiss(animated: true, completion: nil)
-                    })
-                    
-                }
-            })
+
+        let userRef = self.ref.child("users").child(self.uid!)
+
+        userRef.updateChildValues(self.valsToUpdate, withCompletionBlock: { (error, ref) in
+        if error != nil{
+        print(error)
+        return
         }
+            DispatchQueue.main.async{
+            self.dismiss(animated: true, completion: nil)
+            ModalTransitionMediator.instance.sendPopoverDismissed(modelChanged: true)
+            }
+        
+        })
         
         
     }
@@ -132,8 +134,38 @@ class EditProfileController: UIViewController{
     
 }
 extension EditProfileController: UITextFieldDelegate{
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField.tag == 10{
+            if nameFieldButtonPressed{
+                return true
+            }else{
+            return false
+            }
+        }else if textField.tag == 20{
+            if emailFieldButtonPressed{
+                return true
+            }else{
+                return false
+            }
+        }
+        else{
+          return true
+        }
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        //
+        switch textField.tag{
+        case 10:
+            valsToUpdate["userName"] = textField.text
+        case 20:
+            valsToUpdate["email"] = textField.text
+        case 30:
+            valsToUpdate["handicap"] = textField.text
+        case 40:
+            valsToUpdate["zipCode"] = textField.text
+        default:
+            break
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -175,28 +207,6 @@ extension EditProfileController: UITextFieldDelegate{
         
     }
     
-    //
-    //    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
-    //                   replacementString string: String) -> Bool
-    //    {
-    //        if textField.tag == 30 {
-    //            let maxLength = 2
-    //            let currentString: NSString = textField.text! as NSString
-    //            let newString: NSString =
-    //                currentString.replacingCharacters(in: range, with: string) as NSString
-    //            return (newString.length <= maxLength) && (Int(newString as! String)! <= 36)
-    //        }else if textField.tag == 40{
-    //            let maxLength = 5
-    //            let currentString: NSString = textField.text! as NSString
-    //            let newString: NSString =
-    //                currentString.replacingCharacters(in: range, with: string) as NSString
-    //            return newString.length <= maxLength
-    //        }
-    //        else{
-    //            return true
-    //        }
-    //
-    //    }
     
 }
 extension EditProfileController{
@@ -248,8 +258,23 @@ extension EditProfileController: UIImagePickerControllerDelegate, UINavigationCo
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
             profileImage.image = image.resized(withPercentage: 0.1)
         }
+        let imageName = NSUUID().uuidString
+        let storageRef = FIRStorage.storage().reference().child("profileImage").child("\(imageName).png")
+        if let uploadData = UIImagePNGRepresentation(profileImage.image!){
+            storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil{
+                    print(error)
+                    return
+                }
+                
+                if let imageUrl = metadata?.downloadURL()?.absoluteString{
+                self.valsToUpdate["profileImage"] = imageUrl
+                }
+            })
+        }
+
+        
         dismiss(animated: true, completion: nil)
-        //updateUserPhotoInDatabase()
     }
 }
 

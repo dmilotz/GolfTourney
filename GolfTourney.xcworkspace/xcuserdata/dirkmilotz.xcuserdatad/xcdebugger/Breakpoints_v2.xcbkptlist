@@ -228,11 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/UserProfileController.swift"
-            timestampString = "509434286.424111"
+            timestampString = "510280400.982412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "logout(_:)"
             landmarkType = "7">
          </BreakpointContent>
