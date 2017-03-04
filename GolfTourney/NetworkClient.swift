@@ -85,9 +85,10 @@ class NetworkClient{
         ref.child("courses").child(courseId).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
             if let dict = snapshot.value as? [String:Any]{
                 completion(dict, nil)
+            }else{
+            completion(nil, "No Current Games")
             }
         })
-        completion(nil, "No Current Games")
         
     }
     

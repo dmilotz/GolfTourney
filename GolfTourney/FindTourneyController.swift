@@ -42,9 +42,7 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
         searchBar.delegate = self
         ref = FIRDatabase.database().reference()
         
-        
         self.locationManager.requestWhenInUseAuthorization()
-        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -79,8 +77,6 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     
     
     func searchByUserLocation(predicate: NSPredicate){
-        
-        games = []
         let courseResults = try? Realm().objects(Course.self).filter(predicate)
         self.courses = []
         for course in courseResults!{
@@ -90,7 +86,6 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        games = []
         print("searching...")
         courses = []
         search(search: searchBar.text!)
@@ -99,27 +94,26 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     
     
     func findCoursesWithGames(){
-        
+        games = []
         for course in courses{
             ref.child("courses").child(String(course.id)).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
-                self.gamesIdArr = []
                 if let dict = snapshot.value as? [String:String]{
                     for id in dict.keys{
-                        self.gamesIdArr.append(id)
+                       // self.gamesIdArr.append(id)
+                        self.getGameInfoFromCourse(gameId: id)
                     }
-                    self.getGameInfoFromCourse()
                 }
                 
             }) { (error) in
                 print(error.localizedDescription)
             }
         }
+        
     }
     
     
-    func getGameInfoFromCourse(){
-        games = []
-        for gameId in gamesIdArr{
+    func getGameInfoFromCourse(gameId: String){
+        //games = []
             
             ref.child("games").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
                 
@@ -128,16 +122,16 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
                     game.gameId = gameId
                     self.games.append(game)
                     self.games.sort{$0.date! < $1.date!}
+                    DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                    }
                     //print("GAME INFO\(self.games)")
                 }else{
                     //print("NOPE\(snapshot.value)")
                 }
-                DispatchQueue.main.async{
-                self.tableView.reloadData()
-                }
+//                DispatchQueue.main.async{
+//                }
             })
-            
-        }
         
     }
     
