@@ -64,14 +64,14 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     }
     
     func search(search : String){
-    
+        
         
         let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
         self.courses = []
         for course in courses{
             self.courses.append(course)
         }
-
+        
         findCoursesWithGames()
     }
     
@@ -99,7 +99,7 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
             ref.child("courses").child(String(course.id)).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dict = snapshot.value as? [String:String]{
                     for id in dict.keys{
-                       // self.gamesIdArr.append(id)
+                        // self.gamesIdArr.append(id)
                         self.getGameInfoFromCourse(gameId: id)
                     }
                 }
@@ -114,107 +114,107 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     
     func getGameInfoFromCourse(gameId: String){
         //games = []
+        
+        ref.child("games").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
             
-            ref.child("games").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                if let gameInfo = snapshot.value as? [String:Any]{
-                    var game = Game(dict:gameInfo)
-                    game.gameId = gameId
+            if let gameInfo = snapshot.value as? [String:Any]{
+                var game = Game(dict:gameInfo)
+                game.gameId = gameId
+                if self.games.contains(where: { $0.gameId == game.gameId}){
+                    return
+                    }
+                    else{
                     self.games.append(game)
                     self.games.sort{$0.date! < $1.date!}
                     DispatchQueue.main.async{
                     self.tableView.reloadData()
                     }
-                    //print("GAME INFO\(self.games)")
-                }else{
-                    //print("NOPE\(snapshot.value)")
                 }
-//                DispatchQueue.main.async{
-//                }
+             
+            }
             })
+        }
         
     }
     
-}
-
-
-extension FindTourneyController: CLLocationManagerDelegate{
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    // do stuff
+    extension FindTourneyController: CLLocationManagerDelegate{
+        
+        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+            if status == .authorizedAlways {
+                if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                    if CLLocationManager.isRangingAvailable() {
+                        // do stuff
+                    }
                 }
             }
         }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let userLocation = locations.first{
-        let minLat = userLocation.coordinate.latitude - (searchDistance / 69)
-        let maxLat = userLocation.coordinate.latitude + (searchDistance / 69)
         
-        let minLon = userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
-        let maxLon = userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            if let userLocation = locations.first{
+                let minLat = userLocation.coordinate.latitude - (searchDistance / 69)
+                let maxLat = userLocation.coordinate.latitude + (searchDistance / 69)
+                
+                let minLon = userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
+                let maxLon = userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
+                
+                searchByUserLocation(predicate: NSPredicate(format: "lat < %f AND lat > %f AND long < %f AND long > %f",maxLat, minLat, maxLon, minLon))
+            }
             
-            searchByUserLocation(predicate: NSPredicate(format: "lat < %f AND lat > %f AND long < %f AND long > %f",maxLat, minLat, maxLon, minLon))
+            
+            
         }
         
         
         
-    }
-    
-    
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Failed to find user's location: \(error.localizedDescription)")
-    }
-    
-}
-
-extension FindTourneyController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        chosenGame = games[(indexPath as NSIndexPath).row]
-        performSegue(withIdentifier: "gameChosen", sender: self)
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            print("Failed to find user's location: \(error.localizedDescription)")
+        }
         
-        if segue.identifier! == "gameChosen" {
+    }
+    
+    extension FindTourneyController: UITableViewDelegate{
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            chosenGame = games[(indexPath as NSIndexPath).row]
+            performSegue(withIdentifier: "gameChosen", sender: self)
+        }
+        
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            // Get the new view controller using segue.destinationViewController.
+            // Pass the selected object to the new view controller.
             
-            if let gameVc = segue.destination as? GameViewController {
-                gameVc.game = chosenGame
+            if segue.identifier! == "gameChosen" {
+                
+                if let gameVc = segue.destination as? GameViewController {
+                    gameVc.game = chosenGame
+                }
             }
         }
-    }
-    
-    
-}
-
-
-extension FindTourneyController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(games.count)
-        return games.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as! GameCell
         
-        let game = self.games[(indexPath as NSIndexPath).row]
-        cell.buyInAmount.text = String(describing: game.buyIn)
-        cell.title.text = game.description!
-        cell.courseAddress.text = game.courseAddress!
-        cell.courseName.text = game.courseName!
-        cell.date.text = game.date!
-        return cell
+        
     }
     
     
-    
+    extension FindTourneyController: UITableViewDataSource{
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            print(games.count)
+            return games.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            //let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as! GameCell
+            
+            let game = self.games[(indexPath as NSIndexPath).row]
+            cell.buyInAmount.text = String(describing: game.buyIn)
+            cell.title.text = game.description!
+            cell.courseAddress.text = game.courseAddress!
+            cell.courseName.text = game.courseName!
+            cell.date.text = game.date!
+            return cell
+        }
+        
+        
+        
 }
