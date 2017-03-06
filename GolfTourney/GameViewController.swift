@@ -169,11 +169,11 @@ extension GameViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     }
                 }
                 DispatchQueue.main.async {
-                    cell.playerImage.image = UIImage(data:data!)
+                    cell.playerImage.image = UIImage(data:data!)?.circle
                 }
             })
         }else{
-            cell.playerImage.image = UIImage(named:"golfDefault.png")
+            cell.playerImage.image = UIImage(named:"golfDefault.png")?.circle
         }
         
         cell.handicapLabel.text = "Handicap: \(player.handicap!)"

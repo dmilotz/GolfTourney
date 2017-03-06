@@ -73,7 +73,7 @@ class UserProfileController: UIViewController{
         if let name = player?.name{
             nameField.text = name
         }else{
-            nameField.text = "Golfer McGavin"
+            nameField.text = "No Name Given"
         }
         
         if let handicap = player?.handicap{
@@ -82,6 +82,10 @@ class UserProfileController: UIViewController{
             handicapField.text = "No handicap provided"
         }
         email.text = player?.email
+        
+//
+//        profileImage.layer.cornerRadius = profileImage.frame.height/2
+//        profileImage.clipsToBounds = true
     }
     
     func getUserInfo(){
@@ -96,7 +100,6 @@ class UserProfileController: UIViewController{
             }else{
                 self.player = Player(dict: dict!)
                 self.player?.uid = curUser!
-                self.setUpFields()
                 self.getGames()
                 if let profileImageUrl = self.player?.profileImageUrl{
                     NetworkClient.getDataFromUrl(url: NSURL(string: profileImageUrl) as! URL, completion: { (data, response, error) in
@@ -107,15 +110,25 @@ class UserProfileController: UIViewController{
                             }
                         }
                         DispatchQueue.main.async {
-                            self.profileImage.image = UIImage(data:data!)
-                    
+                            self.setUpFields()
+                            self.profileImage.image = UIImage(data:data!)?.circle
+                            
+
+
+
                             self.activityIndicator.stopAnimating()
                             self.gamesTableView.reloadData()
                         }
                     })
                     
                 }else{
-                    self.profileImage.image = UIImage(named:"golfDefault.png")
+                    DispatchQueue.main.async{
+                    self.setUpFields()
+
+                    self.profileImage.image = UIImage(named:"golfDefault.png")?.circle
+                    self.activityIndicator.stopAnimating()
+                    self.gamesTableView.reloadData()
+                    }
                 }
                 
             }
@@ -150,8 +163,7 @@ class UserProfileController: UIViewController{
 extension UserProfileController: ModalTransitionListener{
     //required delegate func
     func popoverDismissed() {
-        //self.dismiss(animated: true, completion: nil)
-        print("getting user infooo")
+        games = []
         getUserInfo()
     }
 }
@@ -188,3 +200,5 @@ extension UserProfileController: UITableViewDelegate, UITableViewDataSource{
     
     
 }
+
+

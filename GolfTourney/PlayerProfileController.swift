@@ -86,7 +86,7 @@ class PlayerProfileController: UIViewController{
             })
             
         }else{
-            self.profileImage.image = UIImage(named:"golfDefault.png")
+            self.profileImage.image = UIImage(named:"golfDefault.png")?.circle
         }
     }
     

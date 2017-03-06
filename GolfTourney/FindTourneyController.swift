@@ -207,11 +207,12 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
             let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as! GameCell
             
             let game = self.games[(indexPath as NSIndexPath).row]
-            cell.buyInAmount.text = String(describing: game.buyIn)
+            cell.buyInAmount.text = "Buy in: $\(String(describing: game.buyIn!))"
             cell.title.text = game.description!
             cell.courseAddress.text = game.courseAddress!
             cell.courseName.text = game.courseName!
             cell.date.text = game.date!
+            cell.currentPot.text = "Pot: $\(game.currentPot!)"
             return cell
         }
         
