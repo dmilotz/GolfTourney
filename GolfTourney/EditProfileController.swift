@@ -13,7 +13,9 @@ import FirebaseDatabase
 import UIKit
 
 class EditProfileController: UIViewController{
-    
+  
+  //MARK: Properties
+  
     var ref: FIRDatabaseReference!
     let uid = FIRAuth.auth()?.currentUser?.uid
     var user: Player?
@@ -133,6 +135,9 @@ class EditProfileController: UIViewController{
     
     
 }
+
+//MARK: Text delegate
+
 extension EditProfileController: UITextFieldDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField.tag == 10{
@@ -209,6 +214,9 @@ extension EditProfileController: UITextFieldDelegate{
     
     
 }
+
+//MARK: Keyboard notification
+
 extension EditProfileController{
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -242,7 +250,7 @@ extension EditProfileController{
 }
 
 
-
+//MARK: Image picker delegate
 
 extension EditProfileController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     

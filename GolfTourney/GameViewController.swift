@@ -110,16 +110,12 @@ class GameViewController: UIViewController{
     //MARK: Functionality for join button
     func joinGame(){
         if (joinButton.titleLabel?.text == "Join"){
-            //        ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
             ref.child("games").child((game?.gameId)!).child("players").child(uid!).setValue("")
             ref.child("users").child(uid!).child("currentGames").child((game?.gameId)!).setValue(game?.courseName)
             self.displayAlert("Game Joined!", title: "")
-            //performSegue(withIdentifier: "backHome", sender: self)
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
             self.present(controller!, animated: true, completion: nil)
         }else if (joinButton.titleLabel?.text == "Leave Game")  {
-            //ref.child("games").child((game?.gameId)!).child("players").updateChildValues([String(describing: game!.players!.count) : uid!])
-            //ref.child("users").child(uid!).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
             NetworkClient.leaveGame(gameId: (game?.gameId)!, completion: { (message, error) in
                 print(message)
                 

@@ -40,7 +40,6 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
         tableView.delegate = self
         searchBar.delegate = self
         ref = FIRDatabase.database().reference()
-        // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -72,12 +71,9 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         search(search: searchBar.text!)
-        
     }
     
     func searchByUserLocation(predicate: NSPredicate){
-        
-        
         let courseArr = try? Realm().objects(Course.self).filter(predicate)
         self.courses = []
         for course in courseArr!{
@@ -89,15 +85,10 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
     
     
     func sortCoursesWithGames(){
-        
         courseGameArr = []
         tableView.reloadData()
-        
-    
         for course in courses{
             NetworkClient.getGamesPerCourse(courseId: String(course.id)) { (arr, error) in
-                print("Array returned \(arr)")
-                print("Error \(error)")
                 self.serialQueue.sync{
                 if let games = arr{
                     self.courseGameArr.append((course: course, value: games.count))
@@ -117,11 +108,7 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
         if segue.identifier! == "courseChosen" {
-            
             if let gameVc = segue.destination as? CourseGameViewController {
                 gameVc.course = self.course
             }
@@ -131,7 +118,6 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
 }
 
 extension FindCoursesController: CLLocationManagerDelegate{
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
@@ -146,10 +132,8 @@ extension FindCoursesController: CLLocationManagerDelegate{
         let userLocation = locations[0]
         let minLat = userLocation.coordinate.latitude - (searchDistance / 69)
         let maxLat = userLocation.coordinate.latitude + (searchDistance / 69)
-        
         let minLon = userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
         let maxLon = userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
-        
         searchByUserLocation(predicate: NSPredicate(format: "lat < %f AND lat > %f AND long < %f AND long > %f",maxLat, minLat, maxLon, minLon))
         
     }
@@ -164,7 +148,6 @@ extension FindCoursesController: CLLocationManagerDelegate{
 extension FindCoursesController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.course = self.courseGameArr[(indexPath as NSIndexPath).row].course
-        
         performSegue(withIdentifier: "courseChosen", sender: self)
     }
     
@@ -175,24 +158,15 @@ extension FindCoursesController: UITableViewDelegate{
 
 extension FindCoursesController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return courses.count
         return courseGameArr.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as! CourseViewCell
         let course = courseGameArr[(indexPath as NSIndexPath).row].course
-        
-            //self.courses[(indexPath as NSIndexPath).row]
-        
         cell.courseName.text = course.biz_name
         cell.courseAddress.text = "\(course.e_address), \(course.e_city), \(course.e_state)"
         cell.currentGamesCount.text = "Current games: \(courseGameArr[(indexPath as NSIndexPath).row].value)"
-
-        // Set the name and image
-        // cell.textLabel?.text =
         return cell
     }
     
