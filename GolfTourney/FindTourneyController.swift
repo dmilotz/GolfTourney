@@ -17,11 +17,8 @@ import RealmSwift
 
 class FindTourneyController: UIViewController,  UISearchBarDelegate{
     
-    
-    @IBOutlet var searchBar: UISearchBar!
-    
-    @IBOutlet var tableView: UITableView!
-    
+
+    //MARK: properties
     var chosenGame: Game?
     var ref: FIRDatabaseReference!
     var courses :[Course] = []
@@ -35,7 +32,17 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
     var gamesIdArr : [String] = []
     var gamesArr: [Game] = []
     var coursesWithGamesArr: [Course] = []
-    
+  
+  
+  //MARK: Outlets
+  @IBOutlet var searchBar: UISearchBar!
+  
+  @IBOutlet var tableView: UITableView!
+}
+
+
+// MARK: - Lifecycle
+  extension FindTourneyController{
     override func viewDidLoad(){
         super.viewDidLoad()
         tableView.delegate = self
@@ -53,11 +60,14 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
         super.viewWillAppear(true)
         requestLocation()
     }
-    
+  }
+
+
+// MARK: - Private methods
+  extension FindTourneyController{
     func requestLocation(){
         locationManager.requestLocation()
     }
-    
     
     func deg2rad(degrees:Double) -> Double{
         return degrees * M_PI / 180
@@ -71,7 +81,6 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
         }
         findCoursesWithGames()
     }
-    
     
     func searchByUserLocation(predicate: NSPredicate){
         let courseResults = try? Realm().objects(Course.self).filter(predicate)
@@ -88,8 +97,10 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
         search(search: searchBar.text!)
         
     }
-    
-    
+}
+
+// MARK: - Search methods
+   private extension FindTourneyController{
     func findCoursesWithGames(){
         games = []
         for course in courses{
@@ -100,14 +111,11 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
                         self.getGameInfoFromCourse(gameId: id)
                     }
                 }
-                
             }) { (error) in
                 print(error.localizedDescription)
             }
         }
-        
     }
-    
     
     func getGameInfoFromCourse(gameId: String){
         ref.child("games").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in

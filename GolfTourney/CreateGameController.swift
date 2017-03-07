@@ -87,7 +87,6 @@ extension CreateGameController{
     ref = FIRDatabase.database().reference()
     
   }
-  
 }
 
 
@@ -109,7 +108,7 @@ extension CreateGameController: UIPickerViewDelegate, UIPickerViewDataSource{
   
 }
 
-// MARK: - THDatePickerDelegate used for popup calendar
+// MARK: - THDatePickerDelegate
 
 extension CreateGameController: THDatePickerDelegate {
   
@@ -117,7 +116,6 @@ extension CreateGameController: THDatePickerDelegate {
   func refreshTitle() {
     dateButton.setTitle((curFromDate != nil ? formatter.string(from: curFromDate!) : "No date selected"), for: UIControlState())
   }
-  
   
   @IBAction func touchedButton(_ sender: AnyObject) {
     if (sender.tag == 10) {
@@ -143,8 +141,6 @@ extension CreateGameController: THDatePickerDelegate {
       return nil
     }
   }
-  
-  // MARK: THDatePickerDelegate
   
   func datePickerDonePressed(_ datePicker: THDatePickerViewController!) {
     if datePicker == fromDatePicker {
