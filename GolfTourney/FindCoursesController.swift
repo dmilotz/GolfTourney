@@ -28,6 +28,8 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
     var courseGameArr: [(course: Course, value: Int)] = []
     let searchDistance:Double =  20
     let locationManager = CLLocationManager()
+    let serialQueue = DispatchQueue(label: "arrayQueue")
+    
     
     @IBAction func nearbyCourses(_ sender: Any) {
         requestLocation()
@@ -59,10 +61,8 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
     
     func search(search : String){
         
-        let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
-        
-        self.courses = []
-        for course in courses{
+        let courseArr = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
+        for course in courseArr{
             
             self.courses.append(course)
         }
@@ -71,7 +71,6 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
 
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        courses = []
         search(search: searchBar.text!)
         
     }
@@ -90,24 +89,31 @@ class FindCoursesController: UIViewController,  UISearchBarDelegate{
     
     
     func sortCoursesWithGames(){
+        
         courseGameArr = []
+        tableView.reloadData()
+        
+    
         for course in courses{
             NetworkClient.getGamesPerCourse(courseId: String(course.id)) { (arr, error) in
                 print("Array returned \(arr)")
                 print("Error \(error)")
+                self.serialQueue.sync{
                 if let games = arr{
                     self.courseGameArr.append((course: course, value: games.count))
                 }else{
                     self.courseGameArr.append((course: course, value: 0))
                 }
-                DispatchQueue.main.async{
                     self.courseGameArr.sort{$0.value > $1.value}
+
+                }
+                DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                
-
             }
+            
         }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -171,6 +177,7 @@ extension FindCoursesController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return courses.count
         return courseGameArr.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
