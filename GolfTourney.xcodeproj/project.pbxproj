@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11249AD11E6F5B9900FCCE1B /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD01E6F5B9900FCCE1B /* FlickrClient.swift */; };
+		11249AD31E6F5BAC00FCCE1B /* FlickrConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD21E6F5BAC00FCCE1B /* FlickrConstants.swift */; };
+		11249AD51E6F89FC00FCCE1B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD41E6F89FC00FCCE1B /* Photo.swift */; };
 		112C146F1E568252001E6E18 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C146D1E568252001E6E18 /* Course.swift */; };
 		112C14701E568252001E6E18 /* default2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 112C146E1E568252001E6E18 /* default2.realm */; };
 		112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14711E57D14F001E6E18 /* ScoreCardController.swift */; };
@@ -85,6 +88,9 @@
 
 /* Begin PBXFileReference section */
 		0F25F3DF706874C8406AE141 /* Pods-GolfTourney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfTourney.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfTourney/Pods-GolfTourney.debug.xcconfig"; sourceTree = "<group>"; };
+		11249AD01E6F5B9900FCCE1B /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
+		11249AD21E6F5BAC00FCCE1B /* FlickrConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrConstants.swift; sourceTree = "<group>"; };
+		11249AD41E6F89FC00FCCE1B /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		112C146D1E568252001E6E18 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		112C146E1E568252001E6E18 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default2.realm; path = GolfTourney/default2.realm; sourceTree = "<group>"; };
 		112C14711E57D14F001E6E18 /* ScoreCardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardController.swift; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 				11DCFC6B1E4E57FC0054DB04 /* Firebase */,
 				11DCFC6A1E4E57D70054DB04 /* Realm */,
 				1157CA731E4A995300BAEE7F /* Client */,
+				11249AD41E6F89FC00FCCE1B /* Photo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -276,6 +283,8 @@
 			children = (
 				1157CA741E4A996800BAEE7F /* NetworkClient.swift */,
 				1157CA7F1E4C147B00BAEE7F /* Constants.swift */,
+				11249AD01E6F5B9900FCCE1B /* FlickrClient.swift */,
+				11249AD21E6F5BAC00FCCE1B /* FlickrConstants.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -641,6 +650,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11249AD31E6F5BAC00FCCE1B /* FlickrConstants.swift in Sources */,
 				112C14761E5A433A001E6E18 /* UserProfileController.swift in Sources */,
 				11DCFC701E4E66150054DB04 /* PlayerTableCell.swift in Sources */,
 				1197053B1E52593400687827 /* FindTourneyController.swift in Sources */,
@@ -649,6 +659,7 @@
 				112C147C1E5C44CF001E6E18 /* TabController.swift in Sources */,
 				1157CA471E49458900BAEE7F /* GolfTourney.xcdatamodeld in Sources */,
 				11DCFC611E4E3CB20054DB04 /* CourseGameViewController.swift in Sources */,
+				11249AD11E6F5B9900FCCE1B /* FlickrClient.swift in Sources */,
 				11DCFC741E4E70170054DB04 /* GameCell.swift in Sources */,
 				11DCFC6D1E4E5FDA0054DB04 /* GameViewController.swift in Sources */,
 				11DCFC721E4E66870054DB04 /* PlayerModel.swift in Sources */,
@@ -667,6 +678,7 @@
 				1157CA801E4C147B00BAEE7F /* Constants.swift in Sources */,
 				112C14811E5D0D62001E6E18 /* PlayerProfileController.swift in Sources */,
 				1197053D1E52675E00687827 /* PlayerCollectionCell.swift in Sources */,
+				11249AD51E6F89FC00FCCE1B /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

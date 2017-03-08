@@ -27,7 +27,7 @@ class FindCoursesController: UIViewController{
   let searchDistance:Double =  20
   let locationManager = CLLocationManager()
   let serialQueue = DispatchQueue(label: "arrayQueue")
-  
+  var coursePhotoArr: [(course: Course, url: URL)] = []
   //MARK: Outlets
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var tableView: UITableView!
@@ -93,7 +93,7 @@ private extension FindCoursesController{
     }
     sortCoursesWithGames()
   }
-
+  
   func sortCoursesWithGames(){
     courseGameArr = []
     tableView.reloadData()
@@ -102,6 +102,7 @@ private extension FindCoursesController{
         self.serialQueue.sync{
           if let games = arr{
             self.courseGameArr.append((course: course, value: games.count))
+            self.getCoursePhotoUrl(course: course)
           }else{
             self.courseGameArr.append((course: course, value: 0))
           }
@@ -117,6 +118,15 @@ private extension FindCoursesController{
     
   }
   
+  func getCoursePhotoUrl(course: Course){
+    FlickrClient.getFlickrPhotos(latitude:String(course.lat), longitude: String(course.long)) { (error, photoArray) in
+      if(error == nil){
+        if !(photoArray?.isEmpty)!{
+          self.coursePhotoArr.append((course: course, url:photoArray?[0].photoUrl))
+        }
+      }
+    }
+  }
 }
 
 
@@ -183,9 +193,22 @@ extension FindCoursesController: UITableViewDataSource{
     cell.courseName.text = course.biz_name
     cell.courseAddress.text = "\(course.e_address), \(course.e_city), \(course.e_state)"
     cell.currentGamesCount.text = "Current games: \(courseGameArr[(indexPath as NSIndexPath).row].value)"
-    return cell
-  }
-  
-  
-  
+    
+    FlickrClient.getDataFromUrl(url: url!, completion: { (data, response, error) in
+      
+      guard let data = data, error == nil else {
+        print("Problem downloading photo from \(url)")
+        return
+      }
+      DispatchQueue.main.async {
+        cell.coursePic?.image = UIImage(data: data)?.circle
+      }
+      cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
+      
+    })
+  return cell
+}
+
+
+
 }

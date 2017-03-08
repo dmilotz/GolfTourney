@@ -27,7 +27,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
 
 
 // MARK: Actions
-
 extension LoginViewController{
   
   @IBAction func loginDidTouch(_ sender: AnyObject) {
@@ -124,6 +123,8 @@ private extension LoginViewController{
   
 }
 
+
+// MARK: - FBSDKLoginButtonDelegate
 extension LoginViewController: FBSDKLoginButtonDelegate{
   
   func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -153,6 +154,8 @@ extension LoginViewController: FBSDKLoginButtonDelegate{
   
 }
 
+
+// MARK: - UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
