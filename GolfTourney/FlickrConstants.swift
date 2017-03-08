@@ -25,8 +25,8 @@ extension FlickrClient {
     static let latitude = "&lat="
     static let accuracy = "&accuracy="
     static let jsonFormat = "&format=json&nojsoncallback=1"
-    static let pageNum = "&page="
-    static let tags = "&tags=golf course"
+    static let pageNum = "&page=0"
+    static let tags = "&tags=golf%20course"
   }
   
   

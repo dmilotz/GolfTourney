@@ -16,9 +16,9 @@ class FlickrClient{
     
     //let randomPageNum = String(Int(arc4random_uniform(10)))
     
-    let url = Constants.flickrApiUrl + Constants.flickrPhotoLocationMethod + FlickrArgs.apiKey +  FlickrArgs.latitude + latitude + FlickrArgs.longitude + longitude + FlickrArgs.pageNum + 0 + FlickrArgs.tags + FlickrArgs.jsonFormat
+    let url = Constants.flickrApiUrl + Constants.flickrPhotoLocationMethod + FlickrArgs.apiKey +  FlickrArgs.latitude + latitude + FlickrArgs.longitude + longitude + FlickrArgs.pageNum  + FlickrArgs.tags + FlickrArgs.jsonFormat
     
-    print(url)
+
     
     let request = NSMutableURLRequest(url: URL(string: url)!)
     

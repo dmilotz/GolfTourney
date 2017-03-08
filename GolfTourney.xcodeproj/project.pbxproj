@@ -10,6 +10,8 @@
 		11249AD11E6F5B9900FCCE1B /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD01E6F5B9900FCCE1B /* FlickrClient.swift */; };
 		11249AD31E6F5BAC00FCCE1B /* FlickrConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD21E6F5BAC00FCCE1B /* FlickrConstants.swift */; };
 		11249AD51E6F89FC00FCCE1B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD41E6F89FC00FCCE1B /* Photo.swift */; };
+		11249AD71E708A0500FCCE1B /* GoogleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD61E708A0500FCCE1B /* GoogleClient.swift */; };
+		11249AD91E708A7B00FCCE1B /* GoogleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD81E708A7B00FCCE1B /* GoogleConstants.swift */; };
 		112C146F1E568252001E6E18 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C146D1E568252001E6E18 /* Course.swift */; };
 		112C14701E568252001E6E18 /* default2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 112C146E1E568252001E6E18 /* default2.realm */; };
 		112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14711E57D14F001E6E18 /* ScoreCardController.swift */; };
@@ -91,6 +93,8 @@
 		11249AD01E6F5B9900FCCE1B /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
 		11249AD21E6F5BAC00FCCE1B /* FlickrConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrConstants.swift; sourceTree = "<group>"; };
 		11249AD41E6F89FC00FCCE1B /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		11249AD61E708A0500FCCE1B /* GoogleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleClient.swift; sourceTree = "<group>"; };
+		11249AD81E708A7B00FCCE1B /* GoogleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleConstants.swift; sourceTree = "<group>"; };
 		112C146D1E568252001E6E18 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		112C146E1E568252001E6E18 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default2.realm; path = GolfTourney/default2.realm; sourceTree = "<group>"; };
 		112C14711E57D14F001E6E18 /* ScoreCardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardController.swift; sourceTree = "<group>"; };
@@ -285,6 +289,8 @@
 				1157CA7F1E4C147B00BAEE7F /* Constants.swift */,
 				11249AD01E6F5B9900FCCE1B /* FlickrClient.swift */,
 				11249AD21E6F5BAC00FCCE1B /* FlickrConstants.swift */,
+				11249AD61E708A0500FCCE1B /* GoogleClient.swift */,
+				11249AD81E708A7B00FCCE1B /* GoogleConstants.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -663,8 +669,10 @@
 				11DCFC741E4E70170054DB04 /* GameCell.swift in Sources */,
 				11DCFC6D1E4E5FDA0054DB04 /* GameViewController.swift in Sources */,
 				11DCFC721E4E66870054DB04 /* PlayerModel.swift in Sources */,
+				11249AD71E708A0500FCCE1B /* GoogleClient.swift in Sources */,
 				113221791E6A3FAE008E23B3 /* ModalTransitionMediator.swift in Sources */,
 				112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */,
+				11249AD91E708A7B00FCCE1B /* GoogleConstants.swift in Sources */,
 				11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */,
 				112C146F1E568252001E6E18 /* Course.swift in Sources */,
 				112C14781E5BA8E0001E6E18 /* EditProfileController.swift in Sources */,
