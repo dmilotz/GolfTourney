@@ -17,4 +17,5 @@ class CourseViewCell : UITableViewCell{
   @IBOutlet var courseAddress: UILabel!
   @IBOutlet var currentGamesCount: UILabel!
   
+  @IBOutlet var activityIndicator: UIActivityIndicatorView!
 }

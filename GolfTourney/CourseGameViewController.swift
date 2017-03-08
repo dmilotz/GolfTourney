@@ -17,15 +17,17 @@ class CourseGameViewController : UIViewController {
   var games : [Game] = []
   var gamesIdArr: [String]?
   var game: Game?
+  var photo : UIImage?
   
   //MARK: - Outlets
   @IBOutlet var courseName: UILabel!
   @IBOutlet var courseAddress: UILabel!
-  @IBOutlet var phoneNumber: UILabel!
   @IBOutlet var numberOfHoles: UILabel!
   @IBOutlet var yearBuilt: UILabel!
   @IBOutlet var designer: UILabel!
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var courseImage: UIImageView!
+
   
   //MARK: - Overridden methods
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,10 +74,11 @@ private extension CourseGameViewController{
   func setUp(){
     courseName.text = course?.biz_name
     courseAddress.text = "\(course!.e_address), \(course!.e_city), \(course!.e_state)"
-    phoneNumber.text =  course!.biz_phone
     numberOfHoles.text = "Holes: \(course!.c_holes)"
     yearBuilt.text = "Year Built: \(course!.year_built)"
     designer.text = "Designer: \(course!.c_designer)"
+    courseImage.image = photo
+   
   }
   
   

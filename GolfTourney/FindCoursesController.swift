@@ -24,10 +24,12 @@ class FindCoursesController: UIViewController{
   var courses = [Course]()
   var course = Course()
   var courseGameArr: [(course: Course, value: Int)] = []
-  let searchDistance:Double =  20
+  let searchDistance:Double =  10
   let locationManager = CLLocationManager()
   let serialQueue = DispatchQueue(label: "arrayQueue")
-  var coursePhotoArr: [Course : URL] = [:]
+  var coursePhotoArr: [Course : String] = [:]
+  var courseImage: UIImage?
+  
   //MARK: Outlets
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var tableView: UITableView!
@@ -56,7 +58,8 @@ class FindCoursesController: UIViewController{
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier! == "courseChosen" {
       if let gameVc = segue.destination as? CourseGameViewController {
-        gameVc.course = self.course
+        gameVc.photo = courseImage
+        gameVc.course = course
       }
     }
   }
@@ -79,6 +82,7 @@ private extension FindCoursesController{
   
   func search(search : String){
     let courseArr = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
+    courses = []
     for course in courseArr{
       self.courses.append(course)
     }
@@ -121,8 +125,10 @@ private extension FindCoursesController{
   
   func getCoursePhotoUrl(course: Course){
       GoogleClient.findPhotos(lat: String(course.lat), long: String(course.long), name: course.biz_name) { (error, photoUrl) in
-        print (photoUrl)
-    
+        self.coursePhotoArr[course] = photoUrl
+        DispatchQueue.main.async{
+          self.tableView.reloadData()
+        }
     }
   }
 }
@@ -170,12 +176,11 @@ extension FindCoursesController: CLLocationManagerDelegate{
 // MARK: - UITableViewDelegate
 extension FindCoursesController: UITableViewDelegate{
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let cell = tableView.cellForRow(at: indexPath) as! CourseViewCell
+    courseImage = cell.coursePic?.image
     self.course = self.courseGameArr[(indexPath as NSIndexPath).row].course
     performSegue(withIdentifier: "courseChosen", sender: self)
   }
-  
-  
-  
 }
 
 
@@ -191,22 +196,28 @@ extension FindCoursesController: UITableViewDataSource{
     cell.courseName.text = course.biz_name
     cell.courseAddress.text = "\(course.e_address), \(course.e_city), \(course.e_state)"
     cell.currentGamesCount.text = "Current games: \(courseGameArr[(indexPath as NSIndexPath).row].value)"
-//    if let url = coursePhotoArr[course]{
-//      
-//      FlickrClient.getDataFromUrl(url: url, completion: { (data, response, error) in
-//        
-//        guard let data = data, error == nil else {
-//          //        print("Problem downloading photo from \(url)")
-//          return
-//        }
-//        DispatchQueue.main.async {
-//          cell.coursePic?.image = UIImage(data: data)?.circle
-//        }
-//      })
-//    }
-//    else{
+    
+    if let url = coursePhotoArr[course]{
+      
+      GoogleClient.getDataFromUrl(url: URL(string: url)!, completion: { (data, response, error) in
+        
+        guard let data = data, error == nil else {
+          cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
+          cell.activityIndicator.stopAnimating()
+          return
+        }
+        DispatchQueue.main.async {
+          cell.coursePic?.image = UIImage(data: data)?.circle
+          cell.activityIndicator.stopAnimating()
+        }
+      })
       cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
-//    }
+      cell.activityIndicator.startAnimating()
+      
+    }
+    else{
+      cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
+    }
     return cell
   }
   

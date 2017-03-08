@@ -28,7 +28,8 @@ class GoogleClient{
       
       do {
         let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
-        guard let results = resultsDictionary else { return }
+        guard let results = resultsDictionary else {     completionHandlerForGetPhotos(error?.localizedDescription, nil)
+        return}
         print (results)
         if let results = results["results"] as? [[String : AnyObject]]{
         print ("RESULTSSS \(results)")
@@ -36,12 +37,12 @@ class GoogleClient{
             print("PHOTO \(photoInfo)")
             if let photoReference = photoInfo[0]["photo_reference"] as? String{
               print("REFEREEEN#################### \(photoReference)")
+              let photoUrl = Constants.googlePhotoUrl + photoReference + Args.apiKey
+              completionHandlerForGetPhotos(nil, photoUrl)
             }
           }else{
-            return
+            completionHandlerForGetPhotos(error?.localizedDescription, nil)
           }
-          
-        
         //let reference = photoInfo[0]["photo_reference"]
         //print("REference \(reference)")
         }
@@ -54,4 +55,18 @@ class GoogleClient{
     task.resume()
 
 }
+  
+  
+  static func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+    URLSession.shared.dataTask(with: url) {
+      (data, response, error) in
+      guard let data = data, error == nil else{
+        print("problem loading photo from url \(url)")
+        return
+      }
+      
+      completion(data, response, error)
+      }.resume()
+  }
+  
 }
