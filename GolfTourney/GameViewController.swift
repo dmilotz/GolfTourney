@@ -13,144 +13,145 @@ import FirebaseAuth
 
 class GameViewController: UIViewController{
   
-    //MARK: Properties
-    var ref: FIRDatabaseReference!
-    var player: Player?
-    var user: Player?
-    var players: [Player] = []
-    var game: Game?
-    var playerIds: [String] = []
-    let uid = FIRAuth.auth()?.currentUser?.uid
+  //MARK: Properties
+  var ref: FIRDatabaseReference!
+  var player: Player?
+  var user: Player?
+  var players: [Player] = []
+  var game: Game?
+  var playerIds: [String] = []
+  let uid = FIRAuth.auth()?.currentUser?.uid
   
   //MARK: Outlets
-    @IBOutlet var buyInLabel: UILabel!
-    @IBOutlet var currentPotLabel: UILabel!
-    @IBOutlet var spotsLeftLabel: UILabel!
-    @IBOutlet var gameTitleLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var courseLabel: UILabel!
-    @IBOutlet var playerCollectionView: UICollectionView!
-    @IBOutlet var joinButton: UIButton!
+  @IBOutlet var buyInLabel: UILabel!
+  @IBOutlet var currentPotLabel: UILabel!
+  @IBOutlet var spotsLeftLabel: UILabel!
+  @IBOutlet var gameTitleLabel: UILabel!
+  @IBOutlet var dateLabel: UILabel!
+  @IBOutlet var courseLabel: UILabel!
+  @IBOutlet var playerCollectionView: UICollectionView!
+  @IBOutlet var joinButton: UIBarButtonItem!
+  
+  
 }
 
 
 // MARK: - Actions
-  extension GameViewController{
-    @IBAction func joinGame(_ sender: Any) {
-     joinGame()
-    
-    }
-    
-    @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+extension GameViewController{
+  @IBAction func joinGame(_ sender: Any) {
+    joinGame()
   }
+  
+  @IBAction func cancel(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+  }
+}
 
 // MARK: - Lifecycle
 extension GameViewController{
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        ref = FIRDatabase.database().reference()
-        
-        playerCollectionView.delegate = self
-        playerCollectionView.dataSource = self
-        buyInLabel.text = "Buy In: $\(String(describing: game!.buyIn!)) "
-        currentPotLabel.text = "Pot: $\(String(describing: game!.currentPot!))"
-        dateLabel.text = game?.date!
-        courseLabel.text = game?.courseName
-        gameTitleLabel.text = game?.description
-        if let keys = game?.players?.keys{
-            playerIds = Array(keys)
-        }
-        
-        getPlayers()
-        
-        joinButton.setTitle("Join", for: .normal)
-        if isGameOwner(){
-            joinButton.setTitle("Cancel Game", for: .normal)
-            
-        }else if didAlreadyJoin(){
-            joinButton.setTitle("Leave Game", for: .normal)
-        }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    ref = FIRDatabase.database().reference()
+    
+    playerCollectionView.delegate = self
+    playerCollectionView.dataSource = self
+    buyInLabel.text = "Buy In: $\(String(describing: game!.buyIn!)) "
+    currentPotLabel.text = "Pot: $\(String(describing: game!.currentPot! * game!.players!.count))"
+    dateLabel.text = game?.date!
+    courseLabel.text = game?.courseName
+    gameTitleLabel.text = game?.description
+    if let keys = game?.players?.keys{
+      playerIds = Array(keys)
     }
+    
+    getPlayers()
+    
+    joinButton.title = "Join"
+    if isGameOwner(){
+      joinButton.title = "Cancel Game"
+      
+    }else if didAlreadyJoin(){
+      joinButton.title = "Leave Game"
+    }
+  }
 }
 
 
 // MARK: - Private methods
 private extension GameViewController{
-
-    func didAlreadyJoin() -> Bool{
-        return playerIds.contains((uid)!)
-    }
-    
-    func isGameOwner() -> Bool{
-        return game!.gameOwner == uid
-    }
-    
-    func getUserInfo(){
-        NetworkClient.getUserInfo(userId: (uid)!) { (dict, error) in
-            if error != nil{
-                print (error)
-                return
-            }
-            self.user = Player(dict: dict!)
-        }
-    }
   
-    func getPlayers(){
-        for playerId in playerIds{
-            NetworkClient.getUserInfo(userId: playerId) { (dict, error) in
-                if error != nil{
-                    DispatchQueue.main.async {
-                        self.displayAlert((error?.localizedDescription)!, title: "Error")
-                        return
-                    }
-                }else{
-                    self.players.append(Player(dict:dict!))
-                    DispatchQueue.main.async{
-                        self.playerCollectionView.reloadData()
-                    }
-                }
-            }
-        }
-    }
+  func didAlreadyJoin() -> Bool{
+    return playerIds.contains((uid)!)
+  }
   
-    //MARK: Functionality for join button
-    func joinGame(){
-        if (joinButton.titleLabel?.text == "Join"){
-            ref.child("games").child((game?.gameId)!).child("players").child(uid!).setValue("")
-            ref.child("users").child(uid!).child("currentGames").child((game?.gameId)!).setValue(game?.courseName)
-            self.displayAlert("Game Joined!", title: "")
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-            self.present(controller!, animated: true, completion: nil)
-        }else if (joinButton.titleLabel?.text == "Leave Game")  {
-            NetworkClient.leaveGame(gameId: (game?.gameId)!, completion: { (message, error) in
-                print(message)
-            })
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-            self.present(controller!, animated: true, completion: nil)
+  func isGameOwner() -> Bool{
+    return game!.gameOwner == uid
+  }
+  
+  func getUserInfo(){
+    NetworkClient.getUserInfo(userId: (uid)!) { (dict, error) in
+      if error != nil{
+        print (error)
+        return
+      }
+      self.user = Player(dict: dict!)
+    }
+  }
+  
+  func getPlayers(){
+    for playerId in playerIds{
+      NetworkClient.getUserInfo(userId: playerId) { (dict, error) in
+        if error != nil{
+          DispatchQueue.main.async {
+            self.displayAlert((error?.localizedDescription)!, title: "Error")
+            return
+          }
         }else{
-            let deleteAlert = UIAlertController(title: "Cancel Game?", message: "Are you sure you want to cancel the game?", preferredStyle: UIAlertControllerStyle.alert)
-            deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                NetworkClient.cancelGame(game:self.game!)
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-                self.present(controller!, animated: true, completion: nil)}))
-            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-                return            }))
-            self.present(deleteAlert, animated: true, completion: nil)
+          self.players.append(Player(dict:dict!))
+          DispatchQueue.main.async{
+            self.playerCollectionView.reloadData()
+          }
         }
+      }
     }
+  }
+  
+  //MARK: Functionality for join button
+  func joinGame(){
+    if (joinButton.title == "Join"){
+      ref.child("games").child((game?.gameId)!).child("players").child(uid!).setValue("")
+      ref.child("users").child(uid!).child("currentGames").child((game?.gameId)!).setValue(game?.courseName)
+      self.displayAlert("Game Joined!", title: "")
+      let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+      self.present(controller!, animated: true, completion: nil)
+    }else if (joinButton.title == "Leave Game")  {
+      NetworkClient.leaveGame(gameId: (game?.gameId)!, completion: { (message, error) in
+        print(message)
+      })
+      let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+      self.present(controller!, animated: true, completion: nil)
+    }else{
+      let deleteAlert = UIAlertController(title: "Cancel Game?", message: "Are you sure you want to cancel the game?", preferredStyle: UIAlertControllerStyle.alert)
+      deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+        NetworkClient.cancelGame(game:self.game!)
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+        self.present(controller!, animated: true, completion: nil)}))
+      deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        return            }))
+      self.present(deleteAlert, animated: true, completion: nil)
+    }
+  }
 }
 
 
 // MARK: - UICollectionViewDelegate
 extension GameViewController: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "PlayerProfileController") as! PlayerProfileController
-        controller.player = players[(indexPath as NSIndexPath).row]
-        self.present(controller, animated: true, completion: nil)
-    }
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let controller = self.storyboard?.instantiateViewController(withIdentifier: "PlayerProfileController") as! PlayerProfileController
+    controller.player = players[(indexPath as NSIndexPath).row]
+    self.present(controller, animated: true, completion: nil)
+  }
 }
 
 

@@ -50,13 +50,12 @@ class CourseGameViewController : UIViewController {
 extension CourseGameViewController{
   
   @IBAction func goToWebsite(_ sender: Any) {
-    print ("EXTRAAAAA#$#(*$(#*$(#*$(#*$($* j\(extraCourseInfo) ")
     if let url = extraCourseInfo?["websiteUrl"] as? URL{
       UIApplication.shared.openURL(url)
     }
     else{
       let alertController = UIAlertController(title: "Url Error", message:
-        "Url did not work.", preferredStyle: UIAlertControllerStyle.alert)
+        "No website provided for this course.", preferredStyle: UIAlertControllerStyle.alert)
       alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
       
       self.present(alertController, animated: true, completion: nil)
@@ -150,9 +149,11 @@ extension CourseGameViewController: UITableViewDataSource{
     
     let game = self.games[(indexPath as NSIndexPath).row]
     
-    cell.buyInAmount.text = String(describing: game.buyIn!)
+    cell.buyInAmount.text = "Buy In: $\(String(describing: game.buyIn!))"
+    cell.playerCount.text = "Players: \(String(game.players!.count))"
     cell.title.text = game.description!
     cell.date.text = game.date!
+    cell.currentPot.text = "Pot: $\(String(game.buyIn! * game.players!.count))"
     return cell
   }
   

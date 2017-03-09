@@ -50,6 +50,27 @@ class CreateGameController: UIViewController{
   
 }
 
+
+
+// MARK: Lifecycle Methods
+
+extension CreateGameController{
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    tourneyTitle.delegate = self
+    chosenHandicap = handicapPickerDataSource[0]
+    buyInStepper.maximumValue = 10
+    buyInStepper.minimumValue = 0
+    refreshTitle()
+    handicapPicker.delegate = self
+    handicapPicker.dataSource = self
+    courseName.text = course.biz_name
+    ref = FIRDatabase.database().reference()
+    
+  }
+}
+
 // MARK: Actions
 
 extension CreateGameController{
@@ -71,22 +92,12 @@ extension CreateGameController{
   
 }
 
-// MARK: Lifecycle Methods
 
-extension CreateGameController{
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    chosenHandicap = handicapPickerDataSource[0]
-    buyInStepper.maximumValue = 10
-    buyInStepper.minimumValue = 0
-    refreshTitle()
-    handicapPicker.delegate = self
-    handicapPicker.dataSource = self
-    courseName.text = course.biz_name
-    ref = FIRDatabase.database().reference()
-    
+extension CreateGameController: UITextViewDelegate{
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    textView.text = ""
   }
+  
 }
 
 

@@ -146,14 +146,20 @@ private extension FindCoursesController{
           
           guard let place = place else {
             print("No place details for \(id)")
+            self.extraCourseInfo[course] = ["websiteUrl": "" as AnyObject]
             return
           }
           if let url = place.website{
             print("URLLL \(url)")
             self.extraCourseInfo[course] = ["websiteUrl": url as AnyObject]
             
+          }else{
+            self.extraCourseInfo[course] = ["websiteUrl": "" as AnyObject]
+
           }
         })
+      }else{
+        self.extraCourseInfo[course] = ["websiteUrl": "" as AnyObject]
       }
     }
     

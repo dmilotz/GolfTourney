@@ -210,7 +210,7 @@ extension FindTourneyController: UITableViewDataSource{
         cell.courseAddress.text = game.courseAddress!
         cell.courseName.text = game.courseName!
         cell.date.text = game.date!
-        cell.currentPot.text = "Pot: $\(game.currentPot!)"
+        cell.currentPot.text = "Pot: $\(game.buyIn! * game.players!.count)"
         return cell
     }
     

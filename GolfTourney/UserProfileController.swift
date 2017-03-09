@@ -86,12 +86,16 @@ private extension UserProfileController{
     }
     
     if let handicap = player?.handicap{
-      handicapField.text = handicap
+      handicapField.text = "Handicap: \(handicap)"
     }else{
       handicapField.text = "No handicap provided"
     }
     
-    email.text = player?.email
+    if let email = player?.email{
+      self.email.text = email
+    }else{
+      email.text = "No email provided"
+    }
   }
   
   func getUserInfo(){
@@ -191,11 +195,12 @@ extension UserProfileController: UITableViewDataSource{
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = gamesTableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
     let game = games[(indexPath as NSIndexPath).row]
+    cell.title.text = game.description
     cell.buyInAmount.text = "Buy In: $\( String(describing: game.buyIn!))"
     cell.courseAddress.text = game.courseAddress
     cell.courseName.text = game.courseName
     cell.date.text = game.date
-    cell.currentPot.text = "Pot: $\(String(describing: game.currentPot!))"
+    cell.currentPot.text = "Pot: $\(String(describing: game.currentPot! * game.players!.count))"
     cell.playerCount.text = "Players: \(String(describing:game.players!.count))"
     
     return cell
