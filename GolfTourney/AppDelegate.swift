@@ -11,7 +11,9 @@ import Firebase
 import FirebaseDatabase
 import RealmSwift
 import GoogleSignIn
+import GooglePlaces
 import FBSDKCoreKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
@@ -20,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        GMSPlacesClient.provideAPIKey(GoogleClient.Constants.googleApiKey)
+
         // Override point for customization after application launch.
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true

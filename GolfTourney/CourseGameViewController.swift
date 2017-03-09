@@ -13,11 +13,12 @@ import Firebase
 class CourseGameViewController : UIViewController {
   
   //MARK: - Properties
-  var course : Course?
-  var games : [Game] = []
+  var extraCourseInfo: [String: AnyObject]?
+  var course: Course?
+  var games: [Game] = []
   var gamesIdArr: [String]?
   var game: Game?
-  var photo : UIImage?
+  var photo: UIImage?
   
   //MARK: - Outlets
   @IBOutlet var courseName: UILabel!
@@ -28,6 +29,7 @@ class CourseGameViewController : UIViewController {
   @IBOutlet var tableView: UITableView!
   @IBOutlet var courseImage: UIImageView!
 
+  
   
   //MARK: - Overridden methods
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,10 +49,24 @@ class CourseGameViewController : UIViewController {
 //MARK: - Actions
 extension CourseGameViewController{
   
+  @IBAction func goToWebsite(_ sender: Any) {
+    print ("EXTRAAAAA#$#(*$(#*$(#*$(#*$($* j\(extraCourseInfo) ")
+    if let url = extraCourseInfo?["websiteUrl"] as? URL{
+      UIApplication.shared.openURL(url)
+    }
+    else{
+      let alertController = UIAlertController(title: "Url Error", message:
+        "Url did not work.", preferredStyle: UIAlertControllerStyle.alert)
+      alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+      
+      self.present(alertController, animated: true, completion: nil)
+    }
+  }
+
   @IBAction func createAGame(_ sender: Any) {
     performSegue(withIdentifier: "createGame", sender: self)
   }
-  
+
   @IBAction func back(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
@@ -77,8 +93,7 @@ private extension CourseGameViewController{
     numberOfHoles.text = "Holes: \(course!.c_holes)"
     yearBuilt.text = "Year Built: \(course!.year_built)"
     designer.text = "Designer: \(course!.c_designer)"
-    courseImage.image = photo
-   
+    courseImage.image = extraCourseInfo?["image"] as! UIImage?
   }
   
   

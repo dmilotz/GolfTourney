@@ -55,6 +55,9 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleAppUtilities (1.1.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - GoogleMaps/Base (2.2.0)
+  - GooglePlaces (2.2.0):
+    - GoogleMaps/Base (= 2.2.0)
   - GoogleSignIn (4.0.1):
     - GoogleAppUtilities (~> 1.1)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
@@ -91,6 +94,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - GooglePlaces
   - GoogleSignIn (= 4.0.1)
   - THCalendarDatePicker (~> 1.2.6)
 
@@ -111,6 +115,8 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
   GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
+  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   GoogleSignIn: a8694c0a8e6d1b0ec77c58014de5bfd4ba2fa766
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
@@ -119,6 +125,6 @@ SPEC CHECKSUMS:
   KNSemiModalViewController_hons82: 0ef0ef5ed7c3814ddd0fa9c884ab74d5495de16b
   THCalendarDatePicker: fd1a1103ae0d1d1f2d0f9a1463a3f628a23a25a5
 
-PODFILE CHECKSUM: e0cc1130a8ed7ed940675c98241166b479239a41
+PODFILE CHECKSUM: 69c5aaf75899f31e9e13e19992424d6e73d066c3
 
 COCOAPODS: 1.2.0

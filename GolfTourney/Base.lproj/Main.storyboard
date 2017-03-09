@@ -454,6 +454,14 @@
                                     <constraint firstAttribute="height" constant="100" id="b5J-43-TlV"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stm-8z-9NY">
+                                <rect key="frame" x="55" y="160" width="43" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="Website"/>
+                                <connections>
+                                    <action selector="goToWebsite:" destination="2Mg-jX-uig" eventType="touchUpInside" id="2fn-4x-xW3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -465,6 +473,7 @@
                             <constraint firstItem="LA3-dp-ap2" firstAttribute="leading" secondItem="qgR-Hv-fap" secondAttribute="leading" id="GBT-3Q-mM0"/>
                             <constraint firstItem="MPn-i5-O4m" firstAttribute="top" secondItem="qgR-Hv-fap" secondAttribute="top" id="OHa-RR-y5i"/>
                             <constraint firstAttribute="trailing" secondItem="MPn-i5-O4m" secondAttribute="trailing" id="RSY-y3-cSt"/>
+                            <constraint firstItem="stm-8z-9NY" firstAttribute="leading" secondItem="zQm-dR-VIv" secondAttribute="trailing" constant="-77" id="WTR-Br-i9X"/>
                             <constraint firstItem="zQm-dR-VIv" firstAttribute="top" secondItem="MPn-i5-O4m" secondAttribute="bottom" constant="8" id="aKy-PT-lvQ"/>
                             <constraint firstItem="MPn-i5-O4m" firstAttribute="leading" secondItem="qgR-Hv-fap" secondAttribute="leading" id="fpU-7N-l4g"/>
                             <constraint firstItem="oUm-50-npB" firstAttribute="top" secondItem="Itj-ic-7nl" secondAttribute="bottom" constant="41" id="iLk-QL-q7B"/>
@@ -474,6 +483,7 @@
                             <constraint firstAttribute="trailing" secondItem="LA3-dp-ap2" secondAttribute="trailing" id="pCN-IP-E5N"/>
                             <constraint firstItem="Itj-ic-7nl" firstAttribute="top" secondItem="zQm-dR-VIv" secondAttribute="top" id="sKf-Wy-Hph"/>
                             <constraint firstItem="KY3-bB-2H6" firstAttribute="top" secondItem="LA3-dp-ap2" secondAttribute="bottom" constant="32" id="vXf-Ue-EGI"/>
+                            <constraint firstItem="stm-8z-9NY" firstAttribute="top" secondItem="zQm-dR-VIv" secondAttribute="bottom" constant="8" id="xIz-P1-7ne"/>
                             <constraint firstItem="Itj-ic-7nl" firstAttribute="leading" secondItem="zQm-dR-VIv" secondAttribute="trailing" constant="44" id="xlY-z0-lvs"/>
                         </constraints>
                     </view>

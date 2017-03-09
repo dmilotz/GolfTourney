@@ -10,7 +10,7 @@ import Foundation
 
 class GoogleClient{
 
-  static func findPhotos(lat: String, long: String, name: String, completionHandlerForGetPhotos: @escaping (_ error: String?, String?) -> Void) {
+  static func getCourseInfo(lat: String, long: String, name: String, completionHandlerForGetPhotos: @escaping (_ error: String?,  [String: String]?) -> Void) {
     
     let formattedName = name.replacingOccurrences(of: " ", with: "+")
     let url = Constants.googleApiUrl + formattedName + Args.location + lat + "," + long + Args.radius + Args.apiKey
@@ -20,6 +20,7 @@ class GoogleClient{
     let session = URLSession.shared
     let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
       
+      var dict : [String: String] = [:]
       if error != nil {
         print("Error fetching photos: \(error)")
         completionHandlerForGetPhotos(error?.localizedDescription as String!, nil)
@@ -30,21 +31,19 @@ class GoogleClient{
         let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
         guard let results = resultsDictionary else {     completionHandlerForGetPhotos(error?.localizedDescription, nil)
         return}
-        print (results)
         if let results = results["results"] as? [[String : AnyObject]]{
-        print ("RESULTSSS \(results)")
           if let photoInfo = results[0]["photos"] as? [[String: AnyObject]]{
-            print("PHOTO \(photoInfo)")
             if let photoReference = photoInfo[0]["photo_reference"] as? String{
-              print("REFEREEEN#################### \(photoReference)")
               let photoUrl = Constants.googlePhotoUrl + photoReference + Args.apiKey
-              completionHandlerForGetPhotos(nil, photoUrl)
+              dict["photoUrl"] = photoUrl
             }
-          }else{
-            completionHandlerForGetPhotos(error?.localizedDescription, nil)
           }
-        //let reference = photoInfo[0]["photo_reference"]
-        //print("REference \(reference)")
+          
+          if let placeId = results[0]["place_id"] as? String{
+            print("placeIDD@##@#@#@#@# \(placeId)")
+            dict["placeId"] = placeId
+          }
+          completionHandlerForGetPhotos(nil, dict)
         }
         }catch let error as NSError {
           print("Error parsing JSON: \(error)")

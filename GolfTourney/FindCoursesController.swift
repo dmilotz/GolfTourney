@@ -13,6 +13,7 @@ import FirebaseCore
 import FirebaseDatabase
 import RealmSwift
 import CoreLocation
+import GooglePlaces
 
 class FindCoursesController: UIViewController{
   
@@ -20,6 +21,7 @@ class FindCoursesController: UIViewController{
   
   
   //MARK: Properties
+  var placesClient: GMSPlacesClient!
   var ref: FIRDatabaseReference!
   var courses = [Course]()
   var course = Course()
@@ -29,7 +31,7 @@ class FindCoursesController: UIViewController{
   let serialQueue = DispatchQueue(label: "arrayQueue")
   var coursePhotoArr: [Course : String] = [:]
   var courseImage: UIImage?
-  
+  var extraCourseInfo: [Course: [String: AnyObject]] = [:]
   //MARK: Outlets
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var tableView: UITableView!
@@ -42,6 +44,7 @@ class FindCoursesController: UIViewController{
   //MARK: Lifecycle
   override func viewDidLoad(){
     super.viewDidLoad()
+    placesClient = GMSPlacesClient.shared()
     tableView.delegate = self
     searchBar.delegate = self
     ref = FIRDatabase.database().reference()
@@ -58,7 +61,7 @@ class FindCoursesController: UIViewController{
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier! == "courseChosen" {
       if let gameVc = segue.destination as? CourseGameViewController {
-        gameVc.photo = courseImage
+        gameVc.extraCourseInfo = extraCourseInfo[course]
         gameVc.course = course
       }
     }
@@ -106,10 +109,10 @@ private extension FindCoursesController{
         self.serialQueue.sync{
           if let games = arr{
             self.courseGameArr.append((course: course, value: games.count))
-            self.getCoursePhotoUrl(course: course)
+            self.getCourseGoogleInfo(course: course)
           }else{
             self.courseGameArr.append((course: course, value: 0))
-            self.getCoursePhotoUrl(course: course)
+            self.getCourseGoogleInfo(course: course)
           }
           self.courseGameArr.sort{$0.value > $1.value}
           
@@ -123,14 +126,40 @@ private extension FindCoursesController{
     
   }
   
-  func getCoursePhotoUrl(course: Course){
-      GoogleClient.findPhotos(lat: String(course.lat), long: String(course.long), name: course.biz_name) { (error, photoUrl) in
+  //Info that's not stored in realm database such as website and course photos are retrieved here
+  
+  func getCourseGoogleInfo(course: Course){
+    GoogleClient.getCourseInfo(lat: String(course.lat), long: String(course.long), name: course.biz_name) { (error, dict) in
+      if let photoUrl = dict?["photoUrl"]{
         self.coursePhotoArr[course] = photoUrl
         DispatchQueue.main.async{
           self.tableView.reloadData()
         }
+      }
+      
+      if let id = dict?["placeId"]{
+        self.placesClient.lookUpPlaceID(id, callback: { (place, error) -> Void in
+          if let error = error {
+            print("lookup place id query error: \(error.localizedDescription)")
+            return
+          }
+          
+          guard let place = place else {
+            print("No place details for \(id)")
+            return
+          }
+          if let url = place.website{
+            print("URLLL \(url)")
+            self.extraCourseInfo[course] = ["websiteUrl": url as AnyObject]
+            
+          }
+        })
+      }
     }
+    
   }
+  
+  
 }
 
 
@@ -177,8 +206,10 @@ extension FindCoursesController: CLLocationManagerDelegate{
 extension FindCoursesController: UITableViewDelegate{
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let cell = tableView.cellForRow(at: indexPath) as! CourseViewCell
-    courseImage = cell.coursePic?.image
-    self.course = self.courseGameArr[(indexPath as NSIndexPath).row].course
+    course = self.courseGameArr[(indexPath as NSIndexPath).row].course
+    var tmpDict = extraCourseInfo[course]! as [String:AnyObject]
+    tmpDict["image"] = (cell.coursePic?.image)!
+    extraCourseInfo[course] = tmpDict
     performSegue(withIdentifier: "courseChosen", sender: self)
   }
 }
