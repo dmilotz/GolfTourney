@@ -51,7 +51,6 @@
 		1197053D1E52675E00687827 /* PlayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053C1E52675E00687827 /* PlayerCollectionCell.swift */; };
 		119705411E526C8C00687827 /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119705401E526C8C00687827 /* CreateGameController.swift */; };
 		11DCFC611E4E3CB20054DB04 /* CourseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */; };
-		11DCFC671E4E515F0054DB04 /* coursesCompact.realm in Resources */ = {isa = PBXBuildFile; fileRef = 11DCFC661E4E515F0054DB04 /* coursesCompact.realm */; };
 		11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC681E4E54D70054DB04 /* GameModel.swift */; };
 		11DCFC6D1E4E5FDA0054DB04 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC6C1E4E5FDA0054DB04 /* GameViewController.swift */; };
 		11DCFC701E4E66150054DB04 /* PlayerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC6F1E4E66150054DB04 /* PlayerTableCell.swift */; };
@@ -107,6 +106,7 @@
 		11249ADD1E7241F700FCCE1B /* FindCourses@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FindCourses@2x.png"; sourceTree = "<group>"; };
 		11249ADE1E7241F700FCCE1B /* CreateGame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreateGame@2x.png"; sourceTree = "<group>"; };
 		11249ADF1E7241F700FCCE1B /* CreateGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateGame.png; sourceTree = "<group>"; };
+		11249AE61E727AFA00FCCE1B /* coursesCompact.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = coursesCompact.realm; path = GolfTourney/coursesCompact.realm; sourceTree = "<group>"; };
 		112C146D1E568252001E6E18 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		112C146E1E568252001E6E18 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default2.realm; path = GolfTourney/default2.realm; sourceTree = "<group>"; };
 		112C14711E57D14F001E6E18 /* ScoreCardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardController.swift; sourceTree = "<group>"; };
@@ -146,7 +146,6 @@
 		119705401E526C8C00687827 /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
 		119705E81E52743900687827 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = "../../Developer/Xcode/DerivedData/GolfTourney-buksvpaxtgomelfmctcqqrpbdiya/Build/Products/Debug-iphonesimulator/JTAppleCalendar/JTAppleCalendar.framework"; sourceTree = "<group>"; };
 		11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseGameViewController.swift; sourceTree = "<group>"; };
-		11DCFC661E4E515F0054DB04 /* coursesCompact.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = coursesCompact.realm; path = ../../../Downloads/realm/coursesCompact.realm; sourceTree = "<group>"; };
 		11DCFC681E4E54D70054DB04 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		11DCFC6C1E4E5FDA0054DB04 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		11DCFC6F1E4E66150054DB04 /* PlayerTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableCell.swift; sourceTree = "<group>"; };
@@ -204,7 +203,7 @@
 				112C147E1E5D0B5A001E6E18 /* golfDefault.png */,
 				1157CA481E49458900BAEE7F /* Assets.xcassets */,
 				112C146E1E568252001E6E18 /* default2.realm */,
-				11DCFC661E4E515F0054DB04 /* coursesCompact.realm */,
+				11249AE61E727AFA00FCCE1B /* coursesCompact.realm */,
 				1157CA421E49458900BAEE7F /* Main.storyboard */,
 				1157CA4A1E49458900BAEE7F /* LaunchScreen.storyboard */,
 			);
@@ -493,7 +492,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				11249AE11E7241F700FCCE1B /* Home.png in Resources */,
-				11DCFC671E4E515F0054DB04 /* coursesCompact.realm in Resources */,
 				11249AE01E7241F700FCCE1B /* Home@2x.png in Resources */,
 				1157CA4C1E49458900BAEE7F /* LaunchScreen.storyboard in Resources */,
 				1157CA701E49486700BAEE7F /* GoogleService-Info.plist in Resources */,
