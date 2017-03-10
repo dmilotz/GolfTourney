@@ -741,7 +741,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="142" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2re-B8-z4F">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="142" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2re-B8-z4F">
                                 <rect key="frame" x="0.0" y="226" width="414" height="461"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1606,7 +1606,7 @@
                             <constraint firstItem="yKW-RG-WsO" firstAttribute="top" secondItem="WaK-Vk-xX6" secondAttribute="bottom" id="n6t-pD-fLS"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Find Existing Games" image="CreateGame" selectedImage="CreateGame" id="2WC-n4-1Ve"/>
+                    <tabBarItem key="tabBarItem" title="Find Existing Games" image="FindCourses" selectedImage="FindCourses" id="2WC-n4-1Ve"/>
                     <connections>
                         <outlet property="searchBar" destination="WaK-Vk-xX6" id="RP2-7e-Gh7"/>
                         <outlet property="searchDisplayController" destination="gvH-b2-nYD" id="bJi-Do-sZZ"/>
@@ -1884,6 +1884,7 @@
     </scenes>
     <resources>
         <image name="CreateGame" width="25" height="23"/>
+        <image name="FindCourses" width="23" height="25"/>
         <image name="Home" width="24" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -36,6 +36,11 @@ class PlayerProfileController: UIViewController{
   @IBOutlet var gamesTableView: UITableView!
   @IBOutlet var profileImage: UIImageView!
   
+  
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
 
   //MARK: Actions
   

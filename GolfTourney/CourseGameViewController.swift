@@ -32,6 +32,11 @@ class CourseGameViewController : UIViewController {
   
   
   //MARK: - Overridden methods
+  
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier! == "createGame" {
       if let gameVc = segue.destination as? CreateGameController {

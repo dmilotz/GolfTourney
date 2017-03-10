@@ -36,6 +36,12 @@ class FindCoursesController: UIViewController{
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var tableView: UITableView!
   
+  
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
+  
   //MARK: Actions
   @IBAction func nearbyCourses(_ sender: Any) {
     requestLocation()
@@ -66,6 +72,8 @@ class FindCoursesController: UIViewController{
       }
     }
   }
+  
+  
   
   
 }

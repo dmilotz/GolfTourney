@@ -30,6 +30,9 @@ class EditProfileController: UIViewController{
   @IBOutlet var handicapField: UITextField!
   @IBOutlet var zipField: UITextField!
   
+  override var shouldAutorotate: Bool {
+    return false
+  }
 }
 
 //MARK: Actions
@@ -233,9 +236,9 @@ extension EditProfileController{
   
   func keyboardWillShow(notification: Notification) {
     if handicapField.isEditing{
-      view.frame.origin.y -= getKeyboardHeight(notification: notification) - 20
+      view.frame.origin.y -= getKeyboardHeight(notification: notification) - 150
     }else if zipField.isEditing{
-      view.frame.origin.y -= getKeyboardHeight(notification: notification) - 20
+      view.frame.origin.y -= getKeyboardHeight(notification: notification) - 150
     }
   }
   

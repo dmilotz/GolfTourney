@@ -38,6 +38,11 @@ class FindTourneyController: UIViewController,  UISearchBarDelegate{
   @IBOutlet var searchBar: UISearchBar!
   
   @IBOutlet var tableView: UITableView!
+
+  override var shouldAutorotate: Bool {
+    return false
+  }
+
 }
 
 

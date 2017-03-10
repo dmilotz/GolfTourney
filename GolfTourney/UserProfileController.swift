@@ -30,6 +30,10 @@ class UserProfileController: UIViewController{
   @IBOutlet var profileImage: UIImageView!
   @IBOutlet var activityIndicator: UIActivityIndicatorView!
   
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
 }
 
 

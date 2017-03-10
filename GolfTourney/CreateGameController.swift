@@ -48,6 +48,11 @@ class CreateGameController: UIViewController{
   @IBOutlet var handicapPicker: UIPickerView!
   @IBOutlet var createGameButton: UIButton!
   
+  
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
 }
 
 
