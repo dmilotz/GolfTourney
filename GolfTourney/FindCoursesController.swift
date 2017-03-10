@@ -50,11 +50,12 @@ class FindCoursesController: UIViewController{
   //MARK: Lifecycle
   override func viewDidLoad(){
     super.viewDidLoad()
+    hideKeyboardWhenTappedAround()
     placesClient = GMSPlacesClient.shared()
     tableView.delegate = self
     searchBar.delegate = self
     ref = FIRDatabase.database().reference()
-    self.locationManager.requestWhenInUseAuthorization()
+    locationManager.requestWhenInUseAuthorization()
     
     if CLLocationManager.locationServicesEnabled() {
       locationManager.delegate = self
@@ -92,7 +93,10 @@ private extension FindCoursesController{
   }
   
   func search(search : String){
-    let courseArr = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
+    let courseArr = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@ OR e_postal CONTAINS %@",search,search,search,search)
+    if courseArr.isEmpty{
+      displayAlert("No courses found for this location.", title: "No courses found")
+    }
     courses = []
     for course in courseArr{
       self.courses.append(course)
@@ -102,6 +106,9 @@ private extension FindCoursesController{
   
   func searchByUserLocation(predicate: NSPredicate){
     let courseArr = try? Realm().objects(Course.self).filter(predicate)
+    if (courseArr?.isEmpty)!{
+      displayAlert("No nearby courses found.  Please try searching by name." , title: "No courses found")
+    }
     courses = []
     for course in courseArr!{
       courses.append(course)
@@ -185,8 +192,20 @@ private extension FindCoursesController{
 // MARK: - UISearchBarDelegate
 extension FindCoursesController: UISearchBarDelegate{
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    //searchActive = false
+    searchBar.endEditing(true)
+    searchBar.resignFirstResponder()
     search(search: searchBar.text!)
+    
   }
+  
+  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    searchBar.endEditing(true)
+    searchBar.resignFirstResponder()
+  }
+  
+ 
+  
 }
 
 
@@ -244,7 +263,7 @@ extension FindCoursesController: UITableViewDataSource{
     let course = courseGameArr[(indexPath as NSIndexPath).row].course
     cell.courseName.text = course.biz_name
     cell.courseAddress.text = "\(course.e_address), \(course.e_city), \(course.e_state)"
-    cell.currentGamesCount.text = "Current games: \(courseGameArr[(indexPath as NSIndexPath).row].value)"
+    cell.currentGamesCount.text = "Games: \(courseGameArr[(indexPath as NSIndexPath).row].value)"
     
     if let url = coursePhotoArr[course]{
       
