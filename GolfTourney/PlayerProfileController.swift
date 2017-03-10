@@ -36,13 +36,12 @@ class PlayerProfileController: UIViewController{
   @IBOutlet var gamesTableView: UITableView!
   @IBOutlet var profileImage: UIImageView!
   
-  
+
   //MARK: Actions
   
   @IBAction func back(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+  dismiss(animated: true, completion: nil)
   }
-  
 }
 
 // MARK: Lifecycle
@@ -78,7 +77,7 @@ private extension PlayerProfileController{
     }
     
     if let handicap = player?.handicap{
-      handicapField.text = handicap
+      handicapField.text = "Handicap: \(handicap)"
     }else{
       handicapField.text = "No handicap provided"
     }
@@ -158,11 +157,19 @@ extension PlayerProfileController: UITableViewDataSource{
     //                    cell.courseName.text = chosenGame.courseName
     //                    cell.date.text = chosenGame.date
     //                    cell.currentPot.text = String(describing: chosenGame.currentPot!)
+//    cell.buyInAmount.text = "Buy In: $\( String(describing: game.buyIn!))"
+//    cell.courseAddress.text = game.courseAddress
+//    cell.courseName.text = game.courseName
+//    cell.date.text = game.date
+//    cell.currentPot.text = "Pot: $\(String(describing: game.currentPot!))"
+//    cell.playerCount.text = "Players: \(String(describing:game.players!.count))"
+    
+    cell.title.text = game.description
     cell.buyInAmount.text = "Buy In: $\( String(describing: game.buyIn!))"
     cell.courseAddress.text = game.courseAddress
     cell.courseName.text = game.courseName
     cell.date.text = game.date
-    cell.currentPot.text = "Pot: $\(String(describing: game.currentPot!))"
+    cell.currentPot.text = "Pot: $\(String(describing: game.currentPot! * game.players!.count))"
     cell.playerCount.text = "Players: \(String(describing:game.players!.count))"
     
     return cell

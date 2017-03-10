@@ -12,6 +12,12 @@
 		11249AD51E6F89FC00FCCE1B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD41E6F89FC00FCCE1B /* Photo.swift */; };
 		11249AD71E708A0500FCCE1B /* GoogleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD61E708A0500FCCE1B /* GoogleClient.swift */; };
 		11249AD91E708A7B00FCCE1B /* GoogleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD81E708A7B00FCCE1B /* GoogleConstants.swift */; };
+		11249AE01E7241F700FCCE1B /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11249ADA1E7241F700FCCE1B /* Home@2x.png */; };
+		11249AE11E7241F700FCCE1B /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 11249ADB1E7241F700FCCE1B /* Home.png */; };
+		11249AE21E7241F700FCCE1B /* FindCourses.png in Resources */ = {isa = PBXBuildFile; fileRef = 11249ADC1E7241F700FCCE1B /* FindCourses.png */; };
+		11249AE31E7241F700FCCE1B /* FindCourses@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11249ADD1E7241F700FCCE1B /* FindCourses@2x.png */; };
+		11249AE41E7241F700FCCE1B /* CreateGame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11249ADE1E7241F700FCCE1B /* CreateGame@2x.png */; };
+		11249AE51E7241F700FCCE1B /* CreateGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 11249ADF1E7241F700FCCE1B /* CreateGame.png */; };
 		112C146F1E568252001E6E18 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C146D1E568252001E6E18 /* Course.swift */; };
 		112C14701E568252001E6E18 /* default2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 112C146E1E568252001E6E18 /* default2.realm */; };
 		112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14711E57D14F001E6E18 /* ScoreCardController.swift */; };
@@ -95,6 +101,12 @@
 		11249AD41E6F89FC00FCCE1B /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		11249AD61E708A0500FCCE1B /* GoogleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleClient.swift; sourceTree = "<group>"; };
 		11249AD81E708A7B00FCCE1B /* GoogleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleConstants.swift; sourceTree = "<group>"; };
+		11249ADA1E7241F700FCCE1B /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
+		11249ADB1E7241F700FCCE1B /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
+		11249ADC1E7241F700FCCE1B /* FindCourses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FindCourses.png; sourceTree = "<group>"; };
+		11249ADD1E7241F700FCCE1B /* FindCourses@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FindCourses@2x.png"; sourceTree = "<group>"; };
+		11249ADE1E7241F700FCCE1B /* CreateGame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreateGame@2x.png"; sourceTree = "<group>"; };
+		11249ADF1E7241F700FCCE1B /* CreateGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateGame.png; sourceTree = "<group>"; };
 		112C146D1E568252001E6E18 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		112C146E1E568252001E6E18 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default2.realm; path = GolfTourney/default2.realm; sourceTree = "<group>"; };
 		112C14711E57D14F001E6E18 /* ScoreCardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardController.swift; sourceTree = "<group>"; };
@@ -183,6 +195,12 @@
 		112C147D1E5D096C001E6E18 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				11249ADA1E7241F700FCCE1B /* Home@2x.png */,
+				11249ADB1E7241F700FCCE1B /* Home.png */,
+				11249ADC1E7241F700FCCE1B /* FindCourses.png */,
+				11249ADD1E7241F700FCCE1B /* FindCourses@2x.png */,
+				11249ADE1E7241F700FCCE1B /* CreateGame@2x.png */,
+				11249ADF1E7241F700FCCE1B /* CreateGame.png */,
 				112C147E1E5D0B5A001E6E18 /* golfDefault.png */,
 				1157CA481E49458900BAEE7F /* Assets.xcassets */,
 				112C146E1E568252001E6E18 /* default2.realm */,
@@ -474,13 +492,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11249AE11E7241F700FCCE1B /* Home.png in Resources */,
 				11DCFC671E4E515F0054DB04 /* coursesCompact.realm in Resources */,
+				11249AE01E7241F700FCCE1B /* Home@2x.png in Resources */,
 				1157CA4C1E49458900BAEE7F /* LaunchScreen.storyboard in Resources */,
 				1157CA701E49486700BAEE7F /* GoogleService-Info.plist in Resources */,
+				11249AE51E7241F700FCCE1B /* CreateGame.png in Resources */,
 				1157CA491E49458900BAEE7F /* Assets.xcassets in Resources */,
+				11249AE31E7241F700FCCE1B /* FindCourses@2x.png in Resources */,
 				112C147F1E5D0B5A001E6E18 /* golfDefault.png in Resources */,
+				11249AE41E7241F700FCCE1B /* CreateGame@2x.png in Resources */,
 				1157CA441E49458900BAEE7F /* Main.storyboard in Resources */,
 				112C14701E568252001E6E18 /* default2.realm in Resources */,
+				11249AE21E7241F700FCCE1B /* FindCourses.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
