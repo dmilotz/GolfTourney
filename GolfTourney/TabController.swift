@@ -16,5 +16,9 @@ class TabBarController:  UITabBarController {
         super.viewDidLoad()
         selectedIndex = defaultIndex
     }
-    
+  
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
 }
