@@ -119,11 +119,12 @@ private extension FindCoursesController{
   func sortCoursesWithGames(){
     courseGameArr = []
     tableView.reloadData()
+    let group = DispatchGroup()
     for course in courses{
+      group.enter()
       NetworkClient.getGamesPerCourse(courseId: String(course.id)) { (arr, error) in
-        self.serialQueue.sync{
           if !self.courseGameArr.contains(where:{$0.course.id == course.id}){
-            
+            group.leave()
             if let games = arr{
               self.courseGameArr.append((course: course, value: games.count))
               self.getCourseGoogleInfo(course: course)
@@ -133,14 +134,16 @@ private extension FindCoursesController{
             }
             
             self.courseGameArr.sort{$0.value > $1.value}
-            
             DispatchQueue.main.async {
               self.tableView.reloadData()
             }
           }
-          
-        }
       }
+      
+      group.notify(queue: DispatchQueue.main, execute: {
+        self.courseGameArr.sort{$0.value > $1.value}
+        self.tableView.reloadData()
+      })
     }
     
   }

@@ -119,7 +119,6 @@ private extension FindTourneyController{
         if let dict = snapshot.value as? [String:String]{
           for id in dict.keys{
             gameCount += 1
-            // self.gamesIdArr.append(id)
             self.getGameInfoFromCourse(gameId: id)
           }
         }
