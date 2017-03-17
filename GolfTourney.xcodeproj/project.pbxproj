@@ -18,6 +18,7 @@
 		11249AE31E7241F700FCCE1B /* FindCourses@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11249ADD1E7241F700FCCE1B /* FindCourses@2x.png */; };
 		11249AE41E7241F700FCCE1B /* CreateGame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11249ADE1E7241F700FCCE1B /* CreateGame@2x.png */; };
 		11249AE51E7241F700FCCE1B /* CreateGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 11249ADF1E7241F700FCCE1B /* CreateGame.png */; };
+		11249B001E7B8A5F00FCCE1B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AFF1E7B8A5F00FCCE1B /* ChatViewController.swift */; };
 		112C146F1E568252001E6E18 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C146D1E568252001E6E18 /* Course.swift */; };
 		112C14701E568252001E6E18 /* default2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 112C146E1E568252001E6E18 /* default2.realm */; };
 		112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14711E57D14F001E6E18 /* ScoreCardController.swift */; };
@@ -107,6 +108,7 @@
 		11249ADE1E7241F700FCCE1B /* CreateGame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreateGame@2x.png"; sourceTree = "<group>"; };
 		11249ADF1E7241F700FCCE1B /* CreateGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateGame.png; sourceTree = "<group>"; };
 		11249AE61E727AFA00FCCE1B /* coursesCompact.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = coursesCompact.realm; path = GolfTourney/coursesCompact.realm; sourceTree = "<group>"; };
+		11249AFF1E7B8A5F00FCCE1B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		112C146D1E568252001E6E18 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		112C146E1E568252001E6E18 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default2.realm; path = GolfTourney/default2.realm; sourceTree = "<group>"; };
 		112C14711E57D14F001E6E18 /* ScoreCardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardController.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				112C147B1E5C44CF001E6E18 /* TabController.swift */,
 				112C14801E5D0D62001E6E18 /* PlayerProfileController.swift */,
 				113221781E6A3FAE008E23B3 /* ModalTransitionMediator.swift */,
+				11249AFF1E7B8A5F00FCCE1B /* ChatViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				112C14721E57D14F001E6E18 /* ScoreCardController.swift in Sources */,
 				11249AD91E708A7B00FCCE1B /* GoogleConstants.swift in Sources */,
 				11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */,
+				11249B001E7B8A5F00FCCE1B /* ChatViewController.swift in Sources */,
 				112C146F1E568252001E6E18 /* Course.swift in Sources */,
 				112C14781E5BA8E0001E6E18 /* EditProfileController.swift in Sources */,
 				119705411E526C8C00687827 /* CreateGameController.swift in Sources */,

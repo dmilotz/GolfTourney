@@ -15,6 +15,7 @@ target 'GolfTourney' do
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'GooglePlaces'
+pod 'JSQMessagesViewController'
 #pod 'KIF'
 #pod 'Nimble'
   # Pods for GolfTourney
