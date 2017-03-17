@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2cQ-Ig-syo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lc5-PY-IPa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1401,6 +1401,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mA5-C6-EyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2556" y="878.41079460269873"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="Qrr-fd-Iu9">
+            <objects>
+                <viewController id="Lc5-PY-IPa" customClass="ChatViewController" customModule="GolfTourney" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JAe-yz-aac"/>
+                        <viewControllerLayoutGuide type="bottom" id="z1W-AF-qFl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w5P-pJ-NZf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R5X-by-WAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3528" y="779"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZEe-1u-0c0">
