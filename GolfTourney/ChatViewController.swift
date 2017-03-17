@@ -8,17 +8,18 @@
 
 import Foundation
 import Firebase
+import FirebaseDatabase
 import JSQMessagesViewController
+import UIKit
 
 class ChatViewController: JSQMessagesViewController{
   
-  
   /// Properties
   var ref: FIRDatabaseReference!
-  var game: Game?
-  var chatRef : FIRDatabaseReference! {
-    return ref.child("chats").child((game?.gameId)!)
+  var chatRef: FIRDatabaseReference! {
+    return ref.child("chats").child("TESTGAME")
   }
+  var game: Game?
   var newMessageRefHandle: FIRDatabaseHandle?
  
   var messages = [JSQMessage]()
@@ -33,7 +34,8 @@ class ChatViewController: JSQMessagesViewController{
   
   override func viewDidLoad(){
     super.viewDidLoad()
-
+    ref = FIRDatabase.database().reference()
+    observeMessages()
     self.senderId = FIRAuth.auth()?.currentUser?.uid
     self.senderDisplayName = "Blah"
   }
@@ -53,7 +55,7 @@ class ChatViewController: JSQMessagesViewController{
 
 // MARK: - JSQMessage functions
 extension ChatViewController{
-  private func observeMessages() {
+ func observeMessages() {
     let messageQuery = chatRef.queryLimited(toLast:25)
     
     // 2. We can use the observe method to listen for new
@@ -65,7 +67,6 @@ extension ChatViewController{
       if let id = messageData["senderId"] as String!, let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
         // 4
         self.addMessage(withId: id, name: name, text: text)
-        
         // 5
         self.finishReceivingMessage()
       } else {
@@ -92,7 +93,15 @@ extension ChatViewController{
   }
   
   override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-    return nil
+    // Sent by me, skip
+    let message = messages[indexPath.item];
+    if message.senderId == senderId {
+      return nil;
+    }else{
+    let image = UIImage(named:"golfDefault.png")!.circle
+    let avatar = JSQMessagesAvatarImageFactory.avatarImage(with: image, diameter: 30)
+    return avatar as JSQMessageAvatarImageDataSource!
+    }
   }
   
   override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
@@ -109,6 +118,51 @@ extension ChatViewController{
     
     finishSendingMessage()
   }
+//  override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+//    <#code#>
+//  }
+  
+  //MARK: To View  usernames above bubbles
+  
+   override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+    let message = messages[indexPath.item];
+    
+    // Sent by me, skip
+    if message.senderId == senderId {
+      return nil;
+    }
+    
+    // Same as previous sender, skip
+    if indexPath.item > 0 {
+      let previousMessage = messages[indexPath.item - 1];
+      if previousMessage.senderId == message.senderId {
+        return nil;
+      }
+    }
+    
+    return NSAttributedString(string:message.senderDisplayName)
+  }
+  
+  override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
+    let message = messages[indexPath.item]
+    
+    // Sent by me, skip
+    if message.senderId == senderId {
+      return CGFloat(0.0);
+    }
+    
+    // Same as previous sender, skip
+    if indexPath.item > 0 {
+      let previousMessage = messages[indexPath.item - 1];
+      if previousMessage.senderId == message.senderId {
+        return CGFloat(0.0);
+      }
+    }
+    
+    return kJSQMessagesCollectionViewCellLabelHeightDefault
+
+  }
+ 
   
  func setupOutgoingBubble() -> JSQMessagesBubbleImage {
     let bubbleImageFactory = JSQMessagesBubbleImageFactory()
