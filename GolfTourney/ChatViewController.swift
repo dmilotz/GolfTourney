@@ -14,7 +14,6 @@ import UIKit
 
 class ChatViewController: JSQMessagesViewController{
   
-  @IBOutlet var collectionView2: UICollectionView!
   
   /// Properties
   let curUser = FIRAuth.auth()?.currentUser?.uid
@@ -25,17 +24,15 @@ class ChatViewController: JSQMessagesViewController{
   var game: Game?
   var player: Player?
   var newMessageRefHandle: FIRDatabaseHandle?
-  
   var messages = [JSQMessage]()
   lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
   lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
-  
-  @IBOutlet var navBar: UINavigationBar!
-  
+ 
+}
 
-  @IBAction func back(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
-  }
+
+// MARK: - LifeCycle methods
+extension ChatViewController{
   
   override func viewDidLoad(){
     super.viewDidLoad()
@@ -48,9 +45,7 @@ class ChatViewController: JSQMessagesViewController{
     navbar.items = [navItem]
     view.addSubview(navbar)
     collectionView.translatesAutoresizingMaskIntoConstraints = false
-//    navbar.bottomAnchor.constraint(equalTo: collectionView.topAnchor).isActive = true
-//    collectionView.topAnchor.constraint(equalTo: navbar.bottomAnchor).isActive = true
-
+    
     ref = FIRDatabase.database().reference()
     self.senderDisplayName = "No Name"
     getUserInfo()
@@ -58,26 +53,22 @@ class ChatViewController: JSQMessagesViewController{
     self.senderId = FIRAuth.auth()?.currentUser?.uid
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    // messages from someone else
-    addMessage(withId: "foo", name: "Mr.Bolt", text: "I am so fast!")
-    // messages sent from local sender
-//    addMessage(withId: senderId, name: "Me", text: "I bet I can run faster than you!")
-//    addMessage(withId: senderId, name: "Me", text: "I like to run!")
-    // animates the receiving of a new message on the view
-    finishReceivingMessage()
-  }
-  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     collectionView.frame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 50)
-  
+    
   }
   
 }
 
+
+
+// MARK: - helper methods
 extension ChatViewController{
+  
+  func back(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+  }
   
   func addMessage(withId id: String, name: String, text: String) {
     if let message = JSQMessage(senderId: id, displayName: name, text: text) {
@@ -146,14 +137,14 @@ extension ChatViewController{
   
   override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
     // Sent by me, skip
-//    let message = messages[indexPath.item];
-//    if message.senderId == senderId {
-//      return nil;
-//    }else{
-//      let image = UIImage(named:"golfDefault.png")!.circle
-//      let avatar = JSQMessagesAvatarImageFactory.avatarImage(with: image, diameter: 30)
-//      return avatar as JSQMessageAvatarImageDataSource!
-//    }
+    //    let message = messages[indexPath.item];
+    //    if message.senderId == senderId {
+    //      return nil;
+    //    }else{
+    //      let image = UIImage(named:"golfDefault.png")!.circle
+    //      let avatar = JSQMessagesAvatarImageFactory.avatarImage(with: image, diameter: 30)
+    //      return avatar as JSQMessageAvatarImageDataSource!
+    //    }
     return nil
   }
   
