@@ -33,6 +33,7 @@ class GameViewController: UIViewController{
   @IBOutlet var joinButton: UIBarButtonItem!
   
  
+ 
   
   override var shouldAutorotate: Bool {
     return false

@@ -1252,7 +1252,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="guY-tR-0l8">
-                                <rect key="frame" x="0.0" y="261" width="375" height="357"/>
+                                <rect key="frame" x="0.0" y="261" width="375" height="362"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aPR-UK-lWR">
                                     <size key="itemSize" width="81" height="76"/>
@@ -1331,25 +1331,6 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptm-ki-f6H">
-                                <rect key="frame" x="8" y="233.5" width="107.5" height="19.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Current Players">
-                                        <attributes>
-                                            <font key="NSFont" size="17" name="Baskerville"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsU-BH-Ezp">
-                                <rect key="frame" x="141" y="115" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Game Chat"/>
-                                <connections>
-                                    <action selector="goToChat:" destination="9Sh-sH-hGL" eventType="touchUpInside" id="zWw-TZ-FaN"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sAn-Hl-r75">
                                 <rect key="frame" x="0.0" y="78" width="359" height="29"/>
                                 <attributedString key="attributedText">
@@ -1362,6 +1343,30 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptm-ki-f6H">
+                                <rect key="frame" x="8" y="233.5" width="107.5" height="19.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Current Players">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="Baskerville"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cse-Tt-f3n">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NqG-Jw-QcA"/>
+                                    <barButtonItem title="Game Chat" id="PPD-zs-ZaD">
+                                        <connections>
+                                            <action selector="goToChat:" destination="9Sh-sH-hGL" id="vXq-vx-ALU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zg1-eC-aMX"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1396,6 +1401,8 @@
                             <constraint firstItem="guY-tR-0l8" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" id="x9J-kQ-8EK"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="buyInLabel" destination="DIf-M1-WFR" id="WVi-qO-DTH"/>
                         <outlet property="courseLabel" destination="sAn-Hl-r75" id="P2q-nS-FtZ"/>
@@ -1438,7 +1445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYc-qG-h15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3420" y="879"/>
+            <point key="canvasLocation" x="3410" y="878"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZEe-1u-0c0">
@@ -1919,6 +1926,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4G-Pa-ScI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1641" y="1580"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="JG7-oD-kqG">
+            <objects>
+                <tableViewController id="gNN-hf-tMm" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="j2O-DA-ZZa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hXe-r6-kDD">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hXe-r6-kDD" id="Eq7-r5-6f2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gNN-hf-tMm" id="YJS-Te-ZN7"/>
+                            <outlet property="delegate" destination="gNN-hf-tMm" id="Z6Z-Sh-fgX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Dn6-Zk-SYv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bye-lP-3Ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="52u-Bp-SPs">
+            <objects>
+                <navigationController id="nVM-kC-nBW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xYI-Hi-T5R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gNN-hf-tMm" kind="relationship" relationship="rootViewController" id="WSC-GJ-zea"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="USs-Nf-GeE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
