@@ -15,29 +15,33 @@ import UIKit
 class ChatViewController: JSQMessagesViewController{
   
   /// Properties
+  let curUser = FIRAuth.auth()?.currentUser?.uid
   var ref: FIRDatabaseReference!
   var chatRef: FIRDatabaseReference! {
     return ref.child("chats").child("TESTGAME")
   }
   var game: Game?
+  var player: Player?
   var newMessageRefHandle: FIRDatabaseHandle?
- 
+  
   var messages = [JSQMessage]()
   lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
   lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
   
-  func addMessage(withId id: String, name: String, text: String) {
-    if let message = JSQMessage(senderId: id, displayName: name, text: text) {
-      messages.append(message)
-    }
+  @IBOutlet var navBar: UINavigationBar!
+  
+  @IBAction func back(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
   }
   
   override func viewDidLoad(){
     super.viewDidLoad()
+    //let navBarbutton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: Selector("back"))
     ref = FIRDatabase.database().reference()
+    self.senderDisplayName = "No Name"
+    getUserInfo()
     observeMessages()
     self.senderId = FIRAuth.auth()?.currentUser?.uid
-    self.senderDisplayName = "Blah"
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -53,9 +57,37 @@ class ChatViewController: JSQMessagesViewController{
   
 }
 
+extension ChatViewController{
+  
+  func addMessage(withId id: String, name: String, text: String) {
+    if let message = JSQMessage(senderId: id, displayName: name, text: text) {
+      messages.append(message)
+    }
+  }
+  
+  func getUserInfo(){
+    NetworkClient.getUserInfo(userId: curUser!) { (dict, error) in
+      if error != nil{
+        print("Error retrieving user")
+        return
+      }else{
+        self.player = Player(dict: dict!)
+        self.player?.uid = self.curUser!
+        if let name = self.player?.name{
+          self.senderDisplayName = name
+        }else{
+          self.senderDisplayName = "No name"
+        }
+      }
+    }
+  }
+  
+  
+}
+
 // MARK: - JSQMessage functions
 extension ChatViewController{
- func observeMessages() {
+  func observeMessages() {
     let messageQuery = chatRef.queryLimited(toLast:25)
     
     // 2. We can use the observe method to listen for new
@@ -98,9 +130,9 @@ extension ChatViewController{
     if message.senderId == senderId {
       return nil;
     }else{
-    let image = UIImage(named:"golfDefault.png")!.circle
-    let avatar = JSQMessagesAvatarImageFactory.avatarImage(with: image, diameter: 30)
-    return avatar as JSQMessageAvatarImageDataSource!
+      let image = UIImage(named:"golfDefault.png")!.circle
+      let avatar = JSQMessagesAvatarImageFactory.avatarImage(with: image, diameter: 30)
+      return avatar as JSQMessageAvatarImageDataSource!
     }
   }
   
@@ -118,13 +150,13 @@ extension ChatViewController{
     
     finishSendingMessage()
   }
-//  override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
-//    <#code#>
-//  }
+  //  override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+  //    <#code#>
+  //  }
   
   //MARK: To View  usernames above bubbles
   
-   override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+  override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
     let message = messages[indexPath.item];
     
     // Sent by me, skip
@@ -160,11 +192,11 @@ extension ChatViewController{
     }
     
     return kJSQMessagesCollectionViewCellLabelHeightDefault
-
+    
   }
- 
   
- func setupOutgoingBubble() -> JSQMessagesBubbleImage {
+  
+  func setupOutgoingBubble() -> JSQMessagesBubbleImage {
     let bubbleImageFactory = JSQMessagesBubbleImageFactory()
     return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
   }

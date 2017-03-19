@@ -32,6 +32,7 @@ class GameViewController: UIViewController{
   @IBOutlet var playerCollectionView: UICollectionView!
   @IBOutlet var joinButton: UIBarButtonItem!
   
+ 
   
   override var shouldAutorotate: Bool {
     return false
@@ -49,6 +50,14 @@ extension GameViewController{
   @IBAction func cancel(_ sender: Any) {
     dismiss(animated: true, completion: nil)
   }
+  
+  @IBAction func goToChat(_ sender: Any) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier :"chatViewController") as! ChatViewController
+    vc.game = game
+    self.present(vc, animated: true)
+  }
+  
 }
 
 // MARK: - Lifecycle
