@@ -244,13 +244,29 @@ extension FindTourneyController: UITableViewDataSource{
     let game = self.games[(indexPath as NSIndexPath).row]
     cell.buyInAmount.text = "Buy in: $\(String(describing: game.buyIn!))"
     cell.title.text = game.description!
-    cell.courseAddress.text = game.courseAddress!
+    //cell.courseAddress.text = game.courseAddress!
     cell.courseName.text = game.courseName!
     cell.date.text = game.date!
     cell.currentPot.text = "Pot: $\(game.buyIn! * game.players!.count)"
+    GoogleClient.getDataFromUrl(url: URL(string: game.coursePicUrl!)!, completion: { (data, response, error) in
+      
+      guard let data = data, error == nil else {
+        cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
+        cell.activityIndicator.stopAnimating()
+        return
+      }
+      DispatchQueue.main.async {
+        cell.coursePic?.image = UIImage(data: data)?.circle
+        cell.activityIndicator.stopAnimating()
+      }
+    })
+    cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
+    cell.activityIndicator.startAnimating()
+    
+
     return cell
   }
-  
-  
-  
+
+
+
 }

@@ -17,10 +17,12 @@ class CreateGameController: UIViewController{
   
   var ref: FIRDatabaseReference!
   var handicapPickerDataSource = ["Low Handicap 0-10", "Mid Handicap 10-20", "High Handicap 20-30"]
+  var extraCourseInfo: [String: AnyObject]?
   var chosenHandicap: String?
   var course = Course()
   var curFromDate : Date? = Date()
   let daysToAdd : TimeInterval = 10
+  var photoUrl : URL?
   
   lazy var formatter: DateFormatter = {
     var tmpFormatter = DateFormatter()
@@ -182,7 +184,14 @@ private extension CreateGameController{
   func setupGame(){
     let buyIn = Int((buyInAmountLabel.text?.replacingOccurrences(of: "$", with: ""))!)
     let curUser = FIRAuth.auth()?.currentUser?.uid
-    let game = Game(gameId: UUID().uuidString, preferredHandicap: chosenHandicap!, courseName: course.biz_name.replacingOccurrences(of: ".", with: ""), courseId: String(course.id), courseAddress: "\(course.e_address), \(course.e_city), \(course.e_state)", date:formatter.string(from: curFromDate!), players: [curUser!: ""], buyIn: buyIn, description: tourneyTitle.text, maxPlayers: 20, currentPlayerCount: 1, currentPot: buyIn, gameOwner: curUser )
+    var websiteString: String = ""
+    if let websiteUrl = extraCourseInfo?["courseWebsiteUrl"] as? URL{
+      websiteString = websiteUrl.absoluteString
+    }else{
+      websiteString = ""
+    }
+    
+    let game = Game(gameId: UUID().uuidString, preferredHandicap: chosenHandicap!, courseName: course.biz_name.replacingOccurrences(of: ".", with: ""), courseId: String(course.id), courseAddress: "\(course.e_address), \(course.e_city), \(course.e_state)", date:formatter.string(from: curFromDate!), players: [curUser!: ""], buyIn: buyIn, description: tourneyTitle.text, maxPlayers: 20, currentPlayerCount: 1, currentPot: buyIn, gameOwner: curUser, coursePicUrl: extraCourseInfo?["coursePicUrl"] as? String, courseWebsiteUrl: websiteString)
     NetworkClient.createGame(game)
   }
   

@@ -41,6 +41,7 @@ class CourseGameViewController : UIViewController {
     if segue.identifier! == "createGame" {
       if let gameVc = segue.destination as? CreateGameController {
         gameVc.course = self.course!
+        gameVc.extraCourseInfo = extraCourseInfo
       }
     }else if (segue.identifier! == "gameChosen"){
       if let vc = segue.destination as? GameViewController{

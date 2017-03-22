@@ -22,12 +22,13 @@ struct Game{
     let currentPlayerCount: Int?
     let currentPot : Int?
     let gameOwner : String?
-    
+  var coursePicUrl : String?
+  var courseWebsiteUrl: String?
    // init(){}
 
     
     func getDict()->[String:Any]{
-        return ["courseName": courseName!, "courseAddress": courseAddress!, "courseId": courseId!, "preferredHandicap": preferredHandicap!, "date": date!, "players": players!,"buyIn":buyIn!,"description": description!, "maxPlayers":maxPlayers!, "currentPlayerCount":currentPlayerCount!, "currentPot":currentPot!, "gameOwner":gameOwner!]
+        return ["courseName": courseName!, "courseAddress": courseAddress!, "courseId": courseId!, "preferredHandicap": preferredHandicap!, "date": date!, "players": players!,"buyIn":buyIn!,"description": description!, "maxPlayers":maxPlayers!, "currentPlayerCount":currentPlayerCount!, "currentPot":currentPot!, "gameOwner":gameOwner!, "coursePicUrl":coursePicUrl!, "courseWebsiteUrl": courseWebsiteUrl!]
     }
     
 }
@@ -48,5 +49,7 @@ extension Game{
         currentPlayerCount = dict["currentPlayerCount"] as! Int?
         currentPot = dict["currentPot"] as! Int?
         gameOwner = dict["gameOwner"] as! String?
+        coursePicUrl = dict["coursePicUrl"] as! String?
+        courseWebsiteUrl = dict["courseWebsiteUrl"] as! String?
     }
 }

@@ -17,8 +17,9 @@ class GameCell :UITableViewCell{
     @IBOutlet var buyInAmount: UILabel!
     @IBOutlet var currentPot: UILabel!
     @IBOutlet var playerCount: UILabel!
-    
+  @IBOutlet var coursePic: UIImageView?
     @IBOutlet var courseName: UILabel!
     @IBOutlet var courseAddress: UILabel!
+  @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
 }

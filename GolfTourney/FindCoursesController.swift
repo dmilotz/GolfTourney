@@ -249,6 +249,7 @@ extension FindCoursesController: UITableViewDelegate{
     course = self.courseGameArr[(indexPath as NSIndexPath).row].course
     var tmpDict = extraCourseInfo[course]! as [String:AnyObject]
     tmpDict["image"] = (cell.coursePic?.image)!
+    tmpDict["coursePicUrl"] = coursePhotoArr[course] as AnyObject?
     extraCourseInfo[course] = tmpDict
     performSegue(withIdentifier: "courseChosen", sender: self)
   }

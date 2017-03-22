@@ -342,7 +342,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LA3-dp-ap2">
-                                <rect key="frame" x="0.0" y="218.5" width="375" height="448.5"/>
+                                <rect key="frame" x="0.0" y="219" width="375" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="88" id="7LS-aW-tzy" userLabel="GameCell" customClass="GameCell" customModule="GolfTourney" customModuleProvider="target">
@@ -468,43 +468,43 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="oUm-50-npB">
-                                <rect key="frame" x="24" y="193" width="327" height="17.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="oUm-50-npB">
+                                <rect key="frame" x="24" y="193" width="327" height="18"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pN5-RJ-Obc">
-                                        <rect key="frame" x="0.0" y="0.0" width="77" height="17.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pN5-RJ-Obc">
+                                        <rect key="frame" x="0.0" y="0.0" width="67" height="18"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Holes:">
                                                 <attributes>
                                                     <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="15" name="Baskerville"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R21-dT-DKF" userLabel="Year Built">
-                                        <rect key="frame" x="77" y="0.0" width="127.5" height="17.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="R21-dT-DKF" userLabel="Year Built">
+                                        <rect key="frame" x="80" y="0.0" width="109" height="18"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Year Built:">
                                                 <attributes>
                                                     <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="15" name="Baskerville"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FP-pI-Bkr" userLabel="Designer">
-                                        <rect key="frame" x="204.5" y="0.0" width="122.5" height="17.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8FP-pI-Bkr" userLabel="Designer">
+                                        <rect key="frame" x="202" y="0.0" width="125" height="18"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Designer: ">
                                                 <attributes>
                                                     <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="15" name="Baskerville"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -754,7 +754,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gd6-s7-mPK">
-                                                    <rect key="frame" x="157" y="62.5" width="62" height="16.5"/>
+                                                    <rect key="frame" x="157" y="62" width="62" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="62" id="F6v-3q-9NJ"/>
                                                     </constraints>
@@ -784,7 +784,7 @@
                                                     <rect key="frame" x="11" y="47" width="100" height="80"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LAt-zK-9PA" userLabel="Course">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="38.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="39"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Course">
                                                                     <attributes>
@@ -795,7 +795,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rTc-ai-1An">
-                                                            <rect key="frame" x="0.0" y="41.5" width="100" height="38.5"/>
+                                                            <rect key="frame" x="0.0" y="42" width="100" height="38"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Address">
                                                                     <attributes>
@@ -825,7 +825,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDU-Do-INE">
-                                                    <rect key="frame" x="280" y="61.5" width="35" height="19.5"/>
+                                                    <rect key="frame" x="280" y="61" width="35" height="20"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Prize">
                                                             <attributes>
@@ -836,7 +836,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkA-YM-PjG">
-                                                    <rect key="frame" x="157.5" y="5" width="60.5" height="15"/>
+                                                    <rect key="frame" x="157" y="5" width="61" height="15"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Game Title">
                                                             <attributes>
@@ -893,7 +893,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZR-Uv-UZF">
-                                <rect key="frame" x="134" y="198.5" width="107" height="19.5"/>
+                                <rect key="frame" x="134" y="198" width="107" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Current Games">
                                         <attributes>
@@ -922,10 +922,10 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xMr-xq-r2c">
-                                <rect key="frame" x="173" y="84" width="126" height="58.5"/>
+                                <rect key="frame" x="173" y="84" width="126" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAk-qU-86q" userLabel="name">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="19"/>
                                         <attributedString key="attributedText">
                                             <fragment content="No Name Entered">
                                                 <attributes>
@@ -936,7 +936,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NcV-Ma-6Xe" userLabel="handicap">
-                                        <rect key="frame" x="0.0" y="19.5" width="126" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="19" width="126" height="20"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Handicap">
                                                 <attributes>
@@ -947,7 +947,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFh-dl-EAG" userLabel="Email:">
-                                        <rect key="frame" x="0.0" y="39" width="126" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="39" width="126" height="19"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Email">
                                                 <attributes>
@@ -1006,7 +1006,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ssk-wz-9kE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63.768115942028992" y="1300.271739130435"/>
+            <point key="canvasLocation" x="25" y="1666"/>
         </scene>
         <!--Edit Profile Controller-->
         <scene sceneID="ApO-8U-qFN">
@@ -1210,10 +1210,10 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Scs-Ie-IDq">
-                                <rect key="frame" x="8" y="183.5" width="359" height="47"/>
+                                <rect key="frame" x="8" y="183" width="359" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KT1-bo-Oiz" userLabel="Date Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="117.5" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="9uK-tK-3cy"/>
                                         </constraints>
@@ -1228,7 +1228,7 @@
                                         <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIf-M1-WFR" userLabel="Buy In Label">
-                                        <rect key="frame" x="120.5" y="0.0" width="118" height="47"/>
+                                        <rect key="frame" x="121" y="0.0" width="117" height="47"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Buy In">
                                                 <attributes>
@@ -1239,7 +1239,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIY-gy-UMT" userLabel="Current Pot Label">
-                                        <rect key="frame" x="241.5" y="0.0" width="117.5" height="47"/>
+                                        <rect key="frame" x="241" y="0.0" width="118" height="47"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Pot So Far">
                                                 <attributes>
@@ -1344,7 +1344,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptm-ki-f6H">
-                                <rect key="frame" x="8" y="233.5" width="107.5" height="19.5"/>
+                                <rect key="frame" x="8" y="233" width="108" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Current Players">
                                         <attributes>
@@ -1428,20 +1428,11 @@
                     <view key="view" contentMode="scaleToFill" id="82c-C6-d39">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vNi-tH-kCK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="navBar" destination="vNi-tH-kCK" id="Qkz-kU-XbX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYc-qG-h15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1503,127 +1494,109 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="530"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="142" id="Tjn-nm-LFb" userLabel="GameCell" customClass="GameCell" customModule="GolfTourney" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="142"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="116" id="VWe-om-1zY" userLabel="Game Cell" customClass="GameCell" customModule="GolfTourney" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="Tjn-nm-LFb" id="FeU-jz-Cy6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="VWe-om-1zY" id="wyg-GR-XOJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cyl-eE-lQ0">
-                                                    <rect key="frame" x="18" y="47.5" width="100" height="79.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcj-Gr-B5o">
+                                                    <rect key="frame" x="89" y="48" width="150" height="16.5"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Course Name">
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="Baskerville"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oVD-YM-fFy">
+                                                    <rect key="frame" x="19" y="27" width="62" height="62"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="62" id="8B1-Qt-ox9"/>
+                                                        <constraint firstAttribute="width" constant="62" id="YuV-ZF-M1s"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="neD-sV-BRZ">
+                                                    <rect key="frame" x="40" y="48" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zPA-Wa-G21" userLabel="GameTitle">
+                                                    <rect key="frame" x="89" y="8" width="92" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="92" id="2Zh-hT-mc8"/>
+                                                        <constraint firstAttribute="height" constant="22" id="PWk-yn-aVw"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="laM-E9-qza">
+                                                    <rect key="frame" x="284" y="29" width="118" height="56"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kvA-bs-CJ2" userLabel="Course">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="14"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Course">
-                                                                    <attributes>
-                                                                        <font key="NSFont" size="12" name="Baskerville"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJO-eR-ylW">
-                                                            <rect key="frame" x="0.0" y="14" width="100" height="14"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Address">
-                                                                    <attributes>
-                                                                        <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <font key="NSFont" size="12" name="Baskerville"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="a55-pP-MLG" userLabel="Date">
-                                                            <rect key="frame" x="0.0" y="28" width="100" height="51.5"/>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a55-pP-MLG" userLabel="Date">
+                                                            <rect key="frame" x="0.0" y="0.0" width="118" height="20"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Date">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="12" name="Baskerville"/>
+                                                                        <font key="NSFont" size="17" name="Baskerville-Bold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw1-yQ-sld">
+                                                            <rect key="frame" x="0.0" y="20" width="118" height="16.5"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Buy In: ">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="14" name="Baskerville"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h8I-IH-PcU">
+                                                            <rect key="frame" x="0.0" y="36.5" width="118" height="19.5"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Prize">
+                                                                    <attributes>
+                                                                        <font key="NSFont" size="17" name="Baskerville"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="NDF-9u-pMe"/>
-                                                        <constraint firstItem="hJO-eR-ylW" firstAttribute="leading" secondItem="cyl-eE-lQ0" secondAttribute="leading" id="NyS-4w-JxF"/>
-                                                        <constraint firstAttribute="trailing" secondItem="hJO-eR-ylW" secondAttribute="trailing" id="Pc4-A4-R10"/>
-                                                        <constraint firstItem="a55-pP-MLG" firstAttribute="top" secondItem="hJO-eR-ylW" secondAttribute="bottom" id="VPO-14-4IF"/>
-                                                        <constraint firstAttribute="trailing" secondItem="a55-pP-MLG" secondAttribute="trailing" id="dgd-iM-NWl"/>
-                                                        <constraint firstAttribute="trailing" secondItem="kvA-bs-CJ2" secondAttribute="trailing" id="ec7-rD-Z7g"/>
-                                                        <constraint firstItem="kvA-bs-CJ2" firstAttribute="top" secondItem="cyl-eE-lQ0" secondAttribute="top" id="tRF-UD-p4j"/>
-                                                        <constraint firstItem="kvA-bs-CJ2" firstAttribute="leading" secondItem="cyl-eE-lQ0" secondAttribute="leading" id="uS3-Mj-rQ3"/>
-                                                        <constraint firstItem="a55-pP-MLG" firstAttribute="leading" secondItem="cyl-eE-lQ0" secondAttribute="leading" id="zjS-Hk-gTl"/>
-                                                    </constraints>
                                                 </stackView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="zPA-Wa-G21" userLabel="GameTitle">
-                                                    <rect key="frame" x="13" y="8" width="33.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw1-yQ-sld">
-                                                    <rect key="frame" x="165.5" y="62.5" width="45.5" height="16.5"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Buy In: ">
-                                                            <attributes>
-                                                                <font key="NSFont" size="14" name="Baskerville"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="erQ-n2-Ok6" userLabel="Current Players Count">
-                                                    <rect key="frame" x="169.5" y="87" width="37.5" height="14"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Players:">
-                                                            <attributes>
-                                                                <font key="NSFont" size="12" name="Baskerville"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h8I-IH-PcU">
-                                                    <rect key="frame" x="317" y="61.5" width="35" height="19.5"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Prize">
-                                                            <attributes>
-                                                                <font key="NSFont" size="17" name="Baskerville"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="cyl-eE-lQ0" secondAttribute="bottom" constant="6" id="MMG-Ls-8ay"/>
-                                                <constraint firstItem="erQ-n2-Ok6" firstAttribute="top" secondItem="Dw1-yQ-sld" secondAttribute="bottom" constant="8" id="WZ9-Zb-2nb"/>
-                                                <constraint firstItem="cyl-eE-lQ0" firstAttribute="top" secondItem="zPA-Wa-G21" secondAttribute="bottom" constant="18.5" id="XgW-NQ-sP0"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="h8I-IH-PcU" secondAttribute="trailing" constant="15" id="ZEl-y4-QiY"/>
-                                                <constraint firstItem="zPA-Wa-G21" firstAttribute="top" secondItem="FeU-jz-Cy6" secondAttribute="top" constant="8" id="dBU-zl-mQA"/>
-                                                <constraint firstItem="cyl-eE-lQ0" firstAttribute="leading" secondItem="FeU-jz-Cy6" secondAttribute="leadingMargin" constant="10" id="dPF-2V-nwb"/>
-                                                <constraint firstItem="zPA-Wa-G21" firstAttribute="leading" secondItem="FeU-jz-Cy6" secondAttribute="leadingMargin" constant="5" id="oVg-bI-GxZ"/>
-                                                <constraint firstItem="Dw1-yQ-sld" firstAttribute="centerY" secondItem="FeU-jz-Cy6" secondAttribute="centerY" id="ruR-Od-dKq"/>
-                                                <constraint firstItem="h8I-IH-PcU" firstAttribute="centerY" secondItem="FeU-jz-Cy6" secondAttribute="centerY" id="sxk-Wr-F52"/>
-                                                <constraint firstItem="Dw1-yQ-sld" firstAttribute="centerX" secondItem="FeU-jz-Cy6" secondAttribute="centerX" id="zn9-Nv-Wl0"/>
+                                                <constraint firstItem="zPA-Wa-G21" firstAttribute="top" secondItem="wyg-GR-XOJ" secondAttribute="topMargin" id="5bW-3E-ft6"/>
+                                                <constraint firstItem="zPA-Wa-G21" firstAttribute="leading" secondItem="Vcj-Gr-B5o" secondAttribute="leading" id="7FP-4k-p9E"/>
+                                                <constraint firstItem="laM-E9-qza" firstAttribute="top" secondItem="wyg-GR-XOJ" secondAttribute="topMargin" constant="21" id="7fu-od-PCX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="laM-E9-qza" secondAttribute="trailing" constant="-35" id="BJV-T6-dZA"/>
+                                                <constraint firstItem="neD-sV-BRZ" firstAttribute="centerX" secondItem="oVD-YM-fFy" secondAttribute="centerX" id="Cqj-FA-ceW"/>
+                                                <constraint firstItem="Vcj-Gr-B5o" firstAttribute="leading" secondItem="oVD-YM-fFy" secondAttribute="trailing" constant="8" id="Ld5-Az-ptV"/>
+                                                <constraint firstItem="laM-E9-qza" firstAttribute="leading" secondItem="wyg-GR-XOJ" secondAttribute="leading" constant="284" id="Rgr-mB-5wi"/>
+                                                <constraint firstItem="Vcj-Gr-B5o" firstAttribute="top" secondItem="zPA-Wa-G21" secondAttribute="bottom" constant="18" id="UZu-oh-Pwf"/>
+                                                <constraint firstItem="laM-E9-qza" firstAttribute="leading" secondItem="Vcj-Gr-B5o" secondAttribute="trailing" constant="45" id="aj0-IF-1ZV"/>
+                                                <constraint firstItem="neD-sV-BRZ" firstAttribute="centerY" secondItem="oVD-YM-fFy" secondAttribute="centerY" id="cME-80-B0T"/>
+                                                <constraint firstItem="oVD-YM-fFy" firstAttribute="leading" secondItem="wyg-GR-XOJ" secondAttribute="leadingMargin" constant="11" id="d5R-7B-oLq"/>
+                                                <constraint firstItem="oVD-YM-fFy" firstAttribute="centerY" secondItem="wyg-GR-XOJ" secondAttribute="centerY" id="g1g-K5-Fwe"/>
+                                                <constraint firstItem="laM-E9-qza" firstAttribute="centerY" secondItem="wyg-GR-XOJ" secondAttribute="centerY" id="jhm-xz-1hq"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstItem="erQ-n2-Ok6" firstAttribute="centerX" secondItem="Tjn-nm-LFb" secondAttribute="centerX" id="G0w-9F-T4o"/>
-                                        </constraints>
                                         <connections>
-                                            <outlet property="buyInAmount" destination="Dw1-yQ-sld" id="mNj-aQ-A37"/>
-                                            <outlet property="courseAddress" destination="hJO-eR-ylW" id="S4O-hI-jNt"/>
-                                            <outlet property="courseName" destination="kvA-bs-CJ2" id="lWk-DE-bTo"/>
-                                            <outlet property="currentPot" destination="h8I-IH-PcU" id="QGz-Yw-i6e"/>
-                                            <outlet property="date" destination="a55-pP-MLG" id="agm-4d-Ygg"/>
-                                            <outlet property="playerCount" destination="erQ-n2-Ok6" id="FpT-DJ-Zna"/>
-                                            <outlet property="title" destination="zPA-Wa-G21" id="BDe-XG-pBW"/>
+                                            <outlet property="activityIndicator" destination="neD-sV-BRZ" id="YQh-lY-tLD"/>
+                                            <outlet property="buyInAmount" destination="Dw1-yQ-sld" id="beT-WJ-zMI"/>
+                                            <outlet property="courseName" destination="Vcj-Gr-B5o" id="y2f-Di-ZCZ"/>
+                                            <outlet property="coursePic" destination="oVD-YM-fFy" id="iB8-Lv-Bob"/>
+                                            <outlet property="currentPot" destination="h8I-IH-PcU" id="IdN-VU-KqK"/>
+                                            <outlet property="date" destination="a55-pP-MLG" id="4Rh-oy-aFo"/>
+                                            <outlet property="title" destination="zPA-Wa-G21" id="qNB-MV-TpY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1670,7 +1643,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1642" y="880"/>
+            <point key="canvasLocation" x="1640.8" y="879.31034482758628"/>
         </scene>
         <!--Player Profile Controller-->
         <scene sceneID="JvD-rz-Z40">
@@ -1696,7 +1669,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-rn-7SV">
-                                                    <rect key="frame" x="157" y="62.5" width="62" height="16.5"/>
+                                                    <rect key="frame" x="157" y="62" width="62" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="62" id="WCA-fj-MRh"/>
                                                     </constraints>
@@ -1726,7 +1699,7 @@
                                                     <rect key="frame" x="11" y="47" width="100" height="80"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drw-fn-ECt" userLabel="Course">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="38.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="39"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Course">
                                                                     <attributes>
@@ -1737,7 +1710,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Als-eN-MFQ">
-                                                            <rect key="frame" x="0.0" y="41.5" width="100" height="38.5"/>
+                                                            <rect key="frame" x="0.0" y="42" width="100" height="38"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Address">
                                                                     <attributes>
@@ -1767,7 +1740,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mS-s2-b1u">
-                                                    <rect key="frame" x="280" y="61.5" width="35" height="19.5"/>
+                                                    <rect key="frame" x="280" y="61" width="35" height="20"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Prize">
                                                             <attributes>
@@ -1778,7 +1751,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2m-fM-Fea">
-                                                    <rect key="frame" x="157.5" y="5" width="60.5" height="15"/>
+                                                    <rect key="frame" x="157" y="5" width="61" height="15"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Game Title">
                                                             <attributes>
@@ -1835,7 +1808,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BF-SV-gdd">
-                                <rect key="frame" x="134" y="198.5" width="107" height="19.5"/>
+                                <rect key="frame" x="134" y="198" width="107" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Current Games">
                                         <attributes>
@@ -1859,10 +1832,10 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="18Q-TM-YMF">
-                                <rect key="frame" x="142" y="84" width="126" height="58.5"/>
+                                <rect key="frame" x="142" y="84" width="126" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbT-DX-hgH" userLabel="name">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="29"/>
                                         <attributedString key="attributedText">
                                             <fragment content="No Name Entered">
                                                 <attributes>
@@ -1873,7 +1846,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-7h-Qi2" userLabel="handicap">
-                                        <rect key="frame" x="0.0" y="29.5" width="126" height="29"/>
+                                        <rect key="frame" x="0.0" y="29" width="126" height="29"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Handicap">
                                                 <attributes>
@@ -1977,6 +1950,6 @@
         <image name="Home" width="24" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OWo-gB-eFs"/>
+        <segue reference="nWJ-wL-cco"/>
     </inferredMetricsTieBreakers>
 </document>
