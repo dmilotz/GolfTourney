@@ -248,6 +248,8 @@ extension FindTourneyController: UITableViewDataSource{
     cell.courseName.text = game.courseName!
     cell.date.text = game.date!
     cell.currentPot.text = "Pot: $\(game.buyIn! * game.players!.count)"
+    cell.courseAddress.text = game.courseAddress!
+  
     GoogleClient.getDataFromUrl(url: URL(string: game.coursePicUrl!)!, completion: { (data, response, error) in
       
       guard let data = data, error == nil else {

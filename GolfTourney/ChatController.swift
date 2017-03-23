@@ -1,4 +1,7 @@
-
+//
+//  ChatController.swift
+//  GolfTourney
+//
 //  Created by Dirk Milotz on 3/16/17.
 //  Copyright © 2017 Dirk Milotz. All rights reserved.
 //
@@ -9,7 +12,7 @@ import FirebaseDatabase
 import JSQMessagesViewController
 import UIKit
 
-class ChatViewController: JSQMessagesViewController{
+class ChatController: JSQMessagesViewController{
   
   
   /// Properties
@@ -24,24 +27,15 @@ class ChatViewController: JSQMessagesViewController{
   var messages = [JSQMessage]()
   lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
   lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
- 
+  
 }
 
 
 // MARK: - LifeCycle methods
-extension ChatViewController{
+extension ChatController{
   
   override func viewDidLoad(){
     super.viewDidLoad()
-    let height: CGFloat = 50
-    let navbar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: height))
-    navbar.backgroundColor = UIColor.white
-    let navItem = UINavigationItem()
-    navItem.title = ""
-    navItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(back))
-    navbar.items = [navItem]
-    view.addSubview(navbar)
-    collectionView.translatesAutoresizingMaskIntoConstraints = false
     
     ref = FIRDatabase.database().reference()
     self.senderDisplayName = "No Name"
@@ -49,19 +43,14 @@ extension ChatViewController{
     observeMessages()
     self.senderId = FIRAuth.auth()?.currentUser?.uid
   }
-  
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    collectionView.frame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 50)
-    
-  }
+
   
 }
 
 
 
 // MARK: - helper methods
-extension ChatViewController{
+extension ChatController{
   
   func back(_ sender: Any) {
     dismiss(animated: true, completion: nil)
@@ -94,7 +83,7 @@ extension ChatViewController{
 }
 
 // MARK: - JSQMessage functions
-extension ChatViewController{
+extension ChatController{
   func observeMessages() {
     let messageQuery = chatRef.queryLimited(toLast:25)
     

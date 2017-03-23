@@ -51,6 +51,8 @@
 		1197053B1E52593400687827 /* FindTourneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053A1E52593400687827 /* FindTourneyController.swift */; };
 		1197053D1E52675E00687827 /* PlayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053C1E52675E00687827 /* PlayerCollectionCell.swift */; };
 		119705411E526C8C00687827 /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119705401E526C8C00687827 /* CreateGameController.swift */; };
+		119E37D51E83487100D3DCD1 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119E37D41E83487100D3DCD1 /* ScoreViewController.swift */; };
+		119E37D71E835B7A00D3DCD1 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119E37D61E835B7A00D3DCD1 /* ChatController.swift */; };
 		11DCFC611E4E3CB20054DB04 /* CourseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */; };
 		11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC681E4E54D70054DB04 /* GameModel.swift */; };
 		11DCFC6D1E4E5FDA0054DB04 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DCFC6C1E4E5FDA0054DB04 /* GameViewController.swift */; };
@@ -147,6 +149,8 @@
 		1197053C1E52675E00687827 /* PlayerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCollectionCell.swift; sourceTree = "<group>"; };
 		119705401E526C8C00687827 /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
 		119705E81E52743900687827 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = "../../Developer/Xcode/DerivedData/GolfTourney-buksvpaxtgomelfmctcqqrpbdiya/Build/Products/Debug-iphonesimulator/JTAppleCalendar/JTAppleCalendar.framework"; sourceTree = "<group>"; };
+		119E37D41E83487100D3DCD1 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		119E37D61E835B7A00D3DCD1 /* ChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		11DCFC601E4E3CB20054DB04 /* CourseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseGameViewController.swift; sourceTree = "<group>"; };
 		11DCFC681E4E54D70054DB04 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		11DCFC6C1E4E5FDA0054DB04 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +302,8 @@
 				112C14801E5D0D62001E6E18 /* PlayerProfileController.swift */,
 				113221781E6A3FAE008E23B3 /* ModalTransitionMediator.swift */,
 				11249AFF1E7B8A5F00FCCE1B /* ChatViewController.swift */,
+				119E37D41E83487100D3DCD1 /* ScoreViewController.swift */,
+				119E37D61E835B7A00D3DCD1 /* ChatController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -704,6 +710,7 @@
 				112C14781E5BA8E0001E6E18 /* EditProfileController.swift in Sources */,
 				119705411E526C8C00687827 /* CreateGameController.swift in Sources */,
 				1157CA771E4A999F00BAEE7F /* User.swift in Sources */,
+				119E37D51E83487100D3DCD1 /* ScoreViewController.swift in Sources */,
 				1157CA7E1E4C127A00BAEE7F /* CourseViewTableCell.swift in Sources */,
 				1157CA7C1E4C112E00BAEE7F /* FindCoursesController.swift in Sources */,
 				1157CA7A1E4ABDF700BAEE7F /* LoginViewController.swift in Sources */,
@@ -711,6 +718,7 @@
 				1157CA751E4A996800BAEE7F /* NetworkClient.swift in Sources */,
 				1157CA801E4C147B00BAEE7F /* Constants.swift in Sources */,
 				112C14811E5D0D62001E6E18 /* PlayerProfileController.swift in Sources */,
+				119E37D71E835B7A00D3DCD1 /* ChatController.swift in Sources */,
 				1197053D1E52675E00687827 /* PlayerCollectionCell.swift in Sources */,
 				11249AD51E6F89FC00FCCE1B /* Photo.swift in Sources */,
 			);

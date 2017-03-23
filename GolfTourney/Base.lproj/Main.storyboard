@@ -173,11 +173,11 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hii-2l-Q42">
-                                <rect key="frame" x="105" y="60" width="166" height="32"/>
+                                <rect key="frame" x="103" y="60" width="169" height="32"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Find A Course">
                                         <attributes>
-                                            <font key="NSFont" size="25" name="Baskerville-SemiBold"/>
+                                            <font key="NSFont" size="25" name="HelveticaNeue-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -226,7 +226,7 @@
                                                     <rect key="frame" x="40" y="48" width="20" height="20"/>
                                                 </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYb-DB-zYJ">
-                                                    <rect key="frame" x="89" y="51" width="149" height="13"/>
+                                                    <rect key="frame" x="89" y="51" width="149" height="14"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Course Address">
                                                             <attributes>
@@ -353,23 +353,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFN-aC-Mk4">
-                                                    <rect key="frame" x="165" y="11" width="46" height="17"/>
+                                                    <rect key="frame" x="164" y="11" width="48" height="17"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Buy In: ">
                                                             <attributes>
-                                                                <font key="NSFont" size="14" name="Baskerville"/>
+                                                                <font key="NSFont" size="14" name="HelveticaNeue"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="r8i-Tf-RIM" userLabel="GameTitle">
-                                                    <rect key="frame" x="13" y="8" width="33" height="20"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="r8i-Tf-RIM" userLabel="GameTitle">
+                                                    <rect key="frame" x="13" y="8" width="129" height="20"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Title">
                                                             <attributes>
-                                                                <font key="NSFont" size="17" name="Baskerville"/>
+                                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -384,29 +384,29 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="Date">
                                                             <attributes>
-                                                                <font key="NSFont" size="12" name="Baskerville"/>
+                                                                <font key="NSFont" size="12" name="HelveticaNeue"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhl-BZ-BKt">
-                                                    <rect key="frame" x="308" y="34" width="35" height="20"/>
+                                                    <rect key="frame" x="305" y="34" width="38" height="20"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Prize">
                                                             <attributes>
-                                                                <font key="NSFont" size="17" name="Baskerville"/>
+                                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttr-oN-xnd" userLabel="Current Players Count">
-                                                    <rect key="frame" x="169" y="37" width="38" height="14"/>
+                                                    <rect key="frame" x="166" y="37" width="43" height="14"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Players:">
                                                             <attributes>
-                                                                <font key="NSFont" size="12" name="Baskerville"/>
+                                                                <font key="NSFont" size="12" name="HelveticaNeue"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -419,6 +419,7 @@
                                                 <constraint firstItem="GFN-aC-Mk4" firstAttribute="centerX" secondItem="4Ng-Im-aMx" secondAttribute="centerX" id="E8z-pk-3dl"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="bhl-BZ-BKt" secondAttribute="trailing" constant="24" id="EuD-Ap-uAL"/>
                                                 <constraint firstItem="ttr-oN-xnd" firstAttribute="centerY" secondItem="4Ng-Im-aMx" secondAttribute="centerY" id="G17-j7-sDJ"/>
+                                                <constraint firstItem="GFN-aC-Mk4" firstAttribute="leading" secondItem="r8i-Tf-RIM" secondAttribute="trailing" constant="22.5" id="HPK-9l-N9N"/>
                                                 <constraint firstItem="bhl-BZ-BKt" firstAttribute="centerY" secondItem="GFN-aC-Mk4" secondAttribute="centerY" constant="24.5" id="L8I-jM-SgP"/>
                                                 <constraint firstItem="GFN-aC-Mk4" firstAttribute="centerY" secondItem="4Ng-Im-aMx" secondAttribute="centerY" constant="-24.333333333333336" id="LPT-79-PTF"/>
                                                 <constraint firstItem="r8i-Tf-RIM" firstAttribute="top" secondItem="4Ng-Im-aMx" secondAttribute="top" constant="8" id="M4R-5u-zwi"/>
@@ -472,12 +473,12 @@
                                 <rect key="frame" x="24" y="193" width="327" height="17.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pN5-RJ-Obc">
-                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="17.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="17.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Holes:">
                                                 <attributes>
                                                     <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="15" name="Baskerville"/>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -485,12 +486,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="R21-dT-DKF" userLabel="Year Built">
-                                        <rect key="frame" x="79.5" y="0.0" width="110" height="17.5"/>
+                                        <rect key="frame" x="81" y="0.0" width="108.5" height="17.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Year Built:">
                                                 <attributes>
                                                     <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="15" name="Baskerville"/>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -503,7 +504,7 @@
                                             <fragment content="Designer: ">
                                                 <attributes>
                                                     <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="15" name="Baskerville"/>
+                                                    <font key="NSFont" size="15" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -596,7 +597,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKQ-Sg-HOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2555.072463768116" y="34.239130434782609"/>
+            <point key="canvasLocation" x="2554.4000000000001" y="33.733133433283363"/>
         </scene>
         <!--Create Game Controller-->
         <scene sceneID="m9o-yf-E2T">
@@ -640,7 +641,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Course Name">
                                         <attributes>
-                                            <font key="NSFont" size="26" name="Baskerville"/>
+                                            <font key="NSFont" size="26" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -684,7 +685,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Enter Tourney Title">
                                         <attributes>
-                                            <font key="NSFont" size="26" name="Baskerville"/>
+                                            <font key="NSFont" size="26" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1209,52 +1210,37 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Scs-Ie-IDq">
-                                <rect key="frame" x="8" y="183" width="359" height="47"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KT1-bo-Oiz" userLabel="Date Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="117.5" height="47"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="9uK-tK-3cy"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Date">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name="Baskerville-SemiBold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIf-M1-WFR" userLabel="Buy In Label">
-                                        <rect key="frame" x="120.5" y="0.0" width="118" height="47"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Buy In">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name="Baskerville"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIY-gy-UMT" userLabel="Current Pot Label">
-                                        <rect key="frame" x="241.5" y="0.0" width="117.5" height="47"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Pot So Far">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name="Baskerville"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="guY-tR-0l8">
-                                <rect key="frame" x="0.0" y="261" width="375" height="362"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W04-lz-o3I">
+                                <rect key="frame" x="16" y="44" width="343" height="19"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Dollar Pick Up Game">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="HelveticaNeue-LightItalic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sAn-Hl-r75">
+                                <rect key="frame" x="0.0" y="71" width="359" height="24.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Course Name">
+                                        <attributes>
+                                            <font key="NSFont" size="21" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="10" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="guY-tR-0l8">
+                                <rect key="frame" x="0.0" y="192" width="375" height="78"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aPR-UK-lWR">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="PJF-RD-gEC"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aPR-UK-lWR">
                                     <size key="itemSize" width="81" height="76"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1262,7 +1248,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="playerCollectionCell" id="WSm-73-2cz" customClass="PlayerCollectionCell" customModule="GolfTourney" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="81" height="76"/>
+                                        <rect key="frame" x="0.0" y="1" width="81" height="76"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="81" height="76"/>
@@ -1319,85 +1305,86 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W04-lz-o3I">
-                                <rect key="frame" x="16" y="44" width="343" height="26.5"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Dollar Pick Up Game">
-                                        <attributes>
-                                            <font key="NSFont" size="23" name="Baskerville"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sAn-Hl-r75">
-                                <rect key="frame" x="0.0" y="78" width="359" height="29"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Course Name">
-                                        <attributes>
-                                            <font key="NSFont" size="25" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptm-ki-f6H">
-                                <rect key="frame" x="8" y="233" width="117.5" height="20"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Current Players">
-                                        <attributes>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cse-Tt-f3n">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NqG-Jw-QcA"/>
-                                    <barButtonItem title="Game Chat" id="PPD-zs-ZaD">
-                                        <connections>
-                                            <action selector="goToChat:" destination="9Sh-sH-hGL" id="vXq-vx-ALU"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Zg1-eC-aMX"/>
-                                </items>
-                            </toolbar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDX-q3-8P0">
+                                <rect key="frame" x="0.0" y="270" width="375" height="353"/>
+                                <connections>
+                                    <segue destination="y7k-Fv-YUh" kind="embed" identifier="chatViewController" id="St0-IE-Zax"/>
+                                </connections>
+                            </containerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Scs-Ie-IDq">
+                                <rect key="frame" x="0.0" y="137" width="359" height="47"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KT1-bo-Oiz" userLabel="Date Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="117.5" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="9uK-tK-3cy"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Date">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name="Baskerville-SemiBold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIf-M1-WFR" userLabel="Buy In Label">
+                                        <rect key="frame" x="120.5" y="0.0" width="118" height="47"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Buy In">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name="Baskerville"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIY-gy-UMT" userLabel="Current Pot Label">
+                                        <rect key="frame" x="241.5" y="0.0" width="117.5" height="47"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Pot So Far">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name="Baskerville"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="guY-tR-0l8" secondAttribute="trailing" id="0HA-e8-d11"/>
-                            <constraint firstItem="Scs-Ie-IDq" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" constant="8" id="5Sy-Vp-mRq"/>
+                            <constraint firstItem="Scs-Ie-IDq" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" id="5Sy-Vp-mRq"/>
                             <constraint firstItem="W04-lz-o3I" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leadingMargin" id="5VF-7A-my1"/>
-                            <constraint firstAttribute="trailing" secondItem="sAn-Hl-r75" secondAttribute="trailing" constant="8" id="7d4-zJ-lBm"/>
-                            <constraint firstItem="Ptm-ki-f6H" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leadingMargin" constant="-8" id="Cpp-P9-37d"/>
+                            <constraint firstAttribute="trailing" secondItem="sAn-Hl-r75" secondAttribute="trailing" constant="16" id="7d4-zJ-lBm"/>
                             <constraint firstAttribute="trailing" secondItem="MHp-Vy-xbZ" secondAttribute="trailing" id="Fdr-CR-YIo"/>
                             <constraint firstItem="MHp-Vy-xbZ" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" id="G6E-Rr-vzo"/>
                             <constraint firstItem="W04-lz-o3I" firstAttribute="centerX" secondItem="F2f-Gj-Vhr" secondAttribute="centerX" id="GyP-RJ-qAy"/>
+                            <constraint firstItem="vCG-Sd-F5J" firstAttribute="top" secondItem="iDX-q3-8P0" secondAttribute="bottom" id="IU9-Ke-hr5"/>
                             <constraint firstItem="MHp-Vy-xbZ" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" id="Mcv-gr-Ab6"/>
                             <constraint firstAttribute="trailing" secondItem="MHp-Vy-xbZ" secondAttribute="trailing" id="OAt-4o-Xdd"/>
+                            <constraint firstItem="iDX-q3-8P0" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leadingMargin" constant="-16" id="P0d-Hz-oIq"/>
                             <constraint firstItem="MHp-Vy-xbZ" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" id="Pii-EK-DP8"/>
                             <constraint firstItem="MHp-Vy-xbZ" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" id="PrC-cc-Xi8"/>
-                            <constraint firstItem="guY-tR-0l8" firstAttribute="top" secondItem="F2f-Gj-Vhr" secondAttribute="top" constant="261" id="Se7-Tk-Qyo"/>
+                            <constraint firstItem="guY-tR-0l8" firstAttribute="top" secondItem="F2f-Gj-Vhr" secondAttribute="top" constant="192" id="Se7-Tk-Qyo"/>
                             <constraint firstItem="MHp-Vy-xbZ" firstAttribute="top" secondItem="F2f-Gj-Vhr" secondAttribute="top" id="VIv-8V-AuF"/>
+                            <constraint firstItem="iDX-q3-8P0" firstAttribute="top" secondItem="guY-tR-0l8" secondAttribute="bottom" id="VRi-xc-p4V"/>
                             <constraint firstItem="MHp-Vy-xbZ" firstAttribute="top" secondItem="F2f-Gj-Vhr" secondAttribute="top" id="YAe-JZ-BSV"/>
                             <constraint firstAttribute="trailing" secondItem="MHp-Vy-xbZ" secondAttribute="trailing" id="aXI-qc-FyD"/>
-                            <constraint firstItem="sAn-Hl-r75" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" constant="8" id="bAi-Fw-YRQ"/>
+                            <constraint firstItem="sAn-Hl-r75" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" id="bAi-Fw-YRQ"/>
+                            <constraint firstItem="guY-tR-0l8" firstAttribute="top" secondItem="Scs-Ie-IDq" secondAttribute="bottom" constant="8" id="cKE-80-1GA"/>
                             <constraint firstItem="Scs-Ie-IDq" firstAttribute="leading" secondItem="sAn-Hl-r75" secondAttribute="leading" id="cuI-Qa-bmI"/>
-                            <constraint firstItem="W04-lz-o3I" firstAttribute="top" secondItem="MHp-Vy-xbZ" secondAttribute="bottom" constant="19" id="fmi-uO-4lH"/>
+                            <constraint firstItem="W04-lz-o3I" firstAttribute="top" secondItem="MHp-Vy-xbZ" secondAttribute="bottom" id="fmi-uO-4lH"/>
                             <constraint firstItem="MHp-Vy-xbZ" firstAttribute="top" secondItem="F2f-Gj-Vhr" secondAttribute="top" id="hyC-iS-S3e"/>
                             <constraint firstAttribute="trailing" secondItem="MHp-Vy-xbZ" secondAttribute="trailing" id="lGY-EU-WQy"/>
-                            <constraint firstAttribute="trailing" secondItem="Scs-Ie-IDq" secondAttribute="trailing" constant="8" id="m9e-MI-879"/>
-                            <constraint firstItem="Ptm-ki-f6H" firstAttribute="top" secondItem="Scs-Ie-IDq" secondAttribute="bottom" constant="3.3333333333333712" id="pIU-fz-7Iw"/>
-                            <constraint firstItem="vCG-Sd-F5J" firstAttribute="top" secondItem="guY-tR-0l8" secondAttribute="bottom" id="rK0-TW-ZfD"/>
-                            <constraint firstItem="guY-tR-0l8" firstAttribute="top" secondItem="Ptm-ki-f6H" secondAttribute="bottom" constant="8" id="sQs-tw-fYK"/>
+                            <constraint firstAttribute="trailing" secondItem="Scs-Ie-IDq" secondAttribute="trailing" constant="16" id="m9e-MI-879"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iDX-q3-8P0" secondAttribute="trailing" constant="-16" id="sKx-mJ-bNn"/>
                             <constraint firstItem="MHp-Vy-xbZ" firstAttribute="top" secondItem="F2f-Gj-Vhr" secondAttribute="top" id="vAJ-Ur-RDh"/>
-                            <constraint firstItem="sAn-Hl-r75" firstAttribute="centerX" secondItem="F2f-Gj-Vhr" secondAttribute="centerX" id="w03-hG-oPl"/>
-                            <constraint firstItem="sAn-Hl-r75" firstAttribute="top" secondItem="W04-lz-o3I" secondAttribute="bottom" constant="16.333333333333343" id="wah-kF-xRc"/>
+                            <constraint firstItem="sAn-Hl-r75" firstAttribute="centerX" secondItem="F2f-Gj-Vhr" secondAttribute="centerX" constant="-8" id="w03-hG-oPl"/>
+                            <constraint firstItem="sAn-Hl-r75" firstAttribute="top" secondItem="W04-lz-o3I" secondAttribute="bottom" constant="7.5" id="wah-kF-xRc"/>
                             <constraint firstItem="guY-tR-0l8" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" id="x9J-kQ-8EK"/>
                         </constraints>
                     </view>
@@ -1417,16 +1404,16 @@
             </objects>
             <point key="canvasLocation" x="2556" y="878.41079460269873"/>
         </scene>
-        <!--Chat View Controller-->
+        <!--Chat Controller-->
         <scene sceneID="tz3-S0-YXS">
             <objects>
-                <viewController storyboardIdentifier="chatViewController" id="y7k-Fv-YUh" customClass="ChatViewController" customModule="GolfTourney" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chatViewController" id="y7k-Fv-YUh" customClass="ChatController" customModule="GolfTourney" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rx7-He-l0u"/>
                         <viewControllerLayoutGuide type="bottom" id="Mm0-sS-SRw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="82c-C6-d39">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="353"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1437,6 +1424,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYc-qG-h15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3410" y="878"/>
+        </scene>
+        <!--Score Card-->
+        <scene sceneID="sPf-EP-frg">
+            <objects>
+                <viewController title="Score Card" id="b6m-j1-Lxf" customClass="ScoreViewController" customModule="GolfTourney" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sfc-Wa-IW4"/>
+                        <viewControllerLayoutGuide type="bottom" id="PVN-Jw-Jrv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HDm-qf-PCd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SF4-dP-TBe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Scores" id="zYZ-EU-LKK">
+                                        <barButtonItem key="backBarButtonItem" title="Back" id="CD5-NX-1ae"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Sa-Cz-zmu">
+                                <rect key="frame" x="16" y="44" width="343" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeS-QB-Tt7">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="xHs-gW-WSo"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SF4-dP-TBe" firstAttribute="top" secondItem="HDm-qf-PCd" secondAttribute="top" id="0yh-wb-8Ft"/>
+                            <constraint firstItem="SF4-dP-TBe" firstAttribute="leading" secondItem="HDm-qf-PCd" secondAttribute="leading" id="IQQ-1U-z3e"/>
+                            <constraint firstItem="1Sa-Cz-zmu" firstAttribute="leading" secondItem="HDm-qf-PCd" secondAttribute="leadingMargin" id="TQY-gn-64k"/>
+                            <constraint firstItem="PVN-Jw-Jrv" firstAttribute="top" secondItem="1Sa-Cz-zmu" secondAttribute="bottom" id="Uer-UV-ufL"/>
+                            <constraint firstItem="SF4-dP-TBe" firstAttribute="centerX" secondItem="1Sa-Cz-zmu" secondAttribute="centerX" id="hGa-xh-jvQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Sa-Cz-zmu" secondAttribute="trailing" id="rpp-Vc-zk4"/>
+                            <constraint firstItem="1Sa-Cz-zmu" firstAttribute="top" secondItem="SF4-dP-TBe" secondAttribute="bottom" id="tp3-xT-Cl9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="1Sa-Cz-zmu" id="pEv-Ef-xYO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1pD-vT-Ah6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2554" y="1579"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZEe-1u-0c0">
@@ -1532,7 +1570,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="Title">
                                                             <attributes>
-                                                                <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                                                <font key="NSFont" size="16" name="HelveticaNeue-MediumItalic"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -1577,13 +1615,28 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1a2-V2-N58">
+                                                    <rect key="frame" x="89" y="73.5" width="150" height="13"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Course Address">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.36214783029999997" green="0.36214783029999997" blue="0.36214783029999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" size="11" name="HelveticaNeue"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zPA-Wa-G21" firstAttribute="top" secondItem="wyg-GR-XOJ" secondAttribute="topMargin" id="5bW-3E-ft6"/>
+                                                <constraint firstItem="h8I-IH-PcU" firstAttribute="leading" secondItem="1a2-V2-N58" secondAttribute="trailing" constant="45" id="631-ng-9as"/>
                                                 <constraint firstItem="zPA-Wa-G21" firstAttribute="leading" secondItem="Vcj-Gr-B5o" secondAttribute="leading" id="7FP-4k-p9E"/>
                                                 <constraint firstItem="laM-E9-qza" firstAttribute="top" secondItem="wyg-GR-XOJ" secondAttribute="topMargin" constant="21" id="7fu-od-PCX"/>
                                                 <constraint firstItem="neD-sV-BRZ" firstAttribute="centerX" secondItem="oVD-YM-fFy" secondAttribute="centerX" id="Cqj-FA-ceW"/>
                                                 <constraint firstItem="Vcj-Gr-B5o" firstAttribute="leading" secondItem="oVD-YM-fFy" secondAttribute="trailing" constant="8" id="Ld5-Az-ptV"/>
+                                                <constraint firstItem="1a2-V2-N58" firstAttribute="top" secondItem="Vcj-Gr-B5o" secondAttribute="bottom" constant="8.5" id="NXj-6T-GtB"/>
                                                 <constraint firstItem="laM-E9-qza" firstAttribute="leading" secondItem="wyg-GR-XOJ" secondAttribute="leading" constant="284" id="Rgr-mB-5wi"/>
                                                 <constraint firstItem="Vcj-Gr-B5o" firstAttribute="top" secondItem="zPA-Wa-G21" secondAttribute="bottom" constant="18" id="UZu-oh-Pwf"/>
                                                 <constraint firstAttribute="trailing" secondItem="laM-E9-qza" secondAttribute="trailing" constant="8" id="Z8a-tw-lUD"/>
@@ -1592,11 +1645,13 @@
                                                 <constraint firstItem="oVD-YM-fFy" firstAttribute="leading" secondItem="wyg-GR-XOJ" secondAttribute="leadingMargin" constant="11" id="d5R-7B-oLq"/>
                                                 <constraint firstItem="oVD-YM-fFy" firstAttribute="centerY" secondItem="wyg-GR-XOJ" secondAttribute="centerY" id="g1g-K5-Fwe"/>
                                                 <constraint firstItem="laM-E9-qza" firstAttribute="centerY" secondItem="wyg-GR-XOJ" secondAttribute="centerY" id="jhm-xz-1hq"/>
+                                                <constraint firstItem="1a2-V2-N58" firstAttribute="leading" secondItem="oVD-YM-fFy" secondAttribute="trailing" constant="8" id="lNT-nH-3ac"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="activityIndicator" destination="neD-sV-BRZ" id="YQh-lY-tLD"/>
                                             <outlet property="buyInAmount" destination="Dw1-yQ-sld" id="beT-WJ-zMI"/>
+                                            <outlet property="courseAddress" destination="1a2-V2-N58" id="49k-P6-h6d"/>
                                             <outlet property="courseName" destination="Vcj-Gr-B5o" id="y2f-Di-ZCZ"/>
                                             <outlet property="coursePic" destination="oVD-YM-fFy" id="iB8-Lv-Bob"/>
                                             <outlet property="currentPot" destination="h8I-IH-PcU" id="IdN-VU-KqK"/>
@@ -1674,14 +1729,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-rn-7SV">
-                                                    <rect key="frame" x="157" y="62.5" width="62" height="16.5"/>
+                                                    <rect key="frame" x="157" y="63.5" width="62" height="16.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="62" id="WCA-fj-MRh"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Buy In: ">
                                                             <attributes>
-                                                                <font key="NSFont" size="14" name="Baskerville"/>
+                                                                <font key="NSFont" size="14" name="HelveticaNeue"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1689,11 +1744,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="JHb-4F-UcD" userLabel="Current Players Count">
-                                                    <rect key="frame" x="157" y="87" width="62" height="14"/>
+                                                    <rect key="frame" x="157" y="88" width="62" height="14"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Players:">
                                                             <attributes>
-                                                                <font key="NSFont" size="12" name="Baskerville"/>
+                                                                <font key="NSFont" size="12" name="HelveticaNeue"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1708,7 +1763,7 @@
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Course">
                                                                     <attributes>
-                                                                        <font key="NSFont" size="12" name="Baskerville"/>
+                                                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
@@ -1720,7 +1775,7 @@
                                                                 <fragment content="Address">
                                                                     <attributes>
                                                                         <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <font key="NSFont" size="11" name="Baskerville"/>
+                                                                        <font key="NSFont" size="11" name="HelveticaNeue"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
@@ -1731,13 +1786,16 @@
                                                         <constraint firstAttribute="height" constant="80" id="dge-ID-3W7"/>
                                                     </constraints>
                                                 </stackView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="nca-in-H2P" userLabel="Date">
-                                                    <rect key="frame" x="11" y="8" width="24" height="14"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nca-in-H2P" userLabel="Date">
+                                                    <rect key="frame" x="11" y="8" width="36" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="kcK-YM-eNB"/>
+                                                    </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Date">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.36214783029999997" green="0.36214783029999997" blue="0.36214783029999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="12" name="Baskerville"/>
+                                                                <font key="NSFont" size="12" name="HelveticaNeue"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1745,22 +1803,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mS-s2-b1u">
-                                                    <rect key="frame" x="280" y="61.5" width="35" height="19.5"/>
+                                                    <rect key="frame" x="277" y="61" width="38" height="20"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Prize">
                                                             <attributes>
-                                                                <font key="NSFont" size="17" name="Baskerville"/>
+                                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2m-fM-Fea">
-                                                    <rect key="frame" x="157.5" y="5" width="60.5" height="15"/>
+                                                    <rect key="frame" x="156" y="5" width="63" height="15.5"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Game Title">
                                                             <attributes>
-                                                                <font key="NSFont" size="13" name="Baskerville"/>
+                                                                <font key="NSFont" size="13" name="HelveticaNeue"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1771,20 +1829,20 @@
                                             <constraints>
                                                 <constraint firstItem="tpm-rn-7SV" firstAttribute="centerY" secondItem="eFF-cC-YuG" secondAttribute="centerY" id="C4N-gu-RKf"/>
                                                 <constraint firstItem="qS2-wP-PzB" firstAttribute="top" secondItem="eFF-cC-YuG" secondAttribute="topMargin" constant="39" id="Dmx-0n-gO1"/>
-                                                <constraint firstItem="nca-in-H2P" firstAttribute="top" secondItem="eFF-cC-YuG" secondAttribute="topMargin" id="IJF-38-RfK"/>
                                                 <constraint firstItem="JHb-4F-UcD" firstAttribute="centerX" secondItem="eFF-cC-YuG" secondAttribute="centerX" id="P1b-9e-f9U"/>
-                                                <constraint firstItem="nca-in-H2P" firstAttribute="leading" secondItem="eFF-cC-YuG" secondAttribute="leadingMargin" constant="3" id="TdT-hj-Jai"/>
+                                                <constraint firstItem="qS2-wP-PzB" firstAttribute="top" secondItem="nca-in-H2P" secondAttribute="bottom" constant="11" id="Spd-U9-xuc"/>
                                                 <constraint firstItem="tpm-rn-7SV" firstAttribute="centerX" secondItem="eFF-cC-YuG" secondAttribute="centerX" id="WUE-ds-mAc"/>
+                                                <constraint firstItem="nca-in-H2P" firstAttribute="top" secondItem="eFF-cC-YuG" secondAttribute="topMargin" id="Wxg-6x-wid"/>
                                                 <constraint firstItem="T2m-fM-Fea" firstAttribute="top" secondItem="eFF-cC-YuG" secondAttribute="topMargin" constant="-3" id="aoF-JM-ULI"/>
                                                 <constraint firstItem="7mS-s2-b1u" firstAttribute="centerY" secondItem="eFF-cC-YuG" secondAttribute="centerY" id="eCN-aI-2hF"/>
                                                 <constraint firstItem="T2m-fM-Fea" firstAttribute="top" secondItem="eFF-cC-YuG" secondAttribute="top" constant="5" id="fhF-U9-V8Z"/>
                                                 <constraint firstItem="JHb-4F-UcD" firstAttribute="top" secondItem="tpm-rn-7SV" secondAttribute="bottom" constant="8" symbolic="YES" id="gQT-r4-DL0"/>
                                                 <constraint firstItem="T2m-fM-Fea" firstAttribute="centerX" secondItem="eFF-cC-YuG" secondAttribute="centerX" id="l4w-A2-17O"/>
                                                 <constraint firstItem="tpm-rn-7SV" firstAttribute="leading" secondItem="JHb-4F-UcD" secondAttribute="leading" id="nmV-Cy-Cbu"/>
-                                                <constraint firstItem="qS2-wP-PzB" firstAttribute="leading" secondItem="nca-in-H2P" secondAttribute="leading" id="nqC-vb-qbf"/>
-                                                <constraint firstItem="nca-in-H2P" firstAttribute="centerX" secondItem="eFF-cC-YuG" secondAttribute="centerX" constant="-164.75" id="uBo-EB-0Yn"/>
+                                                <constraint firstItem="nca-in-H2P" firstAttribute="leading" secondItem="qS2-wP-PzB" secondAttribute="leading" id="nyl-3y-uAq"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7mS-s2-b1u" secondAttribute="trailing" constant="52" id="vaJ-wM-WB5"/>
                                                 <constraint firstAttribute="trailing" secondItem="qS2-wP-PzB" secondAttribute="trailing" constant="264" id="zUJ-9J-wxb"/>
+                                                <constraint firstItem="nca-in-H2P" firstAttribute="leading" secondItem="eFF-cC-YuG" secondAttribute="leadingMargin" constant="3" id="zkf-ou-e8e"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -1807,7 +1865,7 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRL-mV-GBV">
-                                <rect key="frame" x="27" y="84" width="59" height="65"/>
+                                <rect key="frame" x="27" y="84" width="49.5" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="kXc-Zz-w7A"/>
                                 </constraints>
@@ -1837,25 +1895,25 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="18Q-TM-YMF">
-                                <rect key="frame" x="142" y="84" width="126" height="58.5"/>
+                                <rect key="frame" x="132.5" y="84" width="135.5" height="58.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbT-DX-hgH" userLabel="name">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="29.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dbT-DX-hgH" userLabel="name">
+                                        <rect key="frame" x="0.0" y="0.0" width="135.5" height="29.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="No Name Entered">
                                                 <attributes>
-                                                    <font key="NSFont" size="17" name="Baskerville"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-7h-Qi2" userLabel="handicap">
-                                        <rect key="frame" x="0.0" y="29.5" width="126" height="29"/>
+                                        <rect key="frame" x="0.0" y="29.5" width="135.5" height="29"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Handicap">
                                                 <attributes>
-                                                    <font key="NSFont" size="16" name="Baskerville"/>
+                                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -1903,7 +1961,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4G-Pa-ScI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="1580"/>
+            <point key="canvasLocation" x="1640.8" y="1579.1604197901052"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="JG7-oD-kqG">
@@ -1946,6 +2004,19 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USs-Nf-GeE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GSG-aN-Kwu">
+            <objects>
+                <viewController id="syK-0U-rvT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OCe-IM-4oM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S40-fc-Rux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

@@ -32,11 +32,19 @@ class GameViewController: UIViewController{
   @IBOutlet var playerCollectionView: UICollectionView!
   @IBOutlet var joinButton: UIBarButtonItem!
   
- 
- 
+  
+  
   
   override var shouldAutorotate: Bool {
     return false
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier! == "chatViewController"{
+      if let chatVc = segue.destination as? ChatController{
+        chatVc.game = self.game!
+      }
+    }
   }
   
 }
@@ -52,12 +60,12 @@ extension GameViewController{
     dismiss(animated: true, completion: nil)
   }
   
-  @IBAction func goToChat(_ sender: Any) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let vc = storyboard.instantiateViewController(withIdentifier :"chatViewController") as! ChatViewController
-    vc.game = game
-    self.present(vc, animated: true)
-  }
+//  @IBAction func goToChat(_ sender: Any) {
+//    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//    let vc = storyboard.instantiateViewController(withIdentifier :"chatViewController") as! ChatViewController
+//    vc.game = game
+//    self.present(vc, animated: true)
+//  }
   
 }
 
