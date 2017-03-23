@@ -1517,19 +1517,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search by city, course, or zip" translatesAutoresizingMaskIntoConstraints="NO" id="WaK-Vk-xX6">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </searchBar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-HN-5Q0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" red="0.29204627869999999" green="0.65247046949999998" blue="0.49190118910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
-                                    <navigationItem title="Current Games" id="Q38-hr-jFg"/>
+                                    <navigationItem id="Q38-hr-jFg"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="142" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yKW-RG-WsO">
-                                <rect key="frame" x="0.0" y="88" width="375" height="530"/>
+                                <rect key="frame" x="0.0" y="158" width="375" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="116" id="VWe-om-1zY" userLabel="Game Cell" customClass="GameCell" customModule="GolfTourney" customModuleProvider="target">
@@ -1665,22 +1661,50 @@
                                     <outlet property="delegate" destination="dc7-Lq-mqH" id="wU6-Ub-aZC"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKn-bF-AG0">
+                                <rect key="frame" x="112.5" y="62" width="150" height="30"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Find a Game">
+                                        <attributes>
+                                            <font key="NSFont" size="25" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u23-Hu-iTI">
+                                <rect key="frame" x="308" y="93" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                <state key="normal" title="Games nearby"/>
+                                <connections>
+                                    <action selector="nearbyCourses:" destination="eof-AN-1Wt" eventType="touchUpInside" id="bKo-g6-Wws"/>
+                                    <action selector="nearbyCourses:" destination="dc7-Lq-mqH" eventType="touchUpInside" id="rox-Hj-lcI"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" placeholder="Search by city, course, or zip" translatesAutoresizingMaskIntoConstraints="NO" id="WaK-Vk-xX6">
+                                <rect key="frame" x="0.0" y="114" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WaK-Vk-xX6" firstAttribute="top" secondItem="u23-Hu-iTI" secondAttribute="bottom" id="25f-hM-84r"/>
                             <constraint firstItem="BzG-HN-5Q0" firstAttribute="leading" secondItem="e2d-jM-3ty" secondAttribute="leading" id="AgU-nd-NhZ"/>
                             <constraint firstAttribute="trailing" secondItem="WaK-Vk-xX6" secondAttribute="trailing" id="Azj-jk-r9x"/>
                             <constraint firstAttribute="trailing" secondItem="BzG-HN-5Q0" secondAttribute="trailing" id="CGH-y3-KmR"/>
+                            <constraint firstItem="XKn-bF-AG0" firstAttribute="top" secondItem="BzG-HN-5Q0" secondAttribute="bottom" constant="18" id="DeV-yg-fFx"/>
                             <constraint firstItem="yKW-RG-WsO" firstAttribute="top" secondItem="WaK-Vk-xX6" secondAttribute="bottom" id="DkV-8m-AZd"/>
                             <constraint firstItem="yKW-RG-WsO" firstAttribute="top" secondItem="WaK-Vk-xX6" secondAttribute="bottom" id="K6Z-ZB-X3u"/>
                             <constraint firstItem="yKW-RG-WsO" firstAttribute="leading" secondItem="e2d-jM-3ty" secondAttribute="leading" id="N3e-Vn-JAZ"/>
-                            <constraint firstItem="WaK-Vk-xX6" firstAttribute="top" secondItem="BzG-HN-5Q0" secondAttribute="bottom" id="OJp-Zu-Edh"/>
                             <constraint firstItem="BzG-HN-5Q0" firstAttribute="top" secondItem="e2d-jM-3ty" secondAttribute="top" id="ONs-GZ-exF"/>
                             <constraint firstItem="fdg-b2-Gyd" firstAttribute="top" secondItem="yKW-RG-WsO" secondAttribute="bottom" id="R4A-e3-k0h"/>
+                            <constraint firstItem="XKn-bF-AG0" firstAttribute="centerX" secondItem="e2d-jM-3ty" secondAttribute="centerX" id="SPF-Un-HG1"/>
                             <constraint firstAttribute="trailing" secondItem="yKW-RG-WsO" secondAttribute="trailing" id="Uy4-3U-SBP"/>
                             <constraint firstItem="WaK-Vk-xX6" firstAttribute="leading" secondItem="e2d-jM-3ty" secondAttribute="leading" id="ac5-wP-bYj"/>
-                            <constraint firstItem="WaK-Vk-xX6" firstAttribute="top" secondItem="BzG-HN-5Q0" secondAttribute="bottom" id="dbo-cn-2aZ"/>
                             <constraint firstItem="WaK-Vk-xX6" firstAttribute="leading" secondItem="e2d-jM-3ty" secondAttribute="leading" id="eOm-cj-qSi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u23-Hu-iTI" secondAttribute="trailing" id="fX2-tV-4JR"/>
+                            <constraint firstItem="WaK-Vk-xX6" firstAttribute="top" secondItem="XKn-bF-AG0" secondAttribute="bottom" constant="22" id="iXD-1d-U7t"/>
                             <constraint firstAttribute="trailing" secondItem="WaK-Vk-xX6" secondAttribute="trailing" id="l5H-Mb-ErD"/>
                             <constraint firstItem="yKW-RG-WsO" firstAttribute="top" secondItem="WaK-Vk-xX6" secondAttribute="bottom" id="n6t-pD-fLS"/>
                         </constraints>
@@ -1729,7 +1753,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-rn-7SV">
-                                                    <rect key="frame" x="157" y="63.5" width="62" height="16.5"/>
+                                                    <rect key="frame" x="157" y="62.5" width="62" height="16.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="62" id="WCA-fj-MRh"/>
                                                     </constraints>
@@ -1744,7 +1768,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="JHb-4F-UcD" userLabel="Current Players Count">
-                                                    <rect key="frame" x="157" y="88" width="62" height="14"/>
+                                                    <rect key="frame" x="157" y="87" width="62" height="14"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Players:">
                                                             <attributes>
@@ -2026,6 +2050,6 @@
         <image name="Home" width="24" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OWo-gB-eFs"/>
+        <segue reference="nWJ-wL-cco"/>
     </inferredMetricsTieBreakers>
 </document>

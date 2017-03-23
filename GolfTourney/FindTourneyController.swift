@@ -43,6 +43,9 @@ class FindTourneyController: UIViewController{
     return false
   }
   
+  @IBAction func nearbyCourses(_ sender: Any) {
+    requestLocation()
+  }
 }
 
 
