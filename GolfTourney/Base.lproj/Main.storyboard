@@ -114,7 +114,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.29204627869999999" green="0.65247046949999998" blue="0.49190118910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.2901960784" green="0.43921568630000002" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="W4V-zQ-g0C" firstAttribute="leading" secondItem="aiM-Sz-KfC" secondAttribute="leadingMargin" constant="54" id="0H2-JF-3iG"/>
                             <constraint firstItem="5ym-bO-SR2" firstAttribute="leading" secondItem="aiM-Sz-KfC" secondAttribute="leadingMargin" constant="54" id="8l9-Wh-PyQ"/>
@@ -143,12 +143,30 @@
                         <outlet property="facebookLogin" destination="a37-GF-80W" id="q3c-Ex-dGy"/>
                         <outlet property="textFieldLoginEmail" destination="eVf-ky-Noj" id="JOp-pM-l6h"/>
                         <outlet property="textFieldLoginPassword" destination="bK1-d0-m4x" id="IJ0-CC-y5J"/>
-                        <segue destination="dOi-du-V6V" kind="show" identifier="loginToHomeScreen" id="hUo-6t-WpJ"/>
+                        <segue destination="qSY-s1-fmy" kind="show" identifier="SideBarContainerController" id="gG7-Ww-RPi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHu-05-n8q" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1161" y="399"/>
+            <point key="canvasLocation" x="-2634" y="399"/>
+        </scene>
+        <!--Side Bar Container View Controller-->
+        <scene sceneID="fHR-vS-l9e">
+            <objects>
+                <viewController storyboardIdentifier="SideBarContainerController" id="qSY-s1-fmy" customClass="SideBarContainerViewController" customModule="GolfTourney" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GEg-AH-4Uy"/>
+                        <viewControllerLayoutGuide type="bottom" id="XjZ-nD-OqB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1YK-c2-BAp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wh8-R5-Kwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1840" y="400"/>
         </scene>
         <!--Find A Course-->
         <scene sceneID="OsU-MB-viQ">
@@ -159,7 +177,7 @@
                         <viewControllerLayoutGuide type="bottom" id="TJ9-Po-Fpg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="98M-f7-83P">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search by city, course, or zip" translatesAutoresizingMaskIntoConstraints="NO" id="ot2-j7-hUo">
@@ -208,7 +226,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="Course Name">
                                                             <attributes>
-                                                                <font key="NSFont" size="14" name="Optima-Regular"/>
+                                                                <font key="NSFont" size="14" name="HelveticaNeue"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -226,12 +244,12 @@
                                                     <rect key="frame" x="40" y="48" width="20" height="20"/>
                                                 </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYb-DB-zYJ">
-                                                    <rect key="frame" x="89" y="51" width="149" height="14"/>
+                                                    <rect key="frame" x="89" y="51" width="149" height="13"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Course Address">
                                                             <attributes>
                                                                 <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <font key="NSFont" size="11" name="Optima-Regular"/>
+                                                                <font key="NSFont" size="11" name="HelveticaNeue"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -283,7 +301,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.68235294117647061" green="0.7803921568627451" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9PB-Jj-hMW" secondAttribute="trailing" id="2Sh-uj-Vt6"/>
                             <constraint firstItem="TJ9-Po-Fpg" firstAttribute="top" secondItem="0pR-yW-vDI" secondAttribute="bottom" id="6h1-Gj-T9x"/>
@@ -327,7 +345,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1383.2" y="19.340329835082461"/>
+            <point key="canvasLocation" x="1641" y="-29"/>
         </scene>
         <!--Course Game View Controller-->
         <scene sceneID="xte-qR-R82">
@@ -338,11 +356,11 @@
                         <viewControllerLayoutGuide type="bottom" id="nb4-au-tt4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qgR-Hv-fap">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LA3-dp-ap2">
-                                <rect key="frame" x="0.0" y="218.5" width="375" height="448.5"/>
+                                <rect key="frame" x="0.0" y="218.5" width="375" height="399.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="88" id="7LS-aW-tzy" userLabel="GameCell" customClass="GameCell" customModule="GolfTourney" customModuleProvider="target">
@@ -527,7 +545,7 @@
                                         <attributedString key="attributedText">
                                             <fragment content="Course Name">
                                                 <attributes>
-                                                    <font key="NSFont" size="16" name="Optima-Regular"/>
+                                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -540,7 +558,7 @@
                                             <fragment content="Course Address">
                                                 <attributes>
                                                     <color key="NSColor" red="0.36214783029999997" green="0.36214783029999997" blue="0.36214783029999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="13" name="Optima-Regular"/>
+                                                    <font key="NSFont" size="13" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -561,7 +579,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.68235294120000001" green="0.78039215689999997" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oUm-50-npB" firstAttribute="leading" secondItem="zQm-dR-VIv" secondAttribute="leading" id="2rd-Td-xUV"/>
                             <constraint firstItem="oUm-50-npB" firstAttribute="centerX" secondItem="MPn-i5-O4m" secondAttribute="centerX" id="7Gz-lC-cEt"/>
@@ -608,7 +626,7 @@
                         <viewControllerLayoutGuide type="bottom" id="vVm-cZ-Jdc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fQd-t2-ysY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5U-dU-DXL">
@@ -693,7 +711,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.68235294120000001" green="0.78039215689999997" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nHR-mn-nIx" firstAttribute="top" secondItem="2wW-TX-tLu" secondAttribute="bottom" constant="-13" id="0wm-lt-pbU"/>
                             <constraint firstItem="D81-kS-Y02" firstAttribute="centerX" secondItem="fQd-t2-ysY" secondAttribute="centerX" id="27f-f2-ufD"/>
@@ -740,7 +758,7 @@
                         <viewControllerLayoutGuide type="bottom" id="M4w-bw-Nbc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VXW-67-rep">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="142" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2re-B8-z4F">
@@ -894,11 +912,11 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZR-Uv-UZF">
-                                <rect key="frame" x="134" y="198.5" width="107" height="19.5"/>
+                                <rect key="frame" x="130" y="198" width="116" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Current Games">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="Baskerville"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -923,36 +941,36 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xMr-xq-r2c">
-                                <rect key="frame" x="173" y="84" width="126" height="58.5"/>
+                                <rect key="frame" x="173" y="84" width="135.5" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAk-qU-86q" userLabel="name">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="135.5" height="19.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="No Name Entered">
                                                 <attributes>
-                                                    <font key="NSFont" size="17" name="Baskerville"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NcV-Ma-6Xe" userLabel="handicap">
-                                        <rect key="frame" x="0.0" y="19.5" width="126" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="19.5" width="135.5" height="19"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Handicap">
                                                 <attributes>
-                                                    <font key="NSFont" size="16" name="Baskerville"/>
+                                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFh-dl-EAG" userLabel="Email:">
-                                        <rect key="frame" x="0.0" y="39" width="126" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="38.5" width="135.5" height="19.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Email">
                                                 <attributes>
-                                                    <font key="NSFont" size="10" name="Baskerville"/>
+                                                    <font key="NSFont" size="10" name="HelveticaNeue"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -964,7 +982,7 @@
                                 <rect key="frame" x="62" y="107" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.68235294120000001" green="0.78039215689999997" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DTy-bl-hiH" secondAttribute="trailing" id="6rs-ET-0ne"/>
                             <constraint firstItem="2re-B8-z4F" firstAttribute="leading" secondItem="VXW-67-rep" secondAttribute="leading" id="8AU-s3-NkM"/>
@@ -1126,7 +1144,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.2901960784" green="0.43921568630000002" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iXD-oM-dcz" firstAttribute="centerX" secondItem="5Pc-du-oBF" secondAttribute="centerX" id="21N-Kz-5c1"/>
                             <constraint firstAttribute="trailing" secondItem="tHZ-cs-RA8" secondAttribute="trailing" id="3lQ-Qc-oou"/>
@@ -1354,7 +1372,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.68235294120000001" green="0.78039215689999997" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="guY-tR-0l8" secondAttribute="trailing" id="0HA-e8-d11"/>
                             <constraint firstItem="Scs-Ie-IDq" firstAttribute="leading" secondItem="F2f-Gj-Vhr" secondAttribute="leading" id="5Sy-Vp-mRq"/>
@@ -1481,7 +1499,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="TabController" id="dOi-du-V6V" customClass="TabBarController" customModule="GolfTourney" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="9Jd-uS-91b">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="9Jd-uS-91b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1503,7 +1521,25 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6Q-gP-FMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63" y="399"/>
+            <point key="canvasLocation" x="-972" y="399"/>
+        </scene>
+        <!--Featured Games-->
+        <scene sceneID="lhw-MC-Ous">
+            <objects>
+                <viewController id="n4q-k7-Qtt" userLabel="Featured Games" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p9J-nW-wCc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Na7-RH-onK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wvW-17-0bR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRv-HC-mrq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="791" y="1223"/>
         </scene>
         <!--Find Existing Games-->
         <scene sceneID="o9Y-vm-ViV">
@@ -1514,12 +1550,11 @@
                         <viewControllerLayoutGuide type="bottom" id="fdg-b2-Gyd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e2d-jM-3ty">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BzG-HN-5Q0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="barTintColor" red="0.29204627869999999" green="0.65247046949999998" blue="0.49190118910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="Q38-hr-jFg"/>
                                 </items>
@@ -1662,7 +1697,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKn-bF-AG0">
-                                <rect key="frame" x="112.5" y="62" width="150" height="30"/>
+                                <rect key="frame" x="113" y="62" width="150" height="30"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Find a Game">
                                         <attributes>
@@ -1687,7 +1722,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.68235294117647061" green="0.7803921568627451" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WaK-Vk-xX6" firstAttribute="top" secondItem="u23-Hu-iTI" secondAttribute="bottom" id="25f-hM-84r"/>
                             <constraint firstItem="BzG-HN-5Q0" firstAttribute="leading" secondItem="e2d-jM-3ty" secondAttribute="leading" id="AgU-nd-NhZ"/>
@@ -1895,11 +1930,11 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BF-SV-gdd">
-                                <rect key="frame" x="134" y="198.5" width="107" height="19.5"/>
+                                <rect key="frame" x="130" y="198" width="116" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Current Games">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="Baskerville"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1919,10 +1954,10 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="18Q-TM-YMF">
-                                <rect key="frame" x="132.5" y="84" width="135.5" height="58.5"/>
+                                <rect key="frame" x="132.5" y="84" width="135.5" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dbT-DX-hgH" userLabel="name">
-                                        <rect key="frame" x="0.0" y="0.0" width="135.5" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="135.5" height="29"/>
                                         <attributedString key="attributedText">
                                             <fragment content="No Name Entered">
                                                 <attributes>
@@ -1933,7 +1968,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GNv-7h-Qi2" userLabel="handicap">
-                                        <rect key="frame" x="0.0" y="29.5" width="135.5" height="29"/>
+                                        <rect key="frame" x="0.0" y="29" width="135.5" height="29"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Handicap">
                                                 <attributes>
@@ -1987,62 +2022,6 @@
             </objects>
             <point key="canvasLocation" x="1640.8" y="1579.1604197901052"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="JG7-oD-kqG">
-            <objects>
-                <tableViewController id="gNN-hf-tMm" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="j2O-DA-ZZa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hXe-r6-kDD">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hXe-r6-kDD" id="Eq7-r5-6f2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="gNN-hf-tMm" id="YJS-Te-ZN7"/>
-                            <outlet property="delegate" destination="gNN-hf-tMm" id="Z6Z-Sh-fgX"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Dn6-Zk-SYv"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bye-lP-3Ok" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="52u-Bp-SPs">
-            <objects>
-                <navigationController id="nVM-kC-nBW" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xYI-Hi-T5R">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="gNN-hf-tMm" kind="relationship" relationship="rootViewController" id="WSC-GJ-zea"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="USs-Nf-GeE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="GSG-aN-Kwu">
-            <objects>
-                <viewController id="syK-0U-rvT" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OCe-IM-4oM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S40-fc-Rux" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="CreateGame" width="25" height="23"/>
@@ -2050,6 +2029,6 @@
         <image name="Home" width="24" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nWJ-wL-cco"/>
+        <segue reference="OWo-gB-eFs"/>
     </inferredMetricsTieBreakers>
 </document>

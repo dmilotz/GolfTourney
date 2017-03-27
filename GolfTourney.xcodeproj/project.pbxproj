@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111FF56A1E89CD18006DA93A /* FeaturedGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF5691E89CD18006DA93A /* FeaturedGamesController.swift */; };
+		111FF56C1E89D14E006DA93A /* SideBarContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111FF56B1E89D14E006DA93A /* SideBarContainerController.swift */; };
 		11249AD11E6F5B9900FCCE1B /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD01E6F5B9900FCCE1B /* FlickrClient.swift */; };
 		11249AD31E6F5BAC00FCCE1B /* FlickrConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD21E6F5BAC00FCCE1B /* FlickrConstants.swift */; };
 		11249AD51E6F89FC00FCCE1B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11249AD41E6F89FC00FCCE1B /* Photo.swift */; };
@@ -98,6 +100,8 @@
 
 /* Begin PBXFileReference section */
 		0F25F3DF706874C8406AE141 /* Pods-GolfTourney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfTourney.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfTourney/Pods-GolfTourney.debug.xcconfig"; sourceTree = "<group>"; };
+		111FF5691E89CD18006DA93A /* FeaturedGamesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedGamesController.swift; sourceTree = "<group>"; };
+		111FF56B1E89D14E006DA93A /* SideBarContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarContainerController.swift; sourceTree = "<group>"; };
 		11249AD01E6F5B9900FCCE1B /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
 		11249AD21E6F5BAC00FCCE1B /* FlickrConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrConstants.swift; sourceTree = "<group>"; };
 		11249AD41E6F89FC00FCCE1B /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 				11249AFF1E7B8A5F00FCCE1B /* ChatViewController.swift */,
 				119E37D41E83487100D3DCD1 /* ScoreViewController.swift */,
 				119E37D61E835B7A00D3DCD1 /* ChatController.swift */,
+				111FF5691E89CD18006DA93A /* FeaturedGamesController.swift */,
+				111FF56B1E89D14E006DA93A /* SideBarContainerController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 				112C14741E57D3F2001E6E18 /* GridView.swift in Sources */,
 				1157CA3F1E49458900BAEE7F /* AppDelegate.swift in Sources */,
 				112C147C1E5C44CF001E6E18 /* TabController.swift in Sources */,
+				111FF56A1E89CD18006DA93A /* FeaturedGamesController.swift in Sources */,
 				1157CA471E49458900BAEE7F /* GolfTourney.xcdatamodeld in Sources */,
 				11DCFC611E4E3CB20054DB04 /* CourseGameViewController.swift in Sources */,
 				11249AD11E6F5B9900FCCE1B /* FlickrClient.swift in Sources */,
@@ -706,6 +713,7 @@
 				11249AD91E708A7B00FCCE1B /* GoogleConstants.swift in Sources */,
 				11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */,
 				11249B001E7B8A5F00FCCE1B /* ChatViewController.swift in Sources */,
+				111FF56C1E89D14E006DA93A /* SideBarContainerController.swift in Sources */,
 				112C146F1E568252001E6E18 /* Course.swift in Sources */,
 				112C14781E5BA8E0001E6E18 /* EditProfileController.swift in Sources */,
 				119705411E526C8C00687827 /* CreateGameController.swift in Sources */,

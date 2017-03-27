@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import SidebarOverlay
+
 class TabBarController:  UITabBarController {
     
     @IBInspectable var defaultIndex: Int = 1

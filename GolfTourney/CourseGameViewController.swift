@@ -115,9 +115,10 @@ private extension CourseGameViewController{
               print(error)
               return
             }else{
-              self.games.append(Game(dict:dict!))
+              var game = Game(dict:dict!)
+              game.gameId = key
+              self.games.append(game)
               self.games.sort{$0.date! < $1.date!}
-              print("GAMES \(self.games)")
               DispatchQueue.main.async {
                 self.tableView.reloadData()
               }
@@ -137,8 +138,12 @@ private extension CourseGameViewController{
 // MARK: - UITableViewDelegate
 extension CourseGameViewController: UITableViewDelegate{
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    self.game = games[(indexPath as NSIndexPath).row]
-    performSegue(withIdentifier: "gameChosen", sender: self)
+//    self.game = games[(indexPath as NSIndexPath).row]
+//    performSegue(withIdentifier: "gameChosen", sender: self)
+    let game = games[(indexPath as NSIndexPath).row]
+    let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+    vc.game = game
+    self.present(vc, animated: true, completion: nil)
   }
 }
 

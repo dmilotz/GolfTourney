@@ -18,6 +18,7 @@ pod 'GooglePlaces'
 pod 'JSQMessagesViewController'
 #pod 'KIF'
 #pod 'Nimble'
+pod 'SidebarOverlay'
   # Pods for GolfTourney
 
   target 'GolfTourneyTests' do
