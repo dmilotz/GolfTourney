@@ -18,7 +18,7 @@ class SideBarContainerViewController: SOContainerViewController{
     
     self.menuSide = .left
     self.topViewController = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-    self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileController")
+    self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "SideBarView")
     
   }
   
