@@ -86,11 +86,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FindTourneyController.swift"
-            timestampString = "511987050.736163"
+            timestampString = "512514983.436079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "searchByUserLocation(predicate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FindTourneyController.swift"
-            timestampString = "511987050.736163"
+            timestampString = "512514983.436079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "findCoursesWithGames()"
             landmarkType = "7">
          </BreakpointContent>
@@ -276,28 +276,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FindTourneyController.swift"
-            timestampString = "511987050.736163"
+            timestampString = "512514983.436079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "searchByUserLocation(predicate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GolfTourney/FindTourneyController.swift"
-            timestampString = "511987050.736163"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -308,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FindTourneyController.swift"
-            timestampString = "511987050.736163"
+            timestampString = "512517450.324435"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "FindTourneyController"
             landmarkType = "4">
          </BreakpointContent>
@@ -388,11 +372,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FindTourneyController.swift"
-            timestampString = "511987050.736163"
+            timestampString = "512514983.436079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "getGameInfoFromCourse(gameId:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -404,11 +388,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FindTourneyController.swift"
-            timestampString = "511987050.736163"
+            timestampString = "512514983.436079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "search(search:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -420,11 +404,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FindTourneyController.swift"
-            timestampString = "511987050.736163"
+            timestampString = "512514983.436079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "findCoursesWithGames()"
             landmarkType = "7">
             <Locations>
@@ -483,11 +467,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FindTourneyController.swift"
-            timestampString = "511987050.736163"
+            timestampString = "512514983.436079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "findCoursesWithGames()"
             landmarkType = "7">
          </BreakpointContent>
@@ -662,11 +646,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FeaturedGamesController.swift"
-            timestampString = "512428986.417269"
+            timestampString = "512450132.758728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>

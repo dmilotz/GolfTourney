@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
-import FirebaseDatabase
 import CoreLocation
+import Firebase
+import FirebaseCore
+import FirebaseDatabase
 import RealmSwift
 
 class FeaturedGamesViewController: UITableViewController{
@@ -21,7 +23,7 @@ class FeaturedGamesViewController: UITableViewController{
   var games : [Game] = []
   let locationManager = CLLocationManager()
   
-  let searchDistance:Double =  20 //float value in KM
+  let searchDistance:Double = 20 //float value in KM
   
   //Using two arrays instead of dictionary because of table indexing issues
   var gamesPerCourse : [Course: [String]] = [:]
@@ -36,38 +38,61 @@ class FeaturedGamesViewController: UITableViewController{
     return false
   }
   
-  @IBAction func nearbyCourses(_ sender: Any) {
-    requestLocation()
-  }
-  
-  
 }
 
 // MARK: - Lifecycle
 extension FeaturedGamesViewController{
   override func viewDidLoad(){
     super.viewDidLoad()
-    hideKeyboardWhenTappedAround()
+//    hideKeyboardWhenTappedAround()
     tableView.delegate = self
-    
     ref = FIRDatabase.database().reference()
     
     self.locationManager.requestWhenInUseAuthorization()
     if CLLocationManager.locationServicesEnabled() {
       locationManager.delegate = self
       locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+      requestLocation()
+
     }
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    requestLocation()
+//    requestLocation()
   }
 }
 
 
+
+// MARK: - Private methods
+extension FeaturedGamesViewController{
+  func requestLocation(){
+    locationManager.requestLocation()
+  }
+  
+  func deg2rad(degrees:Double) -> Double{
+    return degrees * M_PI / 180
+  }
+  
+  //Call is coming from Location delegate below
+  func searchByUserLocation(predicate: NSPredicate){
+    let courseArr = try? Realm().objects(Course.self).filter(predicate)
+    self.courses = []
+    if (courseArr?.isEmpty)!{
+      displayAlert("No nearby courses found.  Please try searching by name or city.", title: "No courses found")
+    }
+    for course in courseArr!{
+      self.courses.append(course)
+    }
+    findCoursesWithGames()
+  }
+  
+}
+
+
 // MARK: - Search methods
-private extension FeaturedGamesViewController{
+extension FeaturedGamesViewController{
   func findCoursesWithGames(){
     games = []
     let group = DispatchGroup()
@@ -118,61 +143,6 @@ private extension FeaturedGamesViewController{
   
 }
 
-// MARK: - Private methods
-extension FeaturedGamesViewController{
-  func requestLocation(){
-    locationManager.requestLocation()
-  }
-  
-  func deg2rad(degrees:Double) -> Double{
-    return degrees * M_PI / 180
-  }
-  
-  func search(search : String){
-    let coursesArr = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@ OR e_postal CONTAINS %@",search,search,search,search)
-    if coursesArr.isEmpty{
-      displayAlert("No courses found for this location.", title: "No courses found")
-    }
-    self.courses = []
-    for course in coursesArr{
-      self.courses.append(course)
-    }
-    findCoursesWithGames()
-  }
-  
-  //Call is coming from Location delegate below
-  func searchByUserLocation(predicate: NSPredicate){
-    let courseArr = try? Realm().objects(Course.self).filter(predicate)
-    self.courses = []
-    if (courseArr?.isEmpty)!{
-      displayAlert("No nearby courses found.  Please try searching by name or city.", title: "No courses found")
-    }
-    for course in courseArr!{
-      self.courses.append(course)
-    }
-    findCoursesWithGames()
-  }
-  
-  
-}
-
-
-// MARK: - UISearchBarDelegate
-extension FeaturedGamesViewController: UISearchBarDelegate{
-  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    //searchActive = false
-    searchBar.endEditing(true)
-    searchBar.resignFirstResponder()
-    search(search: searchBar.text!)
-  }
-  
-  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-    searchBar.endEditing(true)
-    searchBar.resignFirstResponder()
-  }
-}
-
-
 //MARK: Location Manager
 
 extension FeaturedGamesViewController: CLLocationManagerDelegate{
@@ -194,8 +164,12 @@ extension FeaturedGamesViewController: CLLocationManagerDelegate{
       
       let minLon = userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
       let maxLon = userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
-      
+      print("MINLATTTT + \(minLat) + \(maxLat)")
+       print("MINLATTTT + \(minLon) + \(maxLon)")
+   
+//
       searchByUserLocation(predicate: NSPredicate(format: "lat < %f AND lat > %f AND long < %f AND long > %f",maxLat, minLat, maxLon, minLon))
+
     }
   }
   
@@ -236,10 +210,14 @@ extension FeaturedGamesViewController{
     return games.count
   }
   
+//  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//    
+//  }
+  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     //let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
+    print("Cell made!!!!!!!!!!")
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as! GameCell
-    
     let game = self.games[(indexPath as NSIndexPath).row]
     cell.buyInAmount.text = "Buy in: $\(String(describing: game.buyIn!))"
     //cell.title.text = game.description!
@@ -253,16 +231,16 @@ extension FeaturedGamesViewController{
       
       guard let data = data, error == nil else {
         cell.coursePic?.image = UIImage(named: "golfDefault.png")
-//        cell.activityIndicator.stopAnimating()
+        cell.activityIndicator.stopAnimating()
         return
       }
       DispatchQueue.main.async {
         cell.coursePic?.image = UIImage(data: data)
-//        cell.activityIndicator.stopAnimating()
+        cell.activityIndicator.stopAnimating()
       }
     })
-    cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
-//    cell.activityIndicator.startAnimating()
+    cell.coursePic?.image = UIImage(named: "placeHolder.png")
+    cell.activityIndicator.startAnimating()
     
     
     return cell

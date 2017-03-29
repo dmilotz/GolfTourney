@@ -25,7 +25,7 @@ class FindTourneyController: UIViewController{
   var games : [Game] = []
   let locationManager = CLLocationManager()
   
-  let searchDistance:Double =  20 //float value in KM
+  let searchDistance:Double =  40//float value in KM
   
   //Using two arrays instead of dictionary because of table indexing issues
   var gamesPerCourse : [Course: [String]] = [:]
@@ -43,9 +43,9 @@ class FindTourneyController: UIViewController{
     return false
   }
   
-  @IBAction func nearbyCourses(_ sender: Any) {
-    requestLocation()
-  }
+//  @IBAction func nearbyCourses(_ sender: Any) {
+//    requestLocation()
+//  }
 }
 
 
@@ -55,6 +55,7 @@ extension FindTourneyController{
     super.viewDidLoad()
     hideKeyboardWhenTappedAround() 
     tableView.delegate = self
+    tableView.dataSource = self
     searchBar.delegate = self
     ref = FIRDatabase.database().reference()
     
@@ -242,33 +243,38 @@ extension FindTourneyController: UITableViewDataSource{
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     //let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
+    print("Cell made!!!!!!!!!!")
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as! GameCell
-    
     let game = self.games[(indexPath as NSIndexPath).row]
     cell.buyInAmount.text = "Buy in: $\(String(describing: game.buyIn!))"
-    cell.title.text = game.description!
+    //cell.title.text = game.description!
     //cell.courseAddress.text = game.courseAddress!
     cell.courseName.text = game.courseName!
     cell.date.text = game.date!
-    cell.currentPot.text = "Pot: $\(game.buyIn! * game.players!.count)"
-    cell.courseAddress.text = game.courseAddress!
-  
+    //    cell.currentPot.text = "Pot: $\(game.buyIn! * game.players!.count)"
+    //    cell.courseAddress.text = game.courseAddress!
+    if game.players!.count == 1{
+      cell.playerCount.text = "\(game.players!.count) Player"
+
+    }else{
+    cell.playerCount.text = "\(game.players!.count) Players"
+    }
     GoogleClient.getDataFromUrl(url: URL(string: game.coursePicUrl!)!, completion: { (data, response, error) in
       
       guard let data = data, error == nil else {
-        cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
+        cell.coursePic?.image = UIImage(named: "golfDefault.png")
         cell.activityIndicator.stopAnimating()
         return
       }
       DispatchQueue.main.async {
-        cell.coursePic?.image = UIImage(data: data)?.circle
+        cell.coursePic?.image = UIImage(data: data)
         cell.activityIndicator.stopAnimating()
       }
     })
-    cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
+    cell.coursePic?.image = UIImage(named: "placeHolder.png")
     cell.activityIndicator.startAnimating()
     
-
+    
     return cell
   }
 
