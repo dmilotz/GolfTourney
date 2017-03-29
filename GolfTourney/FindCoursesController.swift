@@ -126,9 +126,9 @@ private extension FindCoursesController{
   }
   
   func searchByName(search : String){
-    let courseArr = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@ OR e_postal CONTAINS %@",search,search,search,search)
+    var search2 = search.replacingOccurrences(of: ",", with: "")
+    let courseArr = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@ OR e_postal CONTAINS %@",search2,search2,search2,search2)
     if courseArr.isEmpty{
-//      displayAlert("No courses found for this location.", title: "No courses found")
       searchByGeoLocate(location: searchString)
     }
     courses = []
@@ -141,7 +141,7 @@ private extension FindCoursesController{
   func searchByUserLocation(predicate: NSPredicate){
     let courseArr = try? Realm().objects(Course.self).filter(predicate)
     if (courseArr?.isEmpty)!{
-//      searchByName(search: searchString)
+      displayAlert("No courses found for this location.", title: "No courses found")
     }else{
       courses = []
       for course in courseArr!{
@@ -320,7 +320,7 @@ extension FindCoursesController: UITableViewDataSource{
           cell.activityIndicator.stopAnimating()
         }
       })
-      cell.coursePic?.image = UIImage(named: "golfDefault.png")?.circle
+      cell.coursePic?.image = UIImage(named: "placeHolder.png")?.circle
       cell.activityIndicator.startAnimating()
       
     }
