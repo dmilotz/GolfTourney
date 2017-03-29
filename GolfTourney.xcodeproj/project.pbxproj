@@ -226,7 +226,6 @@
 		11249ADD1E7241F700FCCE1B /* FindCourses@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FindCourses@2x.png"; sourceTree = "<group>"; };
 		11249ADE1E7241F700FCCE1B /* CreateGame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreateGame@2x.png"; sourceTree = "<group>"; };
 		11249ADF1E7241F700FCCE1B /* CreateGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreateGame.png; sourceTree = "<group>"; };
-		11249AE61E727AFA00FCCE1B /* coursesCompact.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = coursesCompact.realm; path = GolfTourney/coursesCompact.realm; sourceTree = "<group>"; };
 		11249AFF1E7B8A5F00FCCE1B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		112C146D1E568252001E6E18 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		112C146E1E568252001E6E18 /* default2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = default2.realm; path = GolfTourney/default2.realm; sourceTree = "<group>"; };
@@ -396,7 +395,6 @@
 				111FF5F11E8C3C53006DA93A /* golfDefault.png */,
 				1157CA481E49458900BAEE7F /* Assets.xcassets */,
 				112C146E1E568252001E6E18 /* default2.realm */,
-				11249AE61E727AFA00FCCE1B /* coursesCompact.realm */,
 				1157CA421E49458900BAEE7F /* Main.storyboard */,
 				1157CA4A1E49458900BAEE7F /* LaunchScreen.storyboard */,
 			);

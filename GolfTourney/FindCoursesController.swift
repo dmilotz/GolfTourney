@@ -18,21 +18,20 @@ import MapKit
 
 class FindCoursesController: UIViewController{
   
-  
-  
-  
   //MARK: Properties
   var placesClient: GMSPlacesClient!
   var ref: FIRDatabaseReference!
   var courses = [Course]()
   var course = Course()
   var courseGameArr: [(course: Course, value: Int)] = []
-  let searchDistance:Double =  50
+  let searchDistance:Double =  15
   let locationManager = CLLocationManager()
   let serialQueue = DispatchQueue(label: "arrayQueue")
   var coursePhotoArr: [Course : String] = [:]
   var courseImage: UIImage?
   var extraCourseInfo: [Course: [String: AnyObject]] = [:]
+  var searchString = ""
+  
   //MARK: Outlets
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var tableView: UITableView!
@@ -92,7 +91,7 @@ private extension FindCoursesController{
       if error != nil {
         DispatchQueue.main.async{
           self.displayAlert("Location not found, please try again.", title: "Error")
-
+          
         }
         return
       }
@@ -126,10 +125,11 @@ private extension FindCoursesController{
     return degrees * M_PI / 180
   }
   
-  func search(search : String){
+  func searchByName(search : String){
     let courseArr = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@ OR e_postal CONTAINS %@",search,search,search,search)
     if courseArr.isEmpty{
-      displayAlert("No courses found for this location.", title: "No courses found")
+//      displayAlert("No courses found for this location.", title: "No courses found")
+      searchByGeoLocate(location: searchString)
     }
     courses = []
     for course in courseArr{
@@ -141,13 +141,14 @@ private extension FindCoursesController{
   func searchByUserLocation(predicate: NSPredicate){
     let courseArr = try? Realm().objects(Course.self).filter(predicate)
     if (courseArr?.isEmpty)!{
-      displayAlert("No nearby courses found.  Please try searching by name." , title: "No courses found")
+//      searchByName(search: searchString)
+    }else{
+      courses = []
+      for course in courseArr!{
+        courses.append(course)
+      }
+      sortCoursesWithGames()
     }
-    courses = []
-    for course in courseArr!{
-      courses.append(course)
-    }
-    sortCoursesWithGames()
   }
   
   func sortCoursesWithGames(){
@@ -157,21 +158,21 @@ private extension FindCoursesController{
     for course in courses{
       group.enter()
       NetworkClient.getGamesPerCourse(courseId: String(course.id)) { (arr, error) in
-          if !self.courseGameArr.contains(where:{$0.course.id == course.id}){
-            group.leave()
-            if let games = arr{
-              self.courseGameArr.append((course: course, value: games.count))
-              self.getCourseGoogleInfo(course: course)
-            }else{
-              self.courseGameArr.append((course: course, value: 0))
-              self.getCourseGoogleInfo(course: course)
-            }
-            
-            self.courseGameArr.sort{$0.value > $1.value}
-            DispatchQueue.main.async {
-              self.tableView.reloadData()
-            }
+        if !self.courseGameArr.contains(where:{$0.course.id == course.id}){
+          group.leave()
+          if let games = arr{
+            self.courseGameArr.append((course: course, value: games.count))
+            self.getCourseGoogleInfo(course: course)
+          }else{
+            self.courseGameArr.append((course: course, value: 0))
+            self.getCourseGoogleInfo(course: course)
           }
+          
+          self.courseGameArr.sort{$0.value > $1.value}
+          DispatchQueue.main.async {
+            self.tableView.reloadData()
+          }
+        }
       }
       
       group.notify(queue: DispatchQueue.main, execute: {
@@ -232,8 +233,9 @@ extension FindCoursesController: UISearchBarDelegate{
     //searchActive = false
     searchBar.endEditing(true)
     searchBar.resignFirstResponder()
-//    searchBy(search: searchBar.text!)
-    searchByGeoLocate(location: searchBar.text!)
+    self.searchString = searchBar.text!
+    //    searchBy(search: searchBar.text!)
+    searchByName(search: searchString)
     
   }
   
@@ -242,7 +244,7 @@ extension FindCoursesController: UISearchBarDelegate{
     searchBar.resignFirstResponder()
   }
   
- 
+  
   
 }
 
