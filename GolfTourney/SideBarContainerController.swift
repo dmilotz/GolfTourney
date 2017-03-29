@@ -15,7 +15,7 @@ class SideBarContainerViewController: SOContainerViewController{
   
   override func viewDidLoad(){
     super.viewDidLoad()
-    
+  
     self.menuSide = .left
     self.topViewController = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
     self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "SideBarView")

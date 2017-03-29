@@ -539,22 +539,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/GameCell.swift"
-            timestampString = "511835419.762861"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "GameCell"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GolfTourney/GameCell.swift"
             timestampString = "511835925.98057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -583,7 +567,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/FeaturedGamesController.swift"
@@ -594,14 +578,14 @@
             endingLineNumber = "11">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GolfTourney.FeaturedGamesViewController.__deallocating_deinit"
                   moduleName = "GolfTourney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dirkmilotz/Library/Autosave%20Information/GolfTourney/GolfTourney/FeaturedGamesController.swift"
-                  timestampString = "512359751.3866"
+                  timestampString = "512427261.051593"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -609,14 +593,14 @@
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GolfTourney.FeaturedGamesViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; GolfTourney.FeaturedGamesViewController"
                   moduleName = "GolfTourney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dirkmilotz/Library/Autosave%20Information/GolfTourney/GolfTourney/FeaturedGamesController.swift"
-                  timestampString = "512359751.390256"
+                  timestampString = "512427261.05525"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -624,14 +608,14 @@
                   offsetFromSymbolStart = "371">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GolfTourney.FeaturedGamesViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; GolfTourney.FeaturedGamesViewController"
                   moduleName = "GolfTourney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dirkmilotz/Library/Autosave%20Information/GolfTourney/GolfTourney/FeaturedGamesController.swift"
-                  timestampString = "512359751.393421"
+                  timestampString = "512427261.058272"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -639,14 +623,29 @@
                   offsetFromSymbolStart = "137">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GolfTourney.FeaturedGamesViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;GolfTourney.FeaturedGamesViewController&gt;"
+                  moduleName = "GolfTourney"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dirkmilotz/Library/Autosave%20Information/GolfTourney/GolfTourney/FeaturedGamesController.swift"
+                  timestampString = "512427261.061841"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GolfTourney.FeaturedGamesViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;GolfTourney.FeaturedGamesViewController&gt;"
                   moduleName = "GolfTourney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dirkmilotz/Library/Autosave%20Information/GolfTourney/GolfTourney/FeaturedGamesController.swift"
-                  timestampString = "512359751.400489"
+                  timestampString = "512427261.064884"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
@@ -654,6 +653,22 @@
                   offsetFromSymbolStart = "158">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GolfTourney/FeaturedGamesController.swift"
+            timestampString = "512428986.417269"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
