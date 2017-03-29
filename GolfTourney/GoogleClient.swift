@@ -9,7 +9,7 @@
 import Foundation
 
 class GoogleClient{
-
+  
   static func getCourseInfo(lat: String, long: String, name: String, completionHandlerForGetPhotos: @escaping (_ error: String?,  [String: String]?) -> Void) {
     
     let formattedName = name.replacingOccurrences(of: " ", with: "+")
@@ -30,13 +30,19 @@ class GoogleClient{
       do {
         let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
         guard let results = resultsDictionary else {     completionHandlerForGetPhotos(error?.localizedDescription, nil)
-        return}
+          return}
         if let results = results["results"] as? [[String : AnyObject]]{
-          if let photoInfo = results[0]["photos"] as? [[String: AnyObject]]{
-            if let photoReference = photoInfo[0]["photo_reference"] as? String{
-              let photoUrl = Constants.googlePhotoUrl + photoReference + Args.apiKey
-              dict["photoUrl"] = photoUrl
+          if !results.isEmpty{
+            if let photoInfo = results[0]["photos"] as? [[String: AnyObject]]{
+              if let photoReference = photoInfo[0]["photo_reference"] as? String{
+                let photoUrl = Constants.googlePhotoUrl + photoReference + Args.apiKey
+                dict["photoUrl"] = photoUrl
+              }
             }
+          }
+          else{
+            completionHandlerForGetPhotos("No course info", nil)
+            return
           }
           
           if let placeId = results[0]["place_id"] as? String{
@@ -45,15 +51,15 @@ class GoogleClient{
           }
           completionHandlerForGetPhotos(nil, dict)
         }
-        }catch let error as NSError {
-          print("Error parsing JSON: \(error)")
-          completionHandlerForGetPhotos(error.localizedDescription as! String, nil)
-          return
-        }
-      })
+      }catch let error as NSError {
+        print("Error parsing JSON: \(error)")
+        completionHandlerForGetPhotos(error.localizedDescription as! String, nil)
+        return
+      }
+    })
     task.resume()
-
-}
+    
+  }
   
   
   static func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {

@@ -14,6 +14,7 @@ import FirebaseDatabase
 import RealmSwift
 import CoreLocation
 import GooglePlaces
+import MapKit
 
 class FindCoursesController: UIViewController{
   
@@ -26,7 +27,7 @@ class FindCoursesController: UIViewController{
   var courses = [Course]()
   var course = Course()
   var courseGameArr: [(course: Course, value: Int)] = []
-  let searchDistance:Double =  10
+  let searchDistance:Double =  50
   let locationManager = CLLocationManager()
   let serialQueue = DispatchQueue(label: "arrayQueue")
   var coursePhotoArr: [Course : String] = [:]
@@ -83,6 +84,39 @@ class FindCoursesController: UIViewController{
 // MARK: - Private Methods
 
 private extension FindCoursesController{
+  
+  
+  
+  func searchByGeoLocate(location: String){
+    CLGeocoder().geocodeAddressString(location, completionHandler: {(placemarks,error) in
+      if error != nil {
+        DispatchQueue.main.async{
+          self.displayAlert("Location not found, please try again.", title: "Error")
+
+        }
+        return
+      }
+      if (placemarks?.count)! > 0 {
+        print (placemarks)
+        let placemark = placemarks?[0]
+        let location = placemark?.location
+        let coordinate = location?.coordinate
+        let minLat = (coordinate?.latitude)! - (self.searchDistance / 69)
+        let maxLat = (coordinate?.latitude)! + (self.searchDistance / 69)
+        let minLon = (coordinate?.longitude)! - self.searchDistance / fabs(cos(self.deg2rad(degrees: (coordinate?.latitude)!))*69)
+        let maxLon = (coordinate?.longitude)! + self.searchDistance / fabs(cos(self.deg2rad(degrees: (coordinate?.latitude)!))*69)
+        self.searchByUserLocation(predicate: NSPredicate(format: "lat < %f AND lat > %f AND long < %f AND long > %f",maxLat, minLat, maxLon, minLon))
+      }else{
+        DispatchQueue.main.async{
+          self.displayAlert("Location not found, please try again.", title: "Error")
+          
+        }
+        return
+      }
+    })
+    
+  }
+  
   
   func requestLocation(){
     locationManager.requestLocation()
@@ -198,7 +232,8 @@ extension FindCoursesController: UISearchBarDelegate{
     //searchActive = false
     searchBar.endEditing(true)
     searchBar.resignFirstResponder()
-    search(search: searchBar.text!)
+//    searchBy(search: searchBar.text!)
+    searchByGeoLocate(location: searchBar.text!)
     
   }
   
