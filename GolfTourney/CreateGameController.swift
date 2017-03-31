@@ -44,7 +44,7 @@ class CreateGameController: UIViewController{
   // MARK: Outlets
   
   @IBOutlet var courseName: UILabel!
-  @IBOutlet var tourneyTitle: UITextView!
+  //@IBOutlet var tourneyTitle: UITextView!
   @IBOutlet var buyInAmountLabel: UILabel!
   @IBOutlet weak var dateButton: UIButton!
   @IBOutlet var buyInStepper: UIStepper!
@@ -66,7 +66,7 @@ extension CreateGameController{
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tourneyTitle.delegate = self
+    //tourneyTitle.delegate = self
     chosenHandicap = handicapPickerDataSource[0]
     buyInStepper.maximumValue = 10
     buyInStepper.minimumValue = 0
@@ -192,12 +192,6 @@ private extension CreateGameController{
       websiteString = ""
     }
     var titleText: String = ""
-    if tourneyTitle.text == "Enter Tourney Title"{
-      let randomNum: Int = Int(arc4random_uniform(UInt32(golfSlogans.count)))
-      titleText = golfSlogans[randomNum]
-    }else{
-      titleText = tourneyTitle.text
-    }
     
     let game = Game(gameId: UUID().uuidString, preferredHandicap: chosenHandicap!, courseName: course.biz_name.replacingOccurrences(of: ".", with: ""), courseId: String(course.id), courseAddress: "\(course.e_address), \(course.e_city), \(course.e_state)", date:formatter.string(from: curFromDate!), players: [curUser!: ""], buyIn: buyIn, description: titleText, maxPlayers: 20, currentPlayerCount: 1, currentPot: buyIn, gameOwner: curUser, coursePicUrl: extraCourseInfo?["coursePicUrl"] as? String, courseWebsiteUrl: websiteString)
     NetworkClient.createGame(game)
