@@ -214,8 +214,12 @@ extension FindTourneyController: CLLocationManagerDelegate{
 
 extension FindTourneyController: UITableViewDelegate{
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    chosenGame = games[(indexPath as NSIndexPath).row]
-    performSegue(withIdentifier: "gameChosen", sender: self)
+    let game = self.games[(indexPath as NSIndexPath).row]
+    let cell = tableView.cellForRow(at: indexPath) as! GameCell
+    let controller = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+    controller.courseImage = (cell.coursePic?.image)!
+    controller.game = game
+    self.present(controller, animated: true, completion: nil)
   }
   
   

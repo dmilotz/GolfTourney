@@ -21,17 +21,17 @@ class GameViewController: UIViewController{
   var game: Game?
   var playerIds: [String] = []
   let uid = FIRAuth.auth()?.currentUser?.uid
-  
+  var courseImage: UIImage?
   //MARK: Outlets
   @IBOutlet var buyInLabel: UILabel!
   @IBOutlet var currentPotLabel: UILabel!
   @IBOutlet var spotsLeftLabel: UILabel!
-  @IBOutlet var gameTitleLabel: UILabel!
   @IBOutlet var dateLabel: UILabel!
   @IBOutlet var courseLabel: UILabel!
   @IBOutlet var playerCollectionView: UICollectionView!
   @IBOutlet var joinButton: UIBarButtonItem!
   
+  @IBOutlet var coursePic: UIImageView!
   
   
   
@@ -72,8 +72,9 @@ extension GameViewController{
 // MARK: - Lifecycle
 extension GameViewController{
   override func viewDidLoad() {
-    super.viewDidLoad()
     
+    super.viewDidLoad()
+    coursePic.image = courseImage
     ref = FIRDatabase.database().reference()
     
     playerCollectionView.delegate = self
@@ -82,7 +83,6 @@ extension GameViewController{
     currentPotLabel.text = "Pot: $\(String(describing: game!.currentPot! * game!.players!.count))"
     dateLabel.text = game?.date!
     courseLabel.text = game?.courseName
-    gameTitleLabel.text = game?.description
     if let keys = game?.players?.keys{
       playerIds = Array(keys)
     }

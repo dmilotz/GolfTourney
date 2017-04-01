@@ -49,7 +49,6 @@ class CreateGameController: UIViewController{
   @IBOutlet weak var dateButton: UIButton!
   @IBOutlet var buyInStepper: UIStepper!
   @IBOutlet var handicapPicker: UIPickerView!
-  @IBOutlet var createGameButton: UIButton!
   
   
   override var shouldAutorotate: Bool {
@@ -82,7 +81,6 @@ extension CreateGameController{
 // MARK: Actions
 
 extension CreateGameController{
-  
   @IBAction func createGame(_ sender: Any) {
     setupGame()
     //self.displayAlert("Game has been created at \(courseName.text)!", title: "Game Created!")

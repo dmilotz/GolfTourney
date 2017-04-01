@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+import THCalendarDatePicker
 
 class CourseGameViewController : UIViewController {
   
@@ -20,15 +21,36 @@ class CourseGameViewController : UIViewController {
   var game: Game?
   var photo: UIImage?
   
-  //MARK: - Outlets
+  var curFromDate : Date? = Date()
+  let daysToAdd : TimeInterval = 10
+  lazy var formatter: DateFormatter = {
+    var tmpFormatter = DateFormatter()
+    tmpFormatter.dateFormat = "MM/dd/yyyy"
+    return tmpFormatter
+  }()
+  
+  lazy var fromDatePicker : THDatePickerViewController = {
+    let picker = THDatePickerViewController.datePicker()
+    picker?.delegate = self
+    picker?.date = self.curFromDate
+    picker?.selectedBackgroundColor = UIColor.brown
+    picker?.currentDateColor = UIColor.orange
+    picker?.currentDateColorSelected = UIColor.yellow
+    return picker!
+  }()
+
+  
+   //MARK: - Outlets
+  @IBOutlet var dateButton: UIButton!
   @IBOutlet var courseName: UILabel!
   @IBOutlet var courseAddress: UILabel!
   @IBOutlet var numberOfHoles: UILabel!
   @IBOutlet var yearBuilt: UILabel!
   @IBOutlet var designer: UILabel!
-  @IBOutlet var tableView: UITableView!
   @IBOutlet var courseImage: UIImageView!
-
+  @IBOutlet var buyInAmount: UILabel!
+  @IBOutlet var buyInStepper: UIStepper!
+  
   
   
   //MARK: - Overridden methods
@@ -39,12 +61,13 @@ class CourseGameViewController : UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier! == "createGame" {
-      if let gameVc = segue.destination as? CreateGameController {
+      if let gameVc = segue.destination as? CourseGameViewController {
         gameVc.course = self.course!
         gameVc.extraCourseInfo = extraCourseInfo
       }
     }else if (segue.identifier! == "gameChosen"){
       if let vc = segue.destination as? GameViewController{
+        vc.courseImage = photo
         vc.game = self.game
       }
     }
@@ -67,14 +90,6 @@ extension CourseGameViewController{
       self.present(alertController, animated: true, completion: nil)
     }
   }
-
-  @IBAction func createAGame(_ sender: Any) {
-    performSegue(withIdentifier: "createGame", sender: self)
-  }
-
-  @IBAction func back(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
-  }
 }
 
 
@@ -82,12 +97,28 @@ extension CourseGameViewController{
 extension CourseGameViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.delegate = self
-    tableView.dataSource = self
+    buyInStepper.maximumValue = 10
+    buyInStepper.minimumValue = 0
     setUp()
-    getGamesInCourse()
   }
 }
+
+extension CourseGameViewController{
+  @IBAction func createGame(_ sender: Any) {
+    setupGame()
+    //self.displayAlert("Game has been created at \(courseName.text)!", title: "Game Created!")
+    let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+    self.present(controller!, animated: true, completion: nil)
+  }
+  
+
+  
+  @IBAction func buyInStepper(_ sender: UIStepper) {
+    buyInAmount.text = "$\(Int(sender.value))"
+  }
+  
+}
+
 
 
 //MARK: - private methods
@@ -101,73 +132,79 @@ private extension CourseGameViewController{
     courseImage.image = extraCourseInfo?["image"] as! UIImage?
   }
   
+}
+
+
+// MARK: - THDatePickerDelegate
+
+extension CourseGameViewController: THDatePickerDelegate {
   
-  func getGamesInCourse(){
-    NetworkClient.getGamesPerCourse(courseId: String(course!.id)) { (dict, error) in
-      if error != nil{
-        print(error)
-        return
-      }else{
-        for (key, _) in dict! {
-          print("ID \(key)")
-          NetworkClient.getGameInfo(gameId: key, completion: { (dict, error) in
-            if error != nil{
-              print(error)
-              return
-            }else{
-              var game = Game(dict:dict!)
-              game.gameId = key
-              self.games.append(game)
-              self.games.sort{$0.date! < $1.date!}
-              DispatchQueue.main.async {
-                self.tableView.reloadData()
-              }
-            }
-          })
-        }
-        
-      }
+  
+  func refreshTitle() {
+    dateButton.setTitle((curFromDate != nil ? formatter.string(from: curFromDate!) : "No date selected"), for: UIControlState())
+  }
+  
+  @IBAction func touchedButton(_ sender: AnyObject) {
+    if (sender.tag == 10) {
+      fromDatePicker.date = self.curFromDate
+      //            fromDatePicker.setDateRangeFrom(self.curFromDate, to: self.curToDate)
+      
+      presentSemiViewController(fromDatePicker, withOptions: [
+        convertCfTypeToString(KNSemiModalOptionKeys.shadowOpacity) as String! : 0.3 as Float,
+        convertCfTypeToString(KNSemiModalOptionKeys.animationDuration) as String! : 1.0 as Float,
+        convertCfTypeToString(KNSemiModalOptionKeys.pushParentBack) as String! : false as Bool
+        ])
     }
-    
-    
+  }
+  
+  /* https://vandadnp.wordpress.com/2014/07/07/swift-convert-unmanaged-to-string/ */
+  func convertCfTypeToString(_ cfValue: Unmanaged<NSString>!) -> String?{
+    /* Coded by Vandad Nahavandipoor */
+    let value = Unmanaged<CFString>.fromOpaque(
+      cfValue.toOpaque()).takeUnretainedValue() as CFString
+    if CFGetTypeID(value) == CFStringGetTypeID(){
+      return value as String
+    } else {
+      return nil
+    }
+  }
+  
+  func datePickerDonePressed(_ datePicker: THDatePickerViewController!) {
+    if datePicker == fromDatePicker {
+      curFromDate = datePicker.date
+    }
+    refreshTitle()
+    dismissSemiModalView()
+  }
+  
+  func datePickerCancelPressed(_ datePicker: THDatePickerViewController!) {
+    dismissSemiModalView()
+  }
+  
+  func datePicker(_ datePicker: THDatePickerViewController!, selectedDate: Date!) {
+    print("Date selected: ", formatter.string(from: selectedDate))
   }
 }
 
+// MARK: Private Methods
 
-
-// MARK: - UITableViewDelegate
-extension CourseGameViewController: UITableViewDelegate{
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    self.game = games[(indexPath as NSIndexPath).row]
-//    performSegue(withIdentifier: "gameChosen", sender: self)
-    let game = games[(indexPath as NSIndexPath).row]
-    let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-    vc.game = game
-    self.present(vc, animated: true, completion: nil)
+private extension CourseGameViewController{
+  
+  func setupGame(){
+    let buyIn = Int((buyInAmount.text?.replacingOccurrences(of: "$", with: ""))!)
+    let curUser = FIRAuth.auth()?.currentUser?.uid
+    var websiteString: String = ""
+    if let websiteUrl = extraCourseInfo?["courseWebsiteUrl"] as? URL{
+      websiteString = websiteUrl.absoluteString
+    }else{
+      websiteString = ""
+    }
+    let titleText: String = ""
+    
+    let game = Game(gameId: UUID().uuidString, preferredHandicap: "", courseName: course?.biz_name.replacingOccurrences(of: ".", with: ""), courseId: String(describing: course?.id), courseAddress: "\(course?.e_address), \(course?.e_city), \(course?.e_state)", date:formatter.string(from: curFromDate!), players: [curUser!: ""], buyIn: buyIn, description: titleText, maxPlayers: 20, currentPlayerCount: 1, currentPot: buyIn, gameOwner: curUser, coursePicUrl: extraCourseInfo?["coursePicUrl"] as? String, courseWebsiteUrl: websiteString)
+    NetworkClient.createGame(game)
   }
+  
 }
 
 
-// MARK: - UITableViewDataSource
-extension CourseGameViewController: UITableViewDataSource{
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return (games.count)
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //let courses = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@",search,search,search)
-    let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as! GameCell
-    
-    let game = self.games[(indexPath as NSIndexPath).row]
-    
-    cell.buyInAmount.text = "Buy In: $\(String(describing: game.buyIn!))"
-    cell.playerCount.text = "Players: \(String(game.players!.count))"
-    cell.title.text = game.description!
-    cell.date.text = game.date!
-    cell.currentPot.text = "Pot: $\(String(game.buyIn! * game.players!.count))"
-    return cell
-  }
-  
-  
-  
-}
