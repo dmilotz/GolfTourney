@@ -71,13 +71,14 @@ class NetworkClient{
         
     }
     
-    static func createGame(_ game: Game) {
+    static func createGame(_ game: Game, completion: @escaping (_ string: String?, _ error: Error?) -> Void){
         let uid = FIRAuth.auth()?.currentUser?.uid
         let ref = FIRDatabase.database().reference()
         ref.child("games").child(game.gameId!).setValue(game.getDict())
         ref.child("users").child(uid!).child("currentGames").child(game.gameId!).setValue(game.courseName)
         ref.child("courses").child(game.courseId!).child("currentGames").child(game.gameId!).setValue("")
         ref.child("courses").child(game.courseId!).child("courseName").setValue(game.courseName)
+      completion("Done", nil)
     }
     
     static func getGamesPerCourse(courseId: String, completion: @escaping (_ dict: [String:Any]?, _ error: String?) -> Void) {

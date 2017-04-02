@@ -219,7 +219,8 @@ extension FindTourneyController: UITableViewDelegate{
     let controller = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
     controller.courseImage = (cell.coursePic?.image)!
     controller.game = game
-    self.present(controller, animated: true, completion: nil)
+    self.navigationController?.pushViewController(controller, animated: true)
+//    present(controller, animated: true, completion: nil)
   }
   
   

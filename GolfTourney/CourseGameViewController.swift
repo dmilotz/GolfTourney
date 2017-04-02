@@ -60,17 +60,11 @@ class CourseGameViewController : UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier! == "createGame" {
-      if let gameVc = segue.destination as? CourseGameViewController {
-        gameVc.course = self.course!
-        gameVc.extraCourseInfo = extraCourseInfo
-      }
-    }else if (segue.identifier! == "gameChosen"){
       if let vc = segue.destination as? GameViewController{
-        vc.courseImage = photo
+        vc.courseImage = courseImage.image
         vc.game = self.game
       }
-    }
+    
   }
   
 }
@@ -107,8 +101,10 @@ extension CourseGameViewController{
   @IBAction func createGame(_ sender: Any) {
     setupGame()
     //self.displayAlert("Game has been created at \(courseName.text)!", title: "Game Created!")
-    let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-    self.present(controller!, animated: true, completion: nil)
+    let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+    vc.courseImage = courseImage.image
+    vc.game = self.game!
+    self.navigationController?.pushViewController(vc, animated: true)
   }
   
 
@@ -201,8 +197,10 @@ private extension CourseGameViewController{
     }
     let titleText: String = ""
     
-    let game = Game(gameId: UUID().uuidString, preferredHandicap: "", courseName: course?.biz_name.replacingOccurrences(of: ".", with: ""), courseId: String(describing: course?.id), courseAddress: "\(course?.e_address), \(course?.e_city), \(course?.e_state)", date:formatter.string(from: curFromDate!), players: [curUser!: ""], buyIn: buyIn, description: titleText, maxPlayers: 20, currentPlayerCount: 1, currentPot: buyIn, gameOwner: curUser, coursePicUrl: extraCourseInfo?["coursePicUrl"] as? String, courseWebsiteUrl: websiteString)
-    NetworkClient.createGame(game)
+    self.game = Game(gameId: UUID().uuidString, preferredHandicap: "", courseName: course!.biz_name.replacingOccurrences(of: ".", with: ""), courseId: String(describing: course!.id), courseAddress: "\(course!.e_address), \(course!.e_city), \(course!.e_state)", date:formatter.string(from: curFromDate!), players: [curUser!: ""], buyIn: buyIn, description: titleText, maxPlayers: 20, currentPlayerCount: 1, currentPot: buyIn, gameOwner: curUser, coursePicUrl: extraCourseInfo?["coursePicUrl"] as? String, courseWebsiteUrl: websiteString)
+    NetworkClient.createGame(self.game!) { (message, error) in
+
+    }
   }
   
 }

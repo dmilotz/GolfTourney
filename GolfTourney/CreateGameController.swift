@@ -82,6 +82,7 @@ extension CreateGameController{
 
 extension CreateGameController{
   @IBAction func createGame(_ sender: Any) {
+    var group = DispatchGroup()
     setupGame()
     //self.displayAlert("Game has been created at \(courseName.text)!", title: "Game Created!")
     let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
@@ -192,7 +193,10 @@ private extension CreateGameController{
     var titleText: String = ""
     
     let game = Game(gameId: UUID().uuidString, preferredHandicap: chosenHandicap!, courseName: course.biz_name.replacingOccurrences(of: ".", with: ""), courseId: String(course.id), courseAddress: "\(course.e_address), \(course.e_city), \(course.e_state)", date:formatter.string(from: curFromDate!), players: [curUser!: ""], buyIn: buyIn, description: titleText, maxPlayers: 20, currentPlayerCount: 1, currentPot: buyIn, gameOwner: curUser, coursePicUrl: extraCourseInfo?["coursePicUrl"] as? String, courseWebsiteUrl: websiteString)
-    NetworkClient.createGame(game)
+    NetworkClient.createGame(game) { (message, error) in
+      print ("blah")
+      
+    }
   }
   
 }

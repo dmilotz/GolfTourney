@@ -34,7 +34,11 @@ class GameViewController: UIViewController{
   @IBOutlet var coursePic: UIImageView!
   
   
+ 
   
+  
+
+
   override var shouldAutorotate: Bool {
     return false
   }
@@ -46,6 +50,7 @@ class GameViewController: UIViewController{
       }
     }
   }
+ 
   
 }
 
@@ -56,16 +61,9 @@ extension GameViewController{
     joinGame()
   }
   
-  @IBAction func cancel(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+   @IBAction func back(_ sender: Any) {
+    self.navigationController?.popViewController(animated: true)
   }
-  
-//  @IBAction func goToChat(_ sender: Any) {
-//    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//    let vc = storyboard.instantiateViewController(withIdentifier :"chatViewController") as! ChatViewController
-//    vc.game = game
-//    self.present(vc, animated: true)
-//  }
   
 }
 
@@ -74,11 +72,26 @@ extension GameViewController{
   override func viewDidLoad() {
     
     super.viewDidLoad()
-    coursePic.image = courseImage
+    coursePic.image = courseImage?.circle
     ref = FIRDatabase.database().reference()
-    
+    playerCollectionView.backgroundView = nil;
+    playerCollectionView.backgroundColor = .clear
     playerCollectionView.delegate = self
     playerCollectionView.dataSource = self
+    self.navigationController?.navigationBar.isHidden = false
+    setup()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+  }
+}
+
+
+// MARK: - Private methods
+private extension GameViewController{
+  
+  func setup(){
     buyInLabel.text = "Buy In: $\(String(describing: game!.buyIn!)) "
     currentPotLabel.text = "Pot: $\(String(describing: game!.currentPot! * game!.players!.count))"
     dateLabel.text = game?.date!
@@ -86,7 +99,7 @@ extension GameViewController{
     if let keys = game?.players?.keys{
       playerIds = Array(keys)
     }
-    
+    players = []
     getPlayers()
     
     joinButton.title = "Join"
@@ -96,12 +109,22 @@ extension GameViewController{
     }else if didAlreadyJoin(){
       joinButton.title = "Leave Game"
     }
+    
   }
-}
-
-
-// MARK: - Private methods
-private extension GameViewController{
+  
+  func refreshGameInfo(gameId: String){
+    ref.child("games").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
+      if let gameInfo = snapshot.value as? [String:Any]{
+        self.game = Game(dict:gameInfo)
+        self.game?.gameId = gameId
+        DispatchQueue.main.async{
+          self.setup()
+        }
+      }
+    })
+  }
+  
+  
   
   func didAlreadyJoin() -> Bool{
     return playerIds.contains((uid)!)
@@ -145,19 +168,20 @@ private extension GameViewController{
       ref.child("games").child((game?.gameId)!).child("players").child(uid!).setValue("")
       ref.child("users").child(uid!).child("currentGames").child((game?.gameId)!).setValue(game?.courseName)
       self.displayAlert("Game Joined!", title: "")
-      let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-      self.present(controller!, animated: true, completion: nil)
+//      let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+//      self.present(controller!, animated: true, completion: nil)
+      refreshGameInfo(gameId: (self.game?.gameId)!)
     }else if (joinButton.title == "Leave Game")  {
       NetworkClient.leaveGame(gameId: (game?.gameId)!, completion: { (message, error) in
         print(message)
       })
-      let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+      let controller = self.storyboard?.instantiateViewController(withIdentifier: "SideBarContainerController")
       self.present(controller!, animated: true, completion: nil)
     }else{
       let deleteAlert = UIAlertController(title: "Cancel Game?", message: "Are you sure you want to cancel the game?", preferredStyle: UIAlertControllerStyle.alert)
       deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
         NetworkClient.cancelGame(game:self.game!)
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "SideBarContainerController")
         self.present(controller!, animated: true, completion: nil)}))
       deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
         return            }))
@@ -183,6 +207,12 @@ extension GameViewController: UICollectionViewDataSource{
     return players.count
   }
   
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    cell.backgroundColor = .clear
+    cell.contentView.layer.cornerRadius = 10
+    cell.contentView.layer.masksToBounds = true
+  }
+  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = playerCollectionView.dequeueReusableCell(withReuseIdentifier: "playerCollectionCell", for: indexPath) as! PlayerCollectionCell
     let player = players[(indexPath as NSIndexPath).row]
@@ -201,7 +231,7 @@ extension GameViewController: UICollectionViewDataSource{
     }else{
       cell.playerImage.image = UIImage(named:"golfDefault.png")?.circle
     }
-    cell.handicapLabel.text = "Handicap: \(player.handicap!)"
+    //cell.handicapLabel.text = "Handicap: \(player.handicap!)"
     cell.playerName.text = player.name
     return cell
   }
