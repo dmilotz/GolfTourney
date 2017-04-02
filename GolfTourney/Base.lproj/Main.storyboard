@@ -1271,7 +1271,7 @@
         <!--Game-->
         <scene sceneID="ldL-sf-s4k">
             <objects>
-                <viewController storyboardIdentifier="GameViewController" id="9Sh-sH-hGL" customClass="GameViewController" customModule="GolfTourney" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" hidesBottomBarWhenPushed="YES" id="9Sh-sH-hGL" customClass="GameViewController" customModule="GolfTourney" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TMO-A9-yj6"/>
                         <viewControllerLayoutGuide type="bottom" id="vCG-Sd-F5J"/>

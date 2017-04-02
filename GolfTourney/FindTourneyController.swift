@@ -65,6 +65,7 @@ extension FindTourneyController{
       locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
     requestLocation()
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -247,7 +248,6 @@ extension FindTourneyController: UITableViewDelegate{
 
 extension FindTourneyController: UITableViewDataSource{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    print(games.count)
     return games.count
   }
   
@@ -257,12 +257,8 @@ extension FindTourneyController: UITableViewDataSource{
     let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as! GameCell
     let game = self.games[(indexPath as NSIndexPath).row]
     cell.buyInAmount.text = "Buy in: $\(String(describing: game.buyIn!))"
-    //cell.title.text = game.description!
-    //cell.courseAddress.text = game.courseAddress!
     cell.courseName.text = game.courseName!
     cell.date.text = game.date!
-    //    cell.currentPot.text = "Pot: $\(game.buyIn! * game.players!.count)"
-    //    cell.courseAddress.text = game.courseAddress!
     if game.players!.count == 1{
       cell.playerCount.text = "\(game.players!.count) Player"
 

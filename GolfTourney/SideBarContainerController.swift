@@ -21,5 +21,4 @@ class SideBarContainerViewController: SOContainerViewController{
     self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "SideBarView")
 
   }
-  
 }

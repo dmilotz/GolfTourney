@@ -62,7 +62,7 @@ extension GameViewController{
   }
   
    @IBAction func back(_ sender: Any) {
-    self.navigationController?.popViewController(animated: true)
+    self.navigationController?.popToRootViewController(animated: true)
   }
   
 }
@@ -70,20 +70,24 @@ extension GameViewController{
 // MARK: - Lifecycle
 extension GameViewController{
   override func viewDidLoad() {
-    
     super.viewDidLoad()
+    self.tabBarController?.tabBar.isHidden = true
     coursePic.image = courseImage?.circle
     ref = FIRDatabase.database().reference()
     playerCollectionView.backgroundView = nil;
     playerCollectionView.backgroundColor = .clear
     playerCollectionView.delegate = self
     playerCollectionView.dataSource = self
-    self.navigationController?.navigationBar.isHidden = false
     setup()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    self.tabBarController?.tabBar.isHidden = false
   }
 }
 
