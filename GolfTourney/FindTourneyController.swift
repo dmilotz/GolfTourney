@@ -24,7 +24,7 @@ class FindTourneyController: UIViewController{
   var courses :[Course] = []
   var games : [Game] = []
   let locationManager = CLLocationManager()
-  
+  let group = DispatchGroup()
   let searchDistance:Double =  40//float value in KM
   
   //Using two arrays instead of dictionary because of table indexing issues
@@ -64,11 +64,11 @@ extension FindTourneyController{
       locationManager.delegate = self
       locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
+    requestLocation()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    requestLocation()
   }
 }
 
@@ -115,7 +115,6 @@ extension FindTourneyController{
 private extension FindTourneyController{
   func findCoursesWithGames(){
     games = []
-    let group = DispatchGroup()
     var gameCount = 0
     for course in courses{
       group.enter()
@@ -126,9 +125,9 @@ private extension FindTourneyController{
             self.getGameInfoFromCourse(gameId: id)
           }
         }
-        group.leave()
+        self.group.leave()
       }) { (error) in
-        group.leave()
+        self.group.leave()
         print(error.localizedDescription)
       }
     }
@@ -137,24 +136,30 @@ private extension FindTourneyController{
         self.games = []
         self.tableView.reloadData()
         self.displayAlert("No games found at this location.", title: "No games found.")
-        
+      }else{
+        self.games.sort{$0.date! < $1.date!}
+        self.tableView.reloadData()
       }
     }
   }
   
   func getGameInfoFromCourse(gameId: String){
+    group.enter()
     ref.child("games").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
       if let gameInfo = snapshot.value as? [String:Any]{
         var game = Game(dict:gameInfo)
         game.gameId = gameId
         if self.games.contains(where: { $0.gameId == game.gameId}){
+          self.group.leave()
           return
         }
         else{
           self.games.append(game)
-          self.games.sort{$0.date! < $1.date!}
+          self.group.leave()
+//          self.games.sort{$0.date! < $1.date!}
           DispatchQueue.main.async{
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
+
           }
         }
       }

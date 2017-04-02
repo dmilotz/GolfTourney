@@ -85,6 +85,11 @@ PODS:
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
   - KNSemiModalViewController_hons82 (0.4.5)
+  - Realm (2.5.0):
+    - Realm/Headers (= 2.5.0)
+  - Realm/Headers (2.5.0)
+  - RealmSwift (2.5.0):
+    - Realm (= 2.5.0)
   - SidebarOverlay (4.1)
   - THCalendarDatePicker (1.2.8):
     - KNSemiModalViewController_hons82 (~> 0.4.5)
@@ -101,6 +106,7 @@ DEPENDENCIES:
   - GooglePlaces
   - GoogleSignIn (= 4.0.1)
   - JSQMessagesViewController
+  - RealmSwift
   - SidebarOverlay
   - THCalendarDatePicker (~> 1.2.6)
 
@@ -131,9 +137,11 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   KNSemiModalViewController_hons82: 0ef0ef5ed7c3814ddd0fa9c884ab74d5495de16b
+  Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
+  RealmSwift: 9f1a8f624f2f153410115c2cb7d486be9976565d
   SidebarOverlay: b65f0a1d9331ce4bf81f82eea202b21cc8655c5a
   THCalendarDatePicker: fd1a1103ae0d1d1f2d0f9a1463a3f628a23a25a5
 
-PODFILE CHECKSUM: 4be49c8a2503eb386433b896c992899bb3f40eb9
+PODFILE CHECKSUM: ed3df754bdcabdd64393bc8c10cbeee73bdcf58e
 
 COCOAPODS: 1.2.0

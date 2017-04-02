@@ -19,6 +19,7 @@ pod 'JSQMessagesViewController'
 #pod 'KIF'
 #pod 'Nimble'
 pod 'SidebarOverlay'
+pod 'RealmSwift'
   # Pods for GolfTourney
 
   target 'GolfTourneyTests' do
@@ -31,4 +32,11 @@ pod 'SidebarOverlay'
     # Pods for testing
   end
 
+end
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '3.1'
+    end
+  end
 end

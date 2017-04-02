@@ -111,10 +111,6 @@
 		1157CA7C1E4C112E00BAEE7F /* FindCoursesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7B1E4C112E00BAEE7F /* FindCoursesController.swift */; };
 		1157CA7E1E4C127A00BAEE7F /* CourseViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7D1E4C127A00BAEE7F /* CourseViewTableCell.swift */; };
 		1157CA801E4C147B00BAEE7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7F1E4C147B00BAEE7F /* Constants.swift */; };
-		1157CA841E4CECDC00BAEE7F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1157CA831E4CECDC00BAEE7F /* Realm.framework */; };
-		1157CA851E4CECDC00BAEE7F /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1157CA831E4CECDC00BAEE7F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1157CA881E4CECE400BAEE7F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1157CA871E4CECE400BAEE7F /* RealmSwift.framework */; };
-		1157CA891E4CECE400BAEE7F /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1157CA871E4CECE400BAEE7F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1197053B1E52593400687827 /* FindTourneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053A1E52593400687827 /* FindTourneyController.swift */; };
 		1197053D1E52675E00687827 /* PlayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053C1E52675E00687827 /* PlayerCollectionCell.swift */; };
 		119705411E526C8C00687827 /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119705401E526C8C00687827 /* CreateGameController.swift */; };
@@ -149,14 +145,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1157CA861E4CECDC00BAEE7F /* Embed Frameworks */ = {
+		118EB7A11E9178D10070B557 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1157CA891E4CECE400BAEE7F /* RealmSwift.framework in Embed Frameworks */,
-				1157CA851E4CECDC00BAEE7F /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,8 +270,6 @@
 		1157CA7B1E4C112E00BAEE7F /* FindCoursesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindCoursesController.swift; sourceTree = "<group>"; };
 		1157CA7D1E4C127A00BAEE7F /* CourseViewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewTableCell.swift; sourceTree = "<group>"; };
 		1157CA7F1E4C147B00BAEE7F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		1157CA831E4CECDC00BAEE7F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		1157CA871E4CECE400BAEE7F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		1197053A1E52593400687827 /* FindTourneyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindTourneyController.swift; sourceTree = "<group>"; };
 		1197053C1E52675E00687827 /* PlayerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCollectionCell.swift; sourceTree = "<group>"; };
 		119705401E526C8C00687827 /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
@@ -305,9 +297,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1157CA841E4CECDC00BAEE7F /* Realm.framework in Frameworks */,
 				FCE6C7B97CE74AC84273A56D /* Pods_GolfTourney.framework in Frameworks */,
-				1157CA881E4CECE400BAEE7F /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,8 +567,6 @@
 			isa = PBXGroup;
 			children = (
 				119705E81E52743900687827 /* JTAppleCalendar.framework */,
-				1157CA871E4CECE400BAEE7F /* RealmSwift.framework */,
-				1157CA831E4CECDC00BAEE7F /* Realm.framework */,
 				6915826033E9DED2AB855FB6 /* Pods_GolfTourney.framework */,
 				B9926D5FCC78AEF8505149D0 /* Pods_GolfTourneyTests.framework */,
 				CBC98D52C437540F1C906819 /* Pods_GolfTourneyUITests.framework */,
@@ -612,8 +600,8 @@
 				1157CA391E49458900BAEE7F /* Resources */,
 				9876BBC7110E772B2111E48C /* [CP] Embed Pods Frameworks */,
 				446D42B333FC6AA7AFA25BF4 /* [CP] Copy Pods Resources */,
-				1157CA861E4CECDC00BAEE7F /* Embed Frameworks */,
 				1157CA8A1E4CEDBE00BAEE7F /* ShellScript */,
+				118EB7A11E9178D10070B557 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -830,7 +818,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+			shellScript = "
+";
 		};
 		2AE7F3B7F69A3E49E165E1F8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1113,6 +1102,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1155,6 +1145,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
