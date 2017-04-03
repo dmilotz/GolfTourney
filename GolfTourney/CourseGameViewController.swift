@@ -44,9 +44,9 @@ class CourseGameViewController : UIViewController {
   @IBOutlet var dateButton: UIButton!
   @IBOutlet var courseName: UILabel!
   @IBOutlet var courseAddress: UILabel!
-  @IBOutlet var numberOfHoles: UILabel!
-  @IBOutlet var yearBuilt: UILabel!
-  @IBOutlet var designer: UILabel!
+//  @IBOutlet var numberOfHoles: UILabel!
+//  @IBOutlet var yearBuilt: UILabel!
+//  @IBOutlet var designer: UILabel!
   @IBOutlet var courseImage: UIImageView!
   @IBOutlet var buyInAmount: UILabel!
   @IBOutlet var buyInStepper: UIStepper!
@@ -122,9 +122,9 @@ private extension CourseGameViewController{
   func setUp(){
     courseName.text = course?.biz_name
     courseAddress.text = "\(course!.e_address), \(course!.e_city), \(course!.e_state)"
-    numberOfHoles.text = "Holes: \(course!.c_holes)"
-    yearBuilt.text = "Year Built: \(course!.year_built)"
-    designer.text = "Designer: \(course!.c_designer)"
+//    numberOfHoles.text = "Holes: \(course!.c_holes)"
+//    yearBuilt.text = "Year Built: \(course!.year_built)"
+//    designer.text = "Designer: \(course!.c_designer)"
     courseImage.image = extraCourseInfo?["image"] as! UIImage?
   }
   
