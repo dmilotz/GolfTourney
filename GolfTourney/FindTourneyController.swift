@@ -38,6 +38,7 @@ class FindTourneyController: UIViewController{
   @IBOutlet var searchBar: UISearchBar!
   
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var activityInd: UIActivityIndicatorView!
   
   override var shouldAutorotate: Bool {
     return false
@@ -64,12 +65,12 @@ extension FindTourneyController{
       locationManager.delegate = self
       locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
-    requestLocation()
     
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
+    requestLocation()
   }
 }
 
@@ -85,6 +86,7 @@ extension FindTourneyController{
   }
   
   func search(search : String){
+    activityInd.startAnimating()
     let coursesArr = try! Realm().objects(Course.self).filter("e_city CONTAINS %@ OR e_state CONTAINS %@ OR biz_name CONTAINS %@ OR e_postal CONTAINS %@",search,search,search,search)
     if coursesArr.isEmpty{
       displayAlert("No courses found for this location.", title: "No courses found")
@@ -136,8 +138,10 @@ private extension FindTourneyController{
       if gameCount == 0{
         self.games = []
         self.tableView.reloadData()
+        self.activityInd.stopAnimating()
         self.displayAlert("No games found at this location.", title: "No games found.")
       }else{
+        self.activityInd.stopAnimating()
         self.games.sort{$0.date! < $1.date!}
         self.tableView.reloadData()
       }

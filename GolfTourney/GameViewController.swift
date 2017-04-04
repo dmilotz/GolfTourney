@@ -98,7 +98,7 @@ private extension GameViewController{
   func setup(){
     buyInLabel.text = "Buy In: $\(String(describing: game!.buyIn!)) "
     currentPotLabel.text = "Pot: $\(String(describing: game!.currentPot! * game!.players!.count))"
-    dateLabel.text = game?.date!
+    dateLabel.text = game!.date!
     courseLabel.text = game?.courseName
     if let keys = game?.players?.keys{
       playerIds = Array(keys)
