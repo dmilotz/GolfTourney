@@ -36,7 +36,7 @@ extension ChatController{
   
   override func viewDidLoad(){
     super.viewDidLoad()
-    
+    self.inputToolbar.contentView.textView.resignFirstResponder()
     ref = FIRDatabase.database().reference()
     self.senderDisplayName = "No Name"
     getUserInfo()
@@ -81,6 +81,43 @@ extension ChatController{
   
   
 }
+
+//// MARK: - Keyboard notification methods
+//extension ChatController{
+//  
+//  
+//  func subscribeToKeyboardNotifications() {
+//    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//    
+//  }
+//  
+//  func unsubscribeFromKeyboardNotifications() {
+//    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//  }
+//  
+//  
+//  func keyboardWillShow(notification: Notification) {
+//    if textField.isEditing  == true{
+//      let height = getKeyboardHeight(notification: notification)
+//      view.frame.origin.y -= height/3
+//    }
+//  }
+//  
+//  func keyboardWillHide(notification: Notification) {
+//    view.frame.origin.y = 0
+//  }
+//  
+//  
+//  func getKeyboardHeight(notification: Notification) -> CGFloat {
+//    let userInfo = notification.userInfo!
+//    let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+//    return keyboardSize.cgRectValue.height
+//  }
+//  
+//}
+
 
 // MARK: - JSQMessage functions
 extension ChatController{
@@ -147,6 +184,7 @@ extension ChatController{
     JSQSystemSoundPlayer.jsq_playMessageSentSound() // 4
     
     finishSendingMessage()
+    self.inputToolbar.contentView.textView.resignFirstResponder()
   }
   //  override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
   //    <#code#>
