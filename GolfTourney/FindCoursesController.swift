@@ -31,6 +31,7 @@ class FindCoursesController: UIViewController{
   var courseImage: UIImage?
   var extraCourseInfo: [Course: [String: AnyObject]] = [:]
   var searchString = ""
+  var origImage : UIImage?
   
   //MARK: Outlets
   @IBOutlet var searchBar: UISearchBar!
@@ -285,7 +286,7 @@ extension FindCoursesController: UITableViewDelegate{
     let cell = tableView.cellForRow(at: indexPath) as! CourseViewCell
     course = self.courseGameArr[(indexPath as NSIndexPath).row].course
     var tmpDict = extraCourseInfo[course]! as [String:AnyObject]
-    tmpDict["image"] = (cell.coursePic?.image)!
+    tmpDict["image"] = cell.squareImage!
     tmpDict["coursePicUrl"] = coursePhotoArr[course] as AnyObject?
     extraCourseInfo[course] = tmpDict
     performSegue(withIdentifier: "courseChosen", sender: self)
@@ -316,7 +317,8 @@ extension FindCoursesController: UITableViewDataSource{
           return
         }
         DispatchQueue.main.async {
-          cell.coursePic?.image = UIImage(data: data)?.circle
+          cell.squareImage = UIImage(data: data)
+          cell.coursePic?.image = cell.squareImage?.circle
           cell.activityIndicator.stopAnimating()
         }
       })

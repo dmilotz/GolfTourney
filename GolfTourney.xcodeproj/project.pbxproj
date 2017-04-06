@@ -97,6 +97,12 @@
 		112C147C1E5C44CF001E6E18 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C147B1E5C44CF001E6E18 /* TabController.swift */; };
 		112C14811E5D0D62001E6E18 /* PlayerProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C14801E5D0D62001E6E18 /* PlayerProfileController.swift */; };
 		113221791E6A3FAE008E23B3 /* ModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113221781E6A3FAE008E23B3 /* ModalTransitionMediator.swift */; };
+		113655D71E96DFE8003BD8F5 /* courseCellMaskTop2@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113655D41E96DFE8003BD8F5 /* courseCellMaskTop2@1x.png */; };
+		113655D81E96DFE8003BD8F5 /* courseCellMaskTop2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113655D51E96DFE8003BD8F5 /* courseCellMaskTop2@2x.png */; };
+		113655D91E96DFE8003BD8F5 /* courseCellMaskTop2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113655D61E96DFE8003BD8F5 /* courseCellMaskTop2@3x.png */; };
+		113655DD1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113655DA1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@1x.png */; };
+		113655DE1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113655DB1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@2x.png */; };
+		113655DF1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113655DC1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@3x.png */; };
 		1157CA3F1E49458900BAEE7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA3E1E49458900BAEE7F /* AppDelegate.swift */; };
 		1157CA441E49458900BAEE7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1157CA421E49458900BAEE7F /* Main.storyboard */; };
 		1157CA471E49458900BAEE7F /* GolfTourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA451E49458900BAEE7F /* GolfTourney.xcdatamodeld */; };
@@ -128,6 +134,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		113655CA1E96D7C5003BD8F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC6E7CAB1C39A9D8006DF678;
+			remoteInfo = GPUImage_macOS;
+		};
+		113655CC1E96D7C5003BD8F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC6E7CB51C39A9D8006DF678;
+			remoteInfo = GPUImageTests_macOS;
+		};
+		113655CE1E96D7C5003BD8F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9E34E91E524A2200B8604F;
+			remoteInfo = GPUImage_iOS;
+		};
+		113655D01E96D7C5003BD8F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9E34F11E524A2200B8604F;
+			remoteInfo = GPUImageTests_iOS;
+		};
+		113655D21E96D7CF003BD8F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9E34E81E524A2200B8604F;
+			remoteInfo = GPUImage_iOS;
+		};
 		1157CA531E49458A00BAEE7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1157CA331E49458900BAEE7F /* Project object */;
@@ -249,6 +290,14 @@
 		112C147B1E5C44CF001E6E18 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		112C14801E5D0D62001E6E18 /* PlayerProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerProfileController.swift; sourceTree = "<group>"; };
 		113221781E6A3FAE008E23B3 /* ModalTransitionMediator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionMediator.swift; sourceTree = "<group>"; };
+		113655B41E96D756003BD8F5 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../../../Downloads/GPUImage2-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
+		113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../../../Downloads/GPUImage2-master/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
+		113655D41E96DFE8003BD8F5 /* courseCellMaskTop2@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "courseCellMaskTop2@1x.png"; path = "../../../Documents/GolfTourneyAssets/courseCellMaskTop2@1x.png"; sourceTree = "<group>"; };
+		113655D51E96DFE8003BD8F5 /* courseCellMaskTop2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "courseCellMaskTop2@2x.png"; path = "../../../Documents/GolfTourneyAssets/courseCellMaskTop2@2x.png"; sourceTree = "<group>"; };
+		113655D61E96DFE8003BD8F5 /* courseCellMaskTop2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "courseCellMaskTop2@3x.png"; path = "../../../Documents/GolfTourneyAssets/courseCellMaskTop2@3x.png"; sourceTree = "<group>"; };
+		113655DA1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "courseCellMaskTop2Flipped@1x.png"; path = "../../../Documents/GolfTourneyAssets/courseCellMaskTop2Flipped@1x.png"; sourceTree = "<group>"; };
+		113655DB1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "courseCellMaskTop2Flipped@2x.png"; path = "../../../Documents/GolfTourneyAssets/courseCellMaskTop2Flipped@2x.png"; sourceTree = "<group>"; };
+		113655DC1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "courseCellMaskTop2Flipped@3x.png"; path = "../../../Documents/GolfTourneyAssets/courseCellMaskTop2Flipped@3x.png"; sourceTree = "<group>"; };
 		1157CA3B1E49458900BAEE7F /* GolfTourney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfTourney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1157CA3E1E49458900BAEE7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1157CA431E49458900BAEE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -395,6 +444,9 @@
 		112C147D1E5D096C001E6E18 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				113655D41E96DFE8003BD8F5 /* courseCellMaskTop2@1x.png */,
+				113655D51E96DFE8003BD8F5 /* courseCellMaskTop2@2x.png */,
+				113655D61E96DFE8003BD8F5 /* courseCellMaskTop2@3x.png */,
 				111FF5F91E8EEEFC006DA93A /* CreateGame */,
 				111FF5F31E8EE6D6006DA93A /* greenRoundButton.png */,
 				111FF5F41E8EE6D6006DA93A /* greenRoundButton@2x.png */,
@@ -418,13 +470,28 @@
 				111FF5711E89DFB1006DA93A /* GolfGrass.png */,
 				111FF5EF1E8C3BC8006DA93A /* placeHolder.png */,
 				111FF5F11E8C3C53006DA93A /* golfDefault.png */,
+				113655DA1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@1x.png */,
+				113655DB1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@2x.png */,
+				113655DC1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@3x.png */,
 				1157CA481E49458900BAEE7F /* Assets.xcassets */,
 				112C146E1E568252001E6E18 /* default2.realm */,
 				1157CA421E49458900BAEE7F /* Main.storyboard */,
 				1157CA4A1E49458900BAEE7F /* LaunchScreen.storyboard */,
+				113655B41E96D756003BD8F5 /* GPUImage.xcodeproj */,
 			);
 			name = Assets;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		113655C41E96D7C5003BD8F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				113655CB1E96D7C5003BD8F5 /* GPUImage.framework */,
+				113655CD1E96D7C5003BD8F5 /* GPUImageTests_macOS.xctest */,
+				113655CF1E96D7C5003BD8F5 /* GPUImage.framework */,
+				113655D11E96D7C5003BD8F5 /* GPUImageTests_iOS.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		1157CA321E49458900BAEE7F = {
@@ -566,6 +633,7 @@
 		35F5052A817D4CA60580B8B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */,
 				119705E81E52743900687827 /* JTAppleCalendar.framework */,
 				6915826033E9DED2AB855FB6 /* Pods_GolfTourney.framework */,
 				B9926D5FCC78AEF8505149D0 /* Pods_GolfTourneyTests.framework */,
@@ -606,6 +674,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				113655D31E96D7CF003BD8F5 /* PBXTargetDependency */,
 			);
 			name = GolfTourney;
 			productName = GolfTourney;
@@ -697,6 +766,12 @@
 			mainGroup = 1157CA321E49458900BAEE7F;
 			productRefGroup = 1157CA3C1E49458900BAEE7F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 113655C41E96D7C5003BD8F5 /* Products */;
+					ProjectRef = 113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1157CA3A1E49458900BAEE7F /* GolfTourney */,
@@ -705,6 +780,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		113655CB1E96D7C5003BD8F5 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 113655CA1E96D7C5003BD8F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		113655CD1E96D7C5003BD8F5 /* GPUImageTests_macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests_macOS.xctest;
+			remoteRef = 113655CC1E96D7C5003BD8F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		113655CF1E96D7C5003BD8F5 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 113655CE1E96D7C5003BD8F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		113655D11E96D7C5003BD8F5 /* GPUImageTests_iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests_iOS.xctest;
+			remoteRef = 113655D01E96D7C5003BD8F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1157CA391E49458900BAEE7F /* Resources */ = {
@@ -721,6 +827,7 @@
 				111FF58C1E89E6AE006DA93A /* slide_option_1.png in Resources */,
 				11249AE01E7241F700FCCE1B /* Home@2x.png in Resources */,
 				111FF5731E89DFB1006DA93A /* GolfGrass@3x.png in Resources */,
+				113655DF1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@3x.png in Resources */,
 				111FF5A91E89EBE2006DA93A /* logout.png in Resources */,
 				111FF59D1E89EB53006DA93A /* slide_option3Grouped.png in Resources */,
 				111FF5EE1E8B2551006DA93A /* greenOptBg@3x.png in Resources */,
@@ -738,6 +845,7 @@
 				111FF5BC1E89EDAA006DA93A /* currentGamesOption@2x.png in Resources */,
 				111FF5BB1E89EDAA006DA93A /* currentGamesOption.png in Resources */,
 				111FF5F71E8EE6D6006DA93A /* greenRoundButton@2x.png in Resources */,
+				113655D91E96DFE8003BD8F5 /* courseCellMaskTop2@3x.png in Resources */,
 				111FF5AA1E89EBE2006DA93A /* logout@2x.png in Resources */,
 				11249AE51E7241F700FCCE1B /* CreateGame.png in Resources */,
 				111FF59E1E89EB53006DA93A /* slide_option3Grouped@2x.png in Resources */,
@@ -753,7 +861,9 @@
 				11249AE41E7241F700FCCE1B /* CreateGame@2x.png in Resources */,
 				111FF5F81E8EE6D6006DA93A /* greenRoundButton@3x.png in Resources */,
 				1157CA441E49458900BAEE7F /* Main.storyboard in Resources */,
+				113655DE1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@2x.png in Resources */,
 				111FF58D1E89E6AE006DA93A /* slide_option_1@2x.png in Resources */,
+				113655D71E96DFE8003BD8F5 /* courseCellMaskTop2@1x.png in Resources */,
 				111FF5971E89E6AE006DA93A /* slideBackDrop@2x.png in Resources */,
 				111FF58F1E89E6AE006DA93A /* slide_option_2.png in Resources */,
 				111FF59F1E89EB53006DA93A /* slide_option3Grouped@3x.png in Resources */,
@@ -761,9 +871,11 @@
 				111FF6021E8EEF0C006DA93A /* Mask@3x.png in Resources */,
 				111FF58E1E89E6AE006DA93A /* slide_option_1@3x.png in Resources */,
 				111FF5D61E8A1013006DA93A /* peopleIcon@3x.png in Resources */,
+				113655DD1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@1x.png in Resources */,
 				111FF5DB1E8A1073006DA93A /* blueOptBg@2x.png in Resources */,
 				111FF60A1E8F414B006DA93A /* Rectangle@2x.png in Resources */,
 				112C14701E568252001E6E18 /* default2.realm in Resources */,
+				113655D81E96DFE8003BD8F5 /* courseCellMaskTop2@2x.png in Resources */,
 				111FF5EC1E8B2551006DA93A /* greenOptBg.png in Resources */,
 				111FF5E71E8B0EDE006DA93A /* hamburger@2x.png in Resources */,
 				111FF5D01E8A0E9F006DA93A /* courseCellMaskTop@3x.png in Resources */,
@@ -1022,6 +1134,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		113655D31E96D7CF003BD8F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage_iOS;
+			targetProxy = 113655D21E96D7CF003BD8F5 /* PBXContainerItemProxy */;
+		};
 		1157CA541E49458A00BAEE7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1157CA3A1E49458900BAEE7F /* GolfTourney */;

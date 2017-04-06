@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import GPUImage
 
 class GameViewController: UIViewController{
   
@@ -33,6 +34,7 @@ class GameViewController: UIViewController{
   
   @IBOutlet var coursePic: UIImageView!
   
+  @IBOutlet var addressLabel: UILabel!
   
  
   
@@ -72,7 +74,14 @@ extension GameViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tabBarController?.tabBar.isHidden = true
-    coursePic.image = courseImage?.circle
+    
+    coursePic.image = courseImage
+//    let boxBlur = BoxBlur()
+//    boxBlur.blurRadiusInPixels = 10.0
+//    let picInput = PictureInput(image: coursePic.image!)
+//    let picOutput = PictureOutput()
+//    picInput --> boxBlur --> picOutput
+//    picInput.processImage(synchronously: true)
     ref = FIRDatabase.database().reference()
     playerCollectionView.backgroundView = nil;
     playerCollectionView.backgroundColor = .clear
@@ -89,6 +98,8 @@ extension GameViewController{
     super.viewWillDisappear(animated)
     self.tabBarController?.tabBar.isHidden = false
   }
+  
+  
 }
 
 
@@ -100,6 +111,7 @@ extension GameViewController{
 private extension GameViewController{
   
   func setup(){
+    addressLabel.text = game!.courseAddress
     buyInLabel.text = "Buy In: $\(String(describing: game!.buyIn!)) "
     currentPotLabel.text = "Pot: $\(String(describing: game!.currentPot! * game!.players!.count))"
     dateLabel.text = game!.date!

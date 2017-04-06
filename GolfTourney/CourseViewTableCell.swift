@@ -16,6 +16,6 @@ class CourseViewCell : UITableViewCell{
   @IBOutlet var coursePic: UIImageView?
   @IBOutlet var courseAddress: UILabel!
   @IBOutlet var currentGamesCount: UILabel!
-  
+  var squareImage: UIImage?
   @IBOutlet var activityIndicator: UIActivityIndicatorView!
 }

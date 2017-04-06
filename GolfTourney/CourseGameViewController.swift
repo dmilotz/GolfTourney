@@ -25,7 +25,7 @@ class CourseGameViewController : UIViewController {
   let daysToAdd : TimeInterval = 10
   lazy var formatter: DateFormatter = {
     var tmpFormatter = DateFormatter()
-    tmpFormatter.dateFormat = "MM/dd/yyyy"
+    tmpFormatter.dateFormat = "MM/dd/yy"
     return tmpFormatter
   }()
   
@@ -61,7 +61,7 @@ class CourseGameViewController : UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if let vc = segue.destination as? GameViewController{
-        vc.courseImage = courseImage.image
+        vc.courseImage = photo
         vc.game = self.game
       }
     
@@ -102,7 +102,7 @@ extension CourseGameViewController{
     setupGame()
     //self.displayAlert("Game has been created at \(courseName.text)!", title: "Game Created!")
     let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-    vc.courseImage = courseImage.image
+    vc.courseImage = photo
     vc.game = self.game!
     self.navigationController?.pushViewController(vc, animated: true)
   }
@@ -125,7 +125,8 @@ private extension CourseGameViewController{
 //    numberOfHoles.text = "Holes: \(course!.c_holes)"
 //    yearBuilt.text = "Year Built: \(course!.year_built)"
 //    designer.text = "Designer: \(course!.c_designer)"
-    courseImage.image = extraCourseInfo?["image"] as! UIImage?
+   photo = extraCourseInfo?["image"] as! UIImage?
+   courseImage.image = photo?.circle
   }
   
 }
