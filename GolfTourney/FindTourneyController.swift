@@ -58,6 +58,8 @@ extension FindTourneyController{
     tableView.delegate = self
     tableView.dataSource = self
     searchBar.delegate = self
+    self.navigationController?.navigationBar.isHidden = true
+
     ref = FIRDatabase.database().reference()
     
     self.locationManager.requestWhenInUseAuthorization()
@@ -70,6 +72,7 @@ extension FindTourneyController{
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
+    self.navigationController?.navigationBar.isHidden = true
     requestLocation()
   }
 }
@@ -283,6 +286,11 @@ extension FindTourneyController: UITableViewDataSource{
     })
     cell.coursePic?.image = UIImage(named: "placeHolder.png")
     cell.activityIndicator.startAnimating()
+    cell.contentView.backgroundColor = UIColor.clear
+
+    
+   cell.layer.cornerRadius = 10
+   cell.layer.masksToBounds = true
     
     
     return cell

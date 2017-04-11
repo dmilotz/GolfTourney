@@ -1,5 +1,5 @@
 //
-//  WelcomePageController.swift
+//  FindCoursesController.swift
 //  GolfTourney
 //
 //  Created by Dirk Milotz on 2/8/17.
@@ -26,7 +26,6 @@ class FindCoursesController: UIViewController{
   var courseGameArr: [(course: Course, value: Int)] = []
   let searchDistance:Double =  15
   let locationManager = CLLocationManager()
-  let serialQueue = DispatchQueue(label: "arrayQueue")
   var coursePhotoArr: [Course : String] = [:]
   var courseImage: UIImage?
   var extraCourseInfo: [Course: [String: AnyObject]] = [:]
@@ -36,12 +35,6 @@ class FindCoursesController: UIViewController{
   //MARK: Outlets
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var tableView: UITableView!
-  
-  
-  override var shouldAutorotate: Bool {
-    return false
-  }
-  
   
   //MARK: Actions
   @IBAction func nearbyCourses(_ sender: Any) {
@@ -57,12 +50,18 @@ class FindCoursesController: UIViewController{
     searchBar.delegate = self
     ref = FIRDatabase.database().reference()
     locationManager.requestWhenInUseAuthorization()
+    self.navigationController?.navigationBar.isHidden = true
     
     if CLLocationManager.locationServicesEnabled() {
       locationManager.delegate = self
       locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
       requestLocation()
     }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.navigationBar.isHidden = true
   }
   
   
@@ -75,6 +74,9 @@ class FindCoursesController: UIViewController{
     }
   }
   
+  override var shouldAutorotate: Bool {
+    return false
+  }
   
   
   
@@ -84,8 +86,6 @@ class FindCoursesController: UIViewController{
 // MARK: - Private Methods
 
 private extension FindCoursesController{
-  
-  
   
   func searchByGeoLocate(location: String){
     CLGeocoder().geocodeAddressString(location, completionHandler: {(placemarks,error) in
@@ -231,11 +231,9 @@ private extension FindCoursesController{
 // MARK: - UISearchBarDelegate
 extension FindCoursesController: UISearchBarDelegate{
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    //searchActive = false
     searchBar.endEditing(true)
     searchBar.resignFirstResponder()
     self.searchString = searchBar.text!
-    //    searchBy(search: searchBar.text!)
     searchByName(search: searchString)
     
   }
@@ -270,7 +268,6 @@ extension FindCoursesController: CLLocationManagerDelegate{
     let minLon = userLocation.coordinate.longitude - searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
     let maxLon = userLocation.coordinate.longitude + searchDistance / fabs(cos(deg2rad(degrees: userLocation.coordinate.latitude))*69)
     searchByUserLocation(predicate: NSPredicate(format: "lat < %f AND lat > %f AND long < %f AND long > %f",maxLat, minLat, maxLon, minLon))
-    
   }
   
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -331,7 +328,4 @@ extension FindCoursesController: UITableViewDataSource{
     }
     return cell
   }
-  
-  
-  
 }

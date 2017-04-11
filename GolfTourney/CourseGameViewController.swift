@@ -91,6 +91,7 @@ extension CourseGameViewController{
 extension CourseGameViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.navigationController?.navigationBar.isHidden = false
     buyInStepper.maximumValue = 10
     buyInStepper.minimumValue = 0
     setUp()

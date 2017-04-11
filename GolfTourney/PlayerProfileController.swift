@@ -32,8 +32,8 @@ class PlayerProfileController: UIViewController{
   //MARK: Outlets
   
   @IBOutlet var nameField: UILabel!
-  @IBOutlet var handicapField: UILabel!
-  @IBOutlet var gamesTableView: UITableView!
+
+//  @IBOutlet var gamesTableView: UITableView!
   @IBOutlet var profileImage: UIImageView!
   
   
@@ -42,11 +42,11 @@ class PlayerProfileController: UIViewController{
   }
   
 
-  //MARK: Actions
-  
-  @IBAction func back(_ sender: Any) {
-  dismiss(animated: true, completion: nil)
-  }
+//  //MARK: Actions
+//  
+//  @IBAction func back(_ sender: Any) {
+//  dismiss(animated: true, completion: nil)
+//  }
 }
 
 // MARK: Lifecycle
@@ -56,9 +56,10 @@ extension PlayerProfileController{
     
     super.viewDidLoad()
     ref = FIRDatabase.database().reference()
+    self.navigationController?.navigationBar.isHidden = true
     //storageRef = FIRStorage.storage().reference()
-    gamesTableView.delegate = self
-    gamesTableView.dataSource = self
+//    gamesTableView.delegate = self
+//    gamesTableView.dataSource = self
     
   }
   
@@ -81,11 +82,11 @@ private extension PlayerProfileController{
       nameField.text = "No name provided"
     }
     
-    if let handicap = player?.handicap{
-      handicapField.text = "Handicap: \(handicap)"
-    }else{
-      handicapField.text = "No handicap provided"
-    }
+//    if let handicap = player?.handicap{
+//      handicapField.text = "Handicap: \(handicap)"
+//    }else{
+//      handicapField.text = "No handicap provided"
+//    }
   }
   
   func getUserInfo(){
@@ -104,7 +105,7 @@ private extension PlayerProfileController{
       })
       
     }else{
-      self.profileImage.image = UIImage(named:"golfDefault.png")?.circle
+      self.profileImage.image = UIImage(named:"golfDefault.png")
     }
   }
   
@@ -120,7 +121,7 @@ private extension PlayerProfileController{
           self.games.append(game)
           self.games.sort{$0.date! < $1.date!}
           DispatchQueue.main.async {
-            self.gamesTableView.reloadData()
+//            self.gamesTableView.reloadData()
           }
         }
       })
@@ -130,57 +131,57 @@ private extension PlayerProfileController{
 
 
 
-//MARK: TableView Delegate
-
-extension PlayerProfileController: UITableViewDelegate{
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let game = games[(indexPath as NSIndexPath).row]
-    let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-    vc.game = game
-    self.present(vc, animated: true, completion: nil)
-  }
-  
-}
-
-//MARK: TableView Datasource
-
-extension PlayerProfileController: UITableViewDataSource{
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return games.count
-    
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = gamesTableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
-    let game = games[(indexPath as NSIndexPath).row]
-    self.game = game
-    
-    //                    cell.buyInAmount.text = String(describing: chosenGame.buyIn!)
-    //                    cell.courseAddress.text = chosenGame.courseAddress
-    //                    cell.courseName.text = chosenGame.courseName
-    //                    cell.date.text = chosenGame.date
-    //                    cell.currentPot.text = String(describing: chosenGame.currentPot!)
+////MARK: TableView Delegate
+//
+//extension PlayerProfileController: UITableViewDelegate{
+//  
+//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    let game = games[(indexPath as NSIndexPath).row]
+//    let vc = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+//    vc.game = game
+//    self.present(vc, animated: true, completion: nil)
+//  }
+//  
+//}
+//
+////MARK: TableView Datasource
+//
+//extension PlayerProfileController: UITableViewDataSource{
+//  
+//  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//    return games.count
+//    
+//  }
+//  
+//  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//    let cell = gamesTableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath) as! GameCell
+//    let game = games[(indexPath as NSIndexPath).row]
+//    self.game = game
+//    
+//    //                    cell.buyInAmount.text = String(describing: chosenGame.buyIn!)
+//    //                    cell.courseAddress.text = chosenGame.courseAddress
+//    //                    cell.courseName.text = chosenGame.courseName
+//    //                    cell.date.text = chosenGame.date
+//    //                    cell.currentPot.text = String(describing: chosenGame.currentPot!)
+////    cell.buyInAmount.text = "Buy In: $\( String(describing: game.buyIn!))"
+////    cell.courseAddress.text = game.courseAddress
+////    cell.courseName.text = game.courseName
+////    cell.date.text = game.date
+////    cell.currentPot.text = "Pot: $\(String(describing: game.currentPot!))"
+////    cell.playerCount.text = "Players: \(String(describing:game.players!.count))"
+//    
+//    cell.title.text = game.description
 //    cell.buyInAmount.text = "Buy In: $\( String(describing: game.buyIn!))"
 //    cell.courseAddress.text = game.courseAddress
 //    cell.courseName.text = game.courseName
 //    cell.date.text = game.date
-//    cell.currentPot.text = "Pot: $\(String(describing: game.currentPot!))"
+//    cell.currentPot.text = "Pot: $\(String(describing: game.currentPot! * game.players!.count))"
 //    cell.playerCount.text = "Players: \(String(describing:game.players!.count))"
-    
-    cell.title.text = game.description
-    cell.buyInAmount.text = "Buy In: $\( String(describing: game.buyIn!))"
-    cell.courseAddress.text = game.courseAddress
-    cell.courseName.text = game.courseName
-    cell.date.text = game.date
-    cell.currentPot.text = "Pot: $\(String(describing: game.currentPot! * game.players!.count))"
-    cell.playerCount.text = "Players: \(String(describing:game.players!.count))"
-    
-    return cell
-    
-  }
-}
+//    
+//    return cell
+//    
+//  }
+//}
 
 
 

@@ -117,6 +117,9 @@
 		1157CA7C1E4C112E00BAEE7F /* FindCoursesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7B1E4C112E00BAEE7F /* FindCoursesController.swift */; };
 		1157CA7E1E4C127A00BAEE7F /* CourseViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7D1E4C127A00BAEE7F /* CourseViewTableCell.swift */; };
 		1157CA801E4C147B00BAEE7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA7F1E4C147B00BAEE7F /* Constants.swift */; };
+		1180FECA1E9CAE3500A6FC8D /* ProfileICON.png in Resources */ = {isa = PBXBuildFile; fileRef = 1180FEC71E9CAE3500A6FC8D /* ProfileICON.png */; };
+		1180FECB1E9CAE3500A6FC8D /* ProfileICON@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1180FEC81E9CAE3500A6FC8D /* ProfileICON@2x.png */; };
+		1180FECC1E9CAE3500A6FC8D /* ProfileICON@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1180FEC91E9CAE3500A6FC8D /* ProfileICON@3x.png */; };
 		1197053B1E52593400687827 /* FindTourneyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053A1E52593400687827 /* FindTourneyController.swift */; };
 		1197053D1E52675E00687827 /* PlayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197053C1E52675E00687827 /* PlayerCollectionCell.swift */; };
 		119705411E526C8C00687827 /* CreateGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119705401E526C8C00687827 /* CreateGameController.swift */; };
@@ -134,6 +137,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1101B5231E9C11B9004E7881 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 113655B41E96D756003BD8F5 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC6E7CAB1C39A9D8006DF678;
+			remoteInfo = GPUImage_macOS;
+		};
+		1101B5251E9C11B9004E7881 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 113655B41E96D756003BD8F5 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC6E7CB51C39A9D8006DF678;
+			remoteInfo = GPUImageTests_macOS;
+		};
+		1101B5271E9C11B9004E7881 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 113655B41E96D756003BD8F5 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9E34E91E524A2200B8604F;
+			remoteInfo = GPUImage_iOS;
+		};
+		1101B5291E9C11B9004E7881 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 113655B41E96D756003BD8F5 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9E34F11E524A2200B8604F;
+			remoteInfo = GPUImageTests_iOS;
+		};
 		113655CA1E96D7C5003BD8F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */;
@@ -319,6 +350,9 @@
 		1157CA7B1E4C112E00BAEE7F /* FindCoursesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindCoursesController.swift; sourceTree = "<group>"; };
 		1157CA7D1E4C127A00BAEE7F /* CourseViewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewTableCell.swift; sourceTree = "<group>"; };
 		1157CA7F1E4C147B00BAEE7F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1180FEC71E9CAE3500A6FC8D /* ProfileICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileICON.png; path = ../../../Documents/GolfTourneyAssets/ProfileICON.png; sourceTree = "<group>"; };
+		1180FEC81E9CAE3500A6FC8D /* ProfileICON@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ProfileICON@2x.png"; path = "../../../Documents/GolfTourneyAssets/ProfileICON@2x.png"; sourceTree = "<group>"; };
+		1180FEC91E9CAE3500A6FC8D /* ProfileICON@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ProfileICON@3x.png"; path = "../../../Documents/GolfTourneyAssets/ProfileICON@3x.png"; sourceTree = "<group>"; };
 		1197053A1E52593400687827 /* FindTourneyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindTourneyController.swift; sourceTree = "<group>"; };
 		1197053C1E52675E00687827 /* PlayerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCollectionCell.swift; sourceTree = "<group>"; };
 		119705401E526C8C00687827 /* CreateGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameController.swift; sourceTree = "<group>"; };
@@ -369,6 +403,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1101B51A1E9C11B9004E7881 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1101B5241E9C11B9004E7881 /* GPUImage.framework */,
+				1101B5261E9C11B9004E7881 /* GPUImageTests_macOS.xctest */,
+				1101B5281E9C11B9004E7881 /* GPUImage.framework */,
+				1101B52A1E9C11B9004E7881 /* GPUImageTests_iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		111FF5751E89E69E006DA93A /* SlideBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +507,9 @@
 				11249ADD1E7241F700FCCE1B /* FindCourses@2x.png */,
 				11249ADE1E7241F700FCCE1B /* CreateGame@2x.png */,
 				11249ADF1E7241F700FCCE1B /* CreateGame.png */,
+				1180FEC71E9CAE3500A6FC8D /* ProfileICON.png */,
+				1180FEC81E9CAE3500A6FC8D /* ProfileICON@2x.png */,
+				1180FEC91E9CAE3500A6FC8D /* ProfileICON@3x.png */,
 				111FF59A1E89EB53006DA93A /* slide_option3Grouped.png */,
 				111FF59B1E89EB53006DA93A /* slide_option3Grouped@2x.png */,
 				111FF59C1E89EB53006DA93A /* slide_option3Grouped@3x.png */,
@@ -771,6 +819,10 @@
 					ProductGroup = 113655C41E96D7C5003BD8F5 /* Products */;
 					ProjectRef = 113655C31E96D7C5003BD8F5 /* GPUImage.xcodeproj */;
 				},
+				{
+					ProductGroup = 1101B51A1E9C11B9004E7881 /* Products */;
+					ProjectRef = 113655B41E96D756003BD8F5 /* GPUImage.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -782,6 +834,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		1101B5241E9C11B9004E7881 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 1101B5231E9C11B9004E7881 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1101B5261E9C11B9004E7881 /* GPUImageTests_macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests_macOS.xctest;
+			remoteRef = 1101B5251E9C11B9004E7881 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1101B5281E9C11B9004E7881 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 1101B5271E9C11B9004E7881 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1101B52A1E9C11B9004E7881 /* GPUImageTests_iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests_iOS.xctest;
+			remoteRef = 1101B5291E9C11B9004E7881 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		113655CB1E96D7C5003BD8F5 /* GPUImage.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -841,6 +921,7 @@
 				111FF6011E8EEF0C006DA93A /* Mask@2x.png in Resources */,
 				111FF5951E89E6AE006DA93A /* slidePicFrame@2x.png in Resources */,
 				111FF5891E89E6AE006DA93A /* slideLogOutButton.png in Resources */,
+				1180FECA1E9CAE3500A6FC8D /* ProfileICON.png in Resources */,
 				1157CA701E49486700BAEE7F /* GoogleService-Info.plist in Resources */,
 				111FF5BC1E89EDAA006DA93A /* currentGamesOption@2x.png in Resources */,
 				111FF5BB1E89EDAA006DA93A /* currentGamesOption.png in Resources */,
@@ -857,6 +938,7 @@
 				111FF5901E89E6AE006DA93A /* slide_option_2@2x.png in Resources */,
 				11249AE31E7241F700FCCE1B /* FindCourses@2x.png in Resources */,
 				111FF5B71E89ED1A006DA93A /* slide_option2@3x.png in Resources */,
+				1180FECB1E9CAE3500A6FC8D /* ProfileICON@2x.png in Resources */,
 				111FF5C51E8A0E94006DA93A /* imageBg.png in Resources */,
 				11249AE41E7241F700FCCE1B /* CreateGame@2x.png in Resources */,
 				111FF5F81E8EE6D6006DA93A /* greenRoundButton@3x.png in Resources */,
@@ -878,6 +960,7 @@
 				113655D81E96DFE8003BD8F5 /* courseCellMaskTop2@2x.png in Resources */,
 				111FF5EC1E8B2551006DA93A /* greenOptBg.png in Resources */,
 				111FF5E71E8B0EDE006DA93A /* hamburger@2x.png in Resources */,
+				1180FECC1E9CAE3500A6FC8D /* ProfileICON@3x.png in Resources */,
 				111FF5D01E8A0E9F006DA93A /* courseCellMaskTop@3x.png in Resources */,
 				111FF5931E89E6AE006DA93A /* slide_option_3@2x.png in Resources */,
 				111FF5ED1E8B2551006DA93A /* greenOptBg@2x.png in Resources */,

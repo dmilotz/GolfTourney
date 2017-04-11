@@ -26,7 +26,6 @@ class GoogleClient{
         completionHandlerForGetPhotos(error?.localizedDescription as String!, nil)
         return
       }
-      
       do {
         let resultsDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: AnyObject]
         guard let results = resultsDictionary else {     completionHandlerForGetPhotos(error?.localizedDescription, nil)
@@ -46,7 +45,6 @@ class GoogleClient{
           }
           
           if let placeId = results[0]["place_id"] as? String{
-            print("placeIDD@##@#@#@#@# \(placeId)")
             dict["placeId"] = placeId
           }
           completionHandlerForGetPhotos(nil, dict)

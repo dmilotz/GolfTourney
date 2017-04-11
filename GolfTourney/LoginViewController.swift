@@ -94,7 +94,7 @@ extension LoginViewController{
               self.ref.child("users").child((user?.uid)!).updateChildValues(vals)
             }
             DispatchQueue.main.async{
-              self.performSegue(withIdentifier: "SideBarContainerController", sender: nil)
+              self.performSegue(withIdentifier: "TabController", sender: nil)
               
             }
           }

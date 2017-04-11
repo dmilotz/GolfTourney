@@ -12,7 +12,7 @@ import SidebarOverlay
 
 class TabBarController:  UITabBarController {
     
-    @IBInspectable var defaultIndex: Int = 1
+    @IBInspectable var defaultIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()

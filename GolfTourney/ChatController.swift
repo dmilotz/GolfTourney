@@ -27,7 +27,6 @@ class ChatController: JSQMessagesViewController{
   var messages = [JSQMessage]()
   lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
   lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
-  
 }
 
 
@@ -81,42 +80,6 @@ extension ChatController{
   
   
 }
-
-//// MARK: - Keyboard notification methods
-//extension ChatController{
-//  
-//  
-//  func subscribeToKeyboardNotifications() {
-//    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//    
-//  }
-//  
-//  func unsubscribeFromKeyboardNotifications() {
-//    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//    NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//  }
-//  
-//  
-//  func keyboardWillShow(notification: Notification) {
-//    if textField.isEditing  == true{
-//      let height = getKeyboardHeight(notification: notification)
-//      view.frame.origin.y -= height/3
-//    }
-//  }
-//  
-//  func keyboardWillHide(notification: Notification) {
-//    view.frame.origin.y = 0
-//  }
-//  
-//  
-//  func getKeyboardHeight(notification: Notification) -> CGFloat {
-//    let userInfo = notification.userInfo!
-//    let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-//    return keyboardSize.cgRectValue.height
-//  }
-//  
-//}
 
 
 // MARK: - JSQMessage functions
@@ -241,7 +204,4 @@ extension ChatController{
     let bubbleImageFactory = JSQMessagesBubbleImageFactory()
     return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
   }
-  
-  
-  
 }

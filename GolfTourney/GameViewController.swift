@@ -74,7 +74,8 @@ extension GameViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tabBarController?.tabBar.isHidden = true
-    
+    self.navigationController?.navigationBar.isHidden = false
+
     coursePic.image = courseImage
 //    let boxBlur = BoxBlur()
 //    boxBlur.blurRadiusInPixels = 10.0
@@ -101,11 +102,6 @@ extension GameViewController{
   
   
 }
-
-
-
-
-
 
 // MARK: - Private methods
 private extension GameViewController{
@@ -201,11 +197,12 @@ private extension GameViewController{
       let deleteAlert = UIAlertController(title: "Cancel Game?", message: "Are you sure you want to cancel the game?", preferredStyle: UIAlertControllerStyle.alert)
       deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
         NetworkClient.cancelGame(game:self.game!)
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "SideBarContainerController")
-        self.present(controller!, animated: true, completion: nil)}))
+        self.navigationController?.popToRootViewController(animated: true)
+      }))
       deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
         return            }))
       self.present(deleteAlert, animated: true, completion: nil)
+
     }
   }
 }
