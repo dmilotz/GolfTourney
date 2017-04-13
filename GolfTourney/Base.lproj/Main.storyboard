@@ -1395,19 +1395,19 @@
                                 <rect key="frame" x="0.0" y="285" width="414" height="43"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xV9-mE-NIZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
+                                <rect key="frame" x="0.0" y="0.0" width="413" height="328"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="328" id="1qa-Ri-h7b"/>
                                 </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="courseCellMaskTop2.png" translatesAutoresizingMaskIntoConstraints="NO" id="05m-Wc-Y4w">
-                                <rect key="frame" x="0.0" y="0.0" width="415" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Ymf-5O-gQM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Player Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cag-gw-3KK" userLabel="Player Name">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="24"/>
+                                <rect key="frame" x="0.0" y="0.0" width="413" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="fVy-vL-OAm"/>
                                 </constraints>
