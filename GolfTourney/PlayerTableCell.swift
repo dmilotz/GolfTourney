@@ -19,4 +19,7 @@ class PlayerTableCell: UITableViewCell{
     
     @IBOutlet var gamesWonLabel: UILabel!
     
+  @IBOutlet var scoreLabel: UILabel!
+  @IBOutlet var holeNumber: UILabel!
+  
 }

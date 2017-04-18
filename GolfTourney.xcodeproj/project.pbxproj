@@ -103,6 +103,7 @@
 		113655DD1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113655DA1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@1x.png */; };
 		113655DE1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113655DB1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@2x.png */; };
 		113655DF1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113655DC1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@3x.png */; };
+		113713B61EA6DB310035547C /* UpdateScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113713B51EA6DB310035547C /* UpdateScoreViewController.swift */; };
 		1157CA3F1E49458900BAEE7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA3E1E49458900BAEE7F /* AppDelegate.swift */; };
 		1157CA441E49458900BAEE7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1157CA421E49458900BAEE7F /* Main.storyboard */; };
 		1157CA471E49458900BAEE7F /* GolfTourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1157CA451E49458900BAEE7F /* GolfTourney.xcdatamodeld */; };
@@ -329,6 +330,7 @@
 		113655DA1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "courseCellMaskTop2Flipped@1x.png"; path = "../../../Documents/GolfTourneyAssets/courseCellMaskTop2Flipped@1x.png"; sourceTree = "<group>"; };
 		113655DB1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "courseCellMaskTop2Flipped@2x.png"; path = "../../../Documents/GolfTourneyAssets/courseCellMaskTop2Flipped@2x.png"; sourceTree = "<group>"; };
 		113655DC1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "courseCellMaskTop2Flipped@3x.png"; path = "../../../Documents/GolfTourneyAssets/courseCellMaskTop2Flipped@3x.png"; sourceTree = "<group>"; };
+		113713B51EA6DB310035547C /* UpdateScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateScoreViewController.swift; sourceTree = "<group>"; };
 		1157CA3B1E49458900BAEE7F /* GolfTourney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfTourney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1157CA3E1E49458900BAEE7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1157CA431E49458900BAEE7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -523,7 +525,6 @@
 				113655DC1E96E17D003BD8F5 /* courseCellMaskTop2Flipped@3x.png */,
 				1157CA481E49458900BAEE7F /* Assets.xcassets */,
 				112C146E1E568252001E6E18 /* default2.realm */,
-				1157CA421E49458900BAEE7F /* Main.storyboard */,
 				1157CA4A1E49458900BAEE7F /* LaunchScreen.storyboard */,
 				113655B41E96D756003BD8F5 /* GPUImage.xcodeproj */,
 			);
@@ -568,6 +569,7 @@
 		1157CA3D1E49458900BAEE7F /* GolfTourney */ = {
 			isa = PBXGroup;
 			children = (
+				1157CA421E49458900BAEE7F /* Main.storyboard */,
 				112C147D1E5D096C001E6E18 /* Assets */,
 				1157CA721E4A98FA00BAEE7F /* Controllers */,
 				1157CA711E4A98F400BAEE7F /* Models */,
@@ -632,6 +634,7 @@
 				111FF5691E89CD18006DA93A /* FeaturedGamesController.swift */,
 				111FF56B1E89D14E006DA93A /* SideBarContainerController.swift */,
 				111FF56D1E89D44D006DA93A /* SideBarController.swift */,
+				113713B51EA6DB310035547C /* UpdateScoreViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1180,6 +1183,7 @@
 				11DCFC691E4E54D70054DB04 /* GameModel.swift in Sources */,
 				11249B001E7B8A5F00FCCE1B /* ChatViewController.swift in Sources */,
 				111FF56C1E89D14E006DA93A /* SideBarContainerController.swift in Sources */,
+				113713B61EA6DB310035547C /* UpdateScoreViewController.swift in Sources */,
 				112C146F1E568252001E6E18 /* Course.swift in Sources */,
 				112C14781E5BA8E0001E6E18 /* EditProfileController.swift in Sources */,
 				119705411E526C8C00687827 /* CreateGameController.swift in Sources */,
@@ -1241,7 +1245,6 @@
 				1157CA431E49458900BAEE7F /* Base */,
 			);
 			name = Main.storyboard;
-			path = GolfTourney;
 			sourceTree = "<group>";
 		};
 		1157CA4A1E49458900BAEE7F /* LaunchScreen.storyboard */ = {

@@ -53,6 +53,7 @@ class GameViewController: UIViewController{
     }
   }
  
+ 
   
 }
 
@@ -65,6 +66,12 @@ extension GameViewController{
   
    @IBAction func back(_ sender: Any) {
     self.navigationController?.popToRootViewController(animated: true)
+  }
+  
+  @IBAction func scoresButtonPressed(_ sender: Any) {
+    let controller = self.storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
+        controller.players = players
+    self.navigationController?.pushViewController(controller, animated: true)
   }
   
 }
@@ -213,7 +220,7 @@ extension GameViewController: UICollectionViewDelegate{
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let controller = self.storyboard?.instantiateViewController(withIdentifier: "PlayerProfileController") as! PlayerProfileController
     controller.player = players[(indexPath as NSIndexPath).row]
-    self.present(controller, animated: true, completion: nil)
+    self.navigationController?.pushViewController(controller, animated: true)
   }
 }
 
