@@ -101,6 +101,7 @@ extension GameViewController{
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    self.tabBarController?.tabBar.isHidden = true
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -177,7 +178,9 @@ private extension GameViewController{
             return
           }
         }else{
-          self.players.append(Player(dict:dict!))
+          var player = Player(dict:dict!)
+          player.uid = playerId
+          self.players.append(player)
           DispatchQueue.main.async{
             self.playerCollectionView.reloadData()
           }

@@ -18,6 +18,12 @@ class ScoreViewController: UITableViewController{
     tableView.delegate = self
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.reloadData()
+    self.tabBarController?.tabBar.isHidden = true
+  }
+  
   @IBOutlet var updateScore: UIBarButtonItem!
   
   @IBAction func updateScore(_ sender: Any) {
@@ -70,8 +76,7 @@ extension ScoreViewController{
     else{
       cell.playerImage?.image = UIImage(named: "golfDefault.png")?.circle
     }
-    
-    NetworkClient.getUserScore(gameId: (game?.gameId)!) { (dict, error) in
+    NetworkClient.getUserScore(gameId: (game?.gameId)!, playerId: player.uid!){ (dict, error) in
       if error == nil{
         DispatchQueue.main.async{
           if let scoreString = dict?["score"] as? String{

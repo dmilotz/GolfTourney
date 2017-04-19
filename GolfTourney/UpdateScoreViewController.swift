@@ -46,6 +46,7 @@ class UpdateScoreViewController: UIViewController{
   @IBAction func saveButtonPressed(_ sender: Any) {
     let userScoreInfo = ["score": scoreLabel.text, "thruHole":holeNumberLabel.text, "scoreCardImageUrl": "", "receiptImageUrl":""]
         ref.child("users").child(uid!).child("currentGames").child((game?.gameId!)!).setValue(userScoreInfo)
+    self.navigationController?.popViewController(animated: true)
   }
   
 

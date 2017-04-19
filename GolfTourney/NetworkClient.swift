@@ -45,10 +45,9 @@ class NetworkClient{
     
   }
   
-  static func getUserScore(gameId: String,  completion: @escaping (_ dict: [String:Any]?, _ error: Error?) -> Void) {
-    let curUser = FIRAuth.auth()?.currentUser?.uid
+  static func getUserScore(gameId: String, playerId: String,  completion: @escaping (_ dict: [String:Any]?, _ error: Error?) -> Void) {
     let ref = FIRDatabase.database().reference()
-    ref.child("users").child(curUser!).child("currentGames").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
+    ref.child("users").child(playerId).child("currentGames").child(gameId).observeSingleEvent(of: .value, with: { (snapshot) in
       if let dict = snapshot.value as? [String:Any]{
         completion(dict, nil)
       }

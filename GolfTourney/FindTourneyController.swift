@@ -36,7 +36,6 @@ class FindTourneyController: UIViewController{
   
   //MARK: Outlets
   @IBOutlet var searchBar: UISearchBar!
-  
   @IBOutlet var tableView: UITableView!
   @IBOutlet var activityInd: UIActivityIndicatorView!
   
@@ -82,6 +81,7 @@ extension FindTourneyController{
 extension FindTourneyController{
   func requestLocation(){
     locationManager.requestLocation()
+    print("location requested")
   }
   
   func deg2rad(degrees:Double) -> Double{
@@ -123,6 +123,7 @@ private extension FindTourneyController{
     games = []
     var gameCount = 0
     for course in courses{
+      print("COurses!!!!!!! \(course)")
       group.enter()
       ref.child("courses").child(String(course.id)).child("currentGames").observeSingleEvent(of: .value, with: { (snapshot) in
         if let dict = snapshot.value as? [String:String]{
@@ -162,11 +163,12 @@ private extension FindTourneyController{
           return
         }
         else{
+          print("appending game! \(game)")
           self.games.append(game)
           self.group.leave()
 //          self.games.sort{$0.date! < $1.date!}
           DispatchQueue.main.async{
-//            self.tableView.reloadData()
+            self.tableView.reloadData()
 
           }
         }
@@ -291,8 +293,6 @@ extension FindTourneyController: UITableViewDataSource{
     
    cell.layer.cornerRadius = 10
    cell.layer.masksToBounds = true
-    
-    
     return cell
   }
 
