@@ -19,8 +19,7 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
     
     var window: UIWindow?
-    
-    
+  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GMSPlacesClient.provideAPIKey(GoogleClient.Constants.googleApiKey)
 
@@ -47,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         // Make sure to set the default configuration
         Realm.Configuration.defaultConfiguration = config
         openRealm()
-        
+      
         
         
         return true

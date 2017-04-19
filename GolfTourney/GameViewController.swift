@@ -36,11 +36,11 @@ class GameViewController: UIViewController{
   
   @IBOutlet var addressLabel: UILabel!
   
- 
   
   
-
-
+  
+  
+  
   override var shouldAutorotate: Bool {
     return false
   }
@@ -52,8 +52,8 @@ class GameViewController: UIViewController{
       }
     }
   }
- 
- 
+  
+  
   
 }
 
@@ -64,13 +64,14 @@ extension GameViewController{
     joinGame()
   }
   
-   @IBAction func back(_ sender: Any) {
+  @IBAction func back(_ sender: Any) {
     self.navigationController?.popToRootViewController(animated: true)
   }
   
   @IBAction func scoresButtonPressed(_ sender: Any) {
     let controller = self.storyboard?.instantiateViewController(withIdentifier: "ScoreViewController") as! ScoreViewController
-        controller.players = players
+    controller.players = players
+    controller.game = game
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
@@ -82,14 +83,14 @@ extension GameViewController{
     super.viewDidLoad()
     self.tabBarController?.tabBar.isHidden = true
     self.navigationController?.navigationBar.isHidden = false
-
+    
     coursePic.image = courseImage
-//    let boxBlur = BoxBlur()
-//    boxBlur.blurRadiusInPixels = 10.0
-//    let picInput = PictureInput(image: coursePic.image!)
-//    let picOutput = PictureOutput()
-//    picInput --> boxBlur --> picOutput
-//    picInput.processImage(synchronously: true)
+    //    let boxBlur = BoxBlur()
+    //    boxBlur.blurRadiusInPixels = 10.0
+    //    let picInput = PictureInput(image: coursePic.image!)
+    //    let picOutput = PictureOutput()
+    //    picInput --> boxBlur --> picOutput
+    //    picInput.processImage(synchronously: true)
     ref = FIRDatabase.database().reference()
     playerCollectionView.backgroundView = nil;
     playerCollectionView.backgroundColor = .clear
@@ -191,8 +192,8 @@ private extension GameViewController{
       ref.child("games").child((game?.gameId)!).child("players").child(uid!).setValue("")
       ref.child("users").child(uid!).child("currentGames").child((game?.gameId)!).setValue(game?.courseName)
       self.displayAlert("Game Joined!", title: "")
-//      let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
-//      self.present(controller!, animated: true, completion: nil)
+      //      let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabController")
+      //      self.present(controller!, animated: true, completion: nil)
       refreshGameInfo(gameId: (self.game?.gameId)!)
     }else if (joinButton.title == "Leave Game")  {
       NetworkClient.leaveGame(gameId: (game?.gameId)!, completion: { (message, error) in
@@ -209,7 +210,7 @@ private extension GameViewController{
       deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
         return            }))
       self.present(deleteAlert, animated: true, completion: nil)
-
+      
     }
   }
 }

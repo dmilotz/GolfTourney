@@ -39,10 +39,13 @@ extension ChatController{
     ref = FIRDatabase.database().reference()
     self.senderDisplayName = "No Name"
     getUserInfo()
+    if let message = JSQMessage(senderId: "", displayName: "", text: "Game Chat Created") {
+      messages.append(message)
+    }
     observeMessages()
     self.senderId = FIRAuth.auth()?.currentUser?.uid
   }
-
+  
   
 }
 
@@ -92,11 +95,13 @@ extension ChatController{
     newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
       // 3
       let messageData = snapshot.value as! Dictionary<String, String>
+      print (messageData)
       
       if let id = messageData["senderId"] as String!, let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
         // 4
         self.addMessage(withId: id, name: name, text: text)
-        // 5
+        
+        
         self.finishReceivingMessage()
       } else {
         print("Error! Could not decode message data")
@@ -109,6 +114,7 @@ extension ChatController{
   }
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    
     return messages.count
   }
   

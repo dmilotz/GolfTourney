@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/AppDelegate.swift"
-            timestampString = "510713824.193215"
+            timestampString = "514267269.626029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "openRealm()"
             landmarkType = "7">
          </BreakpointContent>
@@ -22,7 +22,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/GameViewController.swift"
@@ -35,64 +35,64 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GolfTourney.GameViewController.spotsLeftLabel.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
                   moduleName = "GolfTourney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dirkmilotz/Library/Autosave%20Information/GolfTourney/GolfTourney/GameViewController.swift"
-                  timestampString = "513590998.452137"
+                  timestampString = "514267270.868774"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
                   endingLineNumber = "29"
-                  offsetFromSymbolStart = "94">
+                  offsetFromSymbolStart = "38">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GolfTourney.GameViewController.spotsLeftLabel.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
                   moduleName = "GolfTourney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dirkmilotz/Library/Autosave%20Information/GolfTourney/GolfTourney/GameViewController.swift"
-                  timestampString = "513590998.456365"
+                  timestampString = "514267270.873285"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
                   endingLineNumber = "29"
-                  offsetFromSymbolStart = "154">
+                  offsetFromSymbolStart = "76">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GolfTourney.GameViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; GolfTourney.GameViewController"
                   moduleName = "GolfTourney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dirkmilotz/Library/Autosave%20Information/GolfTourney/GolfTourney/GameViewController.swift"
-                  timestampString = "513590998.460496"
+                  timestampString = "514267270.877783"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
                   endingLineNumber = "29"
-                  offsetFromSymbolStart = "8785">
+                  offsetFromSymbolStart = "4361">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "GolfTourney.GameViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;GolfTourney.GameViewController&gt;"
                   moduleName = "GolfTourney"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dirkmilotz/Library/Autosave%20Information/GolfTourney/GolfTourney/GameViewController.swift"
-                  timestampString = "513590998.46339"
+                  timestampString = "514267270.882677"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
                   endingLineNumber = "29"
-                  offsetFromSymbolStart = "8601">
+                  offsetFromSymbolStart = "4229">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -109,7 +109,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
             endingLineNumber = "121"
-            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkName = "pickerView(_:titleForRow:forComponent:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/NetworkClient.swift"
-            timestampString = "510273035.546281"
+            timestampString = "514267269.626029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "NetworkClient"
             landmarkType = "3">
          </BreakpointContent>
@@ -595,12 +595,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GolfTourney/GameViewController.swift"
-            timestampString = "514247658.673045"
+            timestampString = "514267269.626029"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GolfTourney/ScoreViewController.swift"
+            timestampString = "514271846.61352"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
