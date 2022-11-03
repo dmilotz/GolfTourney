@@ -12,7 +12,7 @@ extension NetworkClient{
     
     struct Constants{
         let firebaseDbUrl = "https://tourneymaker-261e1.firebaseio.com/"
-        let apiKey = "AIzaSyDXXvWPEFaCT0zkyYKkukIPTe0k2wRqxgg"
+        let apiKey = ""
         let googleTextSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
         
     }
